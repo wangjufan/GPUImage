@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://www.aishack.in/tutorials/convolutions/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="">
+        <meta name="author" content="Utkarsh Sinha">
+        <link rel="shortcut icon" href="https://www.aishack.in/static/img/fav.gif">
+        <title>
+             Convolutions: Basics of convolutions - AI Shack
+        </title>
+        <link rel="stylesheet" href="./Convolutions_ Basics of convolutions - AI Shack_files/styles.min.css">
+
+        <!-- for use while sharing -->
+        <meta name="title" content="Basics of convolutions">
+        <meta name="description" content="">
+        <link rel="image_src" href="http://aishack.in/static/thumb/post-convolutions.jpg">
+        <meta property="og:image:url" content="http://aishack.in/static/thumb/post-convolutions.jpg">
+
+        
+            <iframe id="pxcelframe" src="./Convolutions_ Basics of convolutions - AI Shack_files/t_.html" style="display: none;"></iframe><script async="" src="./Convolutions_ Basics of convolutions - AI Shack_files/get_counts"></script><script async="" src="./Convolutions_ Basics of convolutions - AI Shack_files/5993cdcb770096001434eafb.js"></script><script src="./Convolutions_ Basics of convolutions - AI Shack_files/sdk.js" async="" crossorigin="anonymous"></script><script async="" src="./Convolutions_ Basics of convolutions - AI Shack_files/analytics.js"></script><script id="facebook-jssdk" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.4"></script><script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script><script type="text/javascript" src="./Convolutions_ Basics of convolutions - AI Shack_files/sharethis.js" async="async"></script>
+        
+
+        
+
+    <script src="https://aishack.disqus.com/embed.js" data-timestamp="1590039682367"></script><style type="text/css">#st-1 {
+  font-family: "Helvetica Neue", Verdana, Helvetica, Arial, sans-serif;;
+  direction: ltr;
+  display: block;
+  opacity: 1;
+  text-align: center;
+  z-index: 94034;
+}
+#st-1.st-animated {
+  -moz-transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in; -ms-transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in; -o-transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in; -webkit-transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in; transition: o 0.2s ease-in, p 0.2s ease-in, a 0.2s ease-in, c 0.2s ease-in, i 0.2s ease-in, t 0.2s ease-in, y 0.2s ease-in;
+}
+#st-1.st-hidden {
+  opacity: 0;
+}
+#st-1.st-hide {
+  display: none;
+}
+#st-1 .st-btn {
+  -moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+  -moz-transition: opacity 0.2s ease-in, top 0.2s ease-in; -ms-transition: opacity 0.2s ease-in, top 0.2s ease-in; -o-transition: opacity 0.2s ease-in, top 0.2s ease-in; -webkit-transition: opacity 0.2s ease-in, top 0.2s ease-in; transition: opacity 0.2s ease-in, top 0.2s ease-in;
+  -moz-border-radius: 0px;
+-webkit-border-radius: 0px;
+border-radius: 0px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 11px;
+  height: 32px;
+  line-height: 32px;
+  margin-right: 8px;
+  padding: 0 8px;
+  position: relative;
+  text-align: center;
+  top: 0;
+  vertical-align: top;
+  white-space: nowrap;
+}
+#st-1 .st-btn:last-child {
+  margin-right: 0;
+}
+#st-1 .st-btn > svg {
+  height: 16px;
+  width: 16px;
+  position: relative;
+  top: 8px;
+  vertical-align: top;
+}
+#st-1 .st-btn > img {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  position: relative;
+  top: 8px;
+  vertical-align: top;
+}
+#st-1 .st-btn > span {
+  -moz-transition: all 0.2s ease-in; -ms-transition: all 0.2s ease-in; -o-transition: all 0.2s ease-in; -webkit-transition: all 0.2s ease-in; transition: all 0.2s ease-in;
+  color: #fff;
+  display: inline-block;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  min-width: 60px;
+  opacity: 1;
+  padding: 0 6px;
+  position: relative;
+  vertical-align: top;
+}
+#st-1.st-has-labels .st-btn {
+  min-width: 120px;
+}
+#st-1.st-has-labels .st-btn.st-remove-label {
+  min-width: 50px;
+}
+#st-1.st-has-labels .st-btn.st-remove-label > span {
+  display: none;
+}
+#st-1.st-has-labels .st-btn.st-hide-label > span {
+  display: none;
+}
+#st-1 .st-total {
+  color: #555;
+  display: inline-block;
+  font-weight: 500;
+  line-height: 12px;
+  margin-right: 0;
+  max-width: 80px;
+  padding: 4px 8px;
+  text-align: center;
+}
+#st-1 .st-total.st-hidden {
+  display: none;
+}
+#st-1 .st-total > span {
+  font-size: 16px;
+  line-height: 17px;
+  display: block;
+  padding: 0;
+}
+#st-1 .st-total > span.st-shares {
+  font-size: 9px;
+  line-height: 9px;
+}
+#st-1.st-justified {
+  display: flex;
+  text-align: center;
+}
+#st-1.st-justified .st-btn {
+  -moz-flex: 1;
+-ms-flex: 1;
+-webkit-flex: 1;
+flex: 1;
+}#st-1 .st-btn:hover {
+  opacity: .8;
+  top: -4px;
+}#st-1 .st-btn[data-network='facebook'] {
+  background-color: #4267B2;
+}
+#st-1 .st-btn[data-network='facebook'] svg {
+  fill: #fff;
+}
+#st-1 .st-btn[data-network='facebook'] > span {
+  color: #fff;
+}
+#st-1 .st-btn[data-network='twitter'] {
+  background-color: #55acee;
+}
+#st-1 .st-btn[data-network='twitter'] svg {
+  fill: #fff;
+}
+#st-1 .st-btn[data-network='twitter'] > span {
+  color: #fff;
+}
+#st-1 .st-btn[data-network='reddit'] {
+  background-color: #ff4500;
+}
+#st-1 .st-btn[data-network='reddit'] svg {
+  fill: #fff;
+}
+#st-1 .st-btn[data-network='reddit'] > span {
+  color: #fff;
+}
+#st-1 .st-btn[data-network='linkedin'] {
+  background-color: #0077b5;
+}
+#st-1 .st-btn[data-network='linkedin'] svg {
+  fill: #fff;
+}
+#st-1 .st-btn[data-network='linkedin'] > span {
+  color: #fff;
+}
+#st-1 .st-btn[data-network='email'] {
+  background-color: #7d7d7d;
+}
+#st-1 .st-btn[data-network='email'] svg {
+  fill: #fff;
+}
+#st-1 .st-btn[data-network='email'] > span {
+  color: #fff;
+}
+#st-1 .st-btn[data-network='sharethis'] {
+  background-color: #95D03A;
+}
+#st-1 .st-btn[data-network='sharethis'] svg {
+  fill: #fff;
+}
+#st-1 .st-btn[data-network='sharethis'] > span {
+  color: #fff;
+}</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style></head>
+    <body>
+        <div class="container-fluid header-top">
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    
+
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.aishack.in/"><span class="pull-left site-logo"></span> <strong>AI Shack</strong></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav navbar-right">
+       <li><a href="https://www.aishack.in/"><span class="glyphicon glyphicon-home"></span></a></li>
+        <!--li ><a class='nav-start-here' href="/start-here">Start here</a></li-->
+        <li class="active"><a href="https://www.aishack.in/tutorials/"><span class="glyphicon glyphicon-th glyphicon-margin"></span>Tutorials</a></li>
+        
+        
+        <li><a href="https://www.aishack.in/about/">About</a></li>
+        <li>
+            <form class="form-inline form-search" method="get" action="https://www.aishack.in/search">
+                <div class="form-group has-feedback">
+                    <input placeholder="Search" type="text" class="form-control" name="q" id="q">
+                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                </div>
+            </form>
+        </li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+
+                </div>
+            </nav>
+        </div>
+        <div class="container pad-bottom">
+
+            <div class="row">
+                
+                    <div class="col-md-12">
+                
+
+                
+                    <ol class="breadcrumb">
+    <li><a href="https://www.aishack.in/"><span class="glyphicon glyphicon-home"></span></a></li>
+    
+        <li><a href="https://www.aishack.in/tutorials/">Tutorials</a></li>
+        
+            <li><a href="https://www.aishack.in/category/computer-vision/">Computer Vision</a></li>
+        
+        
+            
+                <li><a href="https://www.aishack.in/tutorials/convolutions">Convolutions</a></li>
+            
+            <li><a href="https://www.aishack.in/tutorials/convolutions/">Basics of convolutions</a></li>
+        
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</ol>
+
+                    
+                    
+    
+        
+            <img class="tut-post-image img-responsive" src="./Convolutions_ Basics of convolutions - AI Shack_files/post-convolutions.jpg">
+        
+           <div class="fb-like fb_iframe_widget" data-href="http://facebook.com/aishack" data-adapt-container-width="true" data-layout="standard" data-action="like" data-show-faces="true" fb-xfbml-state="parsed" fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=770&amp;href=http%3A%2F%2Ffacebook.com%2Faishack&amp;layout=standard&amp;locale=en_US&amp;sdk=joey&amp;show_faces=true"><span style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;"><iframe name="f21840d959eaf1c" width="1000px" height="1000px" data-testid="fb:like Facebook Social Plugin" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./Convolutions_ Basics of convolutions - AI Shack_files/like.html" style="border: none; visibility: hidden; width: 0px; height: 0px;"></iframe></span></div> 
+        <hr>
+
+        
+            <h2>Convolutions</h2>
+            <p><emph></emph></p>
+            <hr>
+        
+            <h2>Basics of convolutions</h2>
+            
+                <div class="pull-right series-box-top">
+                    <p><strong>Series</strong>: Convolutions:</p>
+                    <ol>
+                        
+                            <li>
+                                
+                                    <strong>Basics of convolutions</strong>
+                                
+                            </li>
+                        
+                            <li>
+                                
+                                    <a href="https://www.aishack.in/tutorials/image-convolution-examples/">Image convolution examples</a>
+                                
+                            </li>
+                        
+                    </ol>
+                </div>
+            
+
+
+
+        <div class="tutorial-content">
+            <style scoped="">img.latex-inline { vertical-align: middle; }</style>
+<p>Convolutions is a technique for general signal processing. People studying electrical/electronics will tell you the near infinite sleepless nights these convolutions have given them. Entire books have been written on this topic. And the questions and theorems that need to be proved are [insurmountable]. But for computer vision, we'll just deal with some simple things. </p>
+<h2>The Kernel</h2>
+<p>A convolution lets you do many things, like calculate derivatives, detect edges, apply blurs, etc. A very wide variety of things. And all of this is done with a "convolution kernel".</p>
+<p>The convolution kernel is a small matrix. This matrix has numbers in each cell and has an anchor point: </p>
+<p><img alt="The convolution kernel" src="./Convolutions_ Basics of convolutions - AI Shack_files/conv-kernel.jpg"></p>
+<p>This kernel slides over an image and does its thing. The "anchor" point is used to determine the position of the kernel with respect to the image. </p>
+<h2>The transformation</h2>
+<p>The anchor point starts at the top-left corner of the image and moves over each pixel sequentially. At each position, the kernel overlaps a few pixels on the image. Each overlapping pair of numbers is multiplied and added. Finally, the value at the current position is set to this sum.</p>
+<p>Here's an example: </p>
+<p><img alt="An example of the transformation" src="./Convolutions_ Basics of convolutions - AI Shack_files/conv-transformation.jpg"></p>
+<p>The matrix on the left is the image and the one on the right is the kernel. Suppose the kernel is at the highlighted position. So the '9' of the kernel overlaps with the '4' of the image. So you calculate their product: 36. Next, '3' of the kernel overlaps the '3' of the image. So you multiply: 9. Then you add it to 36. So you get a sum of 36+9=45. Similarly, you do for all the remaining 7 overlapping values. You'll get a total sum. This sum is stored in place of '2' (in the image). </p>
+<h2>Speed optimizations</h2>
+<p>The most direct way to compute a convolution would be to use multiple for loops. But that causes a lot of repeated calculations. And as the size of the image and kernel increases, the time to compute the convolution increases too (quite drastically).</p>
+<p>Techniques haves been developed to calculate convolutions rapidly. One such technique is using the Discrete Fourier Transform. It converts the entire convolution operation into a simple multiplication. Fortunately, you don't need to know the math to do this in OpenCV. It automatically decides whether to do it in frequency domain (after the DFT) or not. </p>
+<h2>Problematic corners and edges</h2>
+<p>The kernel is two dimensional. So you have problems when the kernel is near the edges or corners. Here's an example: If the kernel (in the above example) is on the top right position, the '0' of the kernel will be over the '3' in the image. But the '1' will be outside the image. So we have no idea what to do with it. Two things are possible: </p>
+<ul>
+<li>Ignore the ones -or-</li>
+<li>Do something about the edges
+Usually people choose to do something about it. They create extra pixels near the edges. There are a few ways to create extra pixels: </li>
+<li>Set a constant value for these pixels</li>
+<li>Duplicate edge pixels</li>
+<li>Reflect edges (like a mirror effect)</li>
+<li>Warp the image around (copy pixels from the other end)</li>
+</ul>
+<p>This usually fixes the problems that might arise. </p>
+<h2>Summary</h2>
+<p>You learned a powerful technique that can be used for a lot of different purposes. We'll see a few of those next.</p>
+        </div>
+
+        
+            <hr>
+            <h2>More in the series</h2>
+            <p>This tutorial is part of a series called <strong>Convolutions</strong>:</p>
+            <ol>
+                
+                    <li>
+                        
+                            <strong>Basics of convolutions</strong>
+                        
+                    </li>
+                
+                    <li>
+                        
+                            <a href="https://www.aishack.in/tutorials/image-convolution-examples/">Image convolution examples</a>
+                        
+                    </li>
+                
+            </ol>
+        
+
+        <hr>
+        <div class="post-tutorial-social">
+           <div class="fb-like fb_iframe_widget" data-href="http://facebook.com/aishack" data-adapt-container-width="true" data-layout="standard" data-action="like" data-show-faces="true" fb-xfbml-state="parsed" fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=770&amp;href=http%3A%2F%2Ffacebook.com%2Faishack&amp;layout=standard&amp;locale=en_US&amp;sdk=joey&amp;show_faces=true"><span style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;"><iframe name="f399cc3c20c50f" width="1000px" height="1000px" data-testid="fb:like Facebook Social Plugin" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./Convolutions_ Basics of convolutions - AI Shack_files/like(1).html" style="border: none; visibility: hidden; width: 0px; height: 0px;"></iframe></span></div> 
+           <hr>
+            <div class="sharethis-inline-share-buttons st-center  st-inline-share-buttons st-animated" id="st-1"><div class="st-total ">
+  <span class="st-label">23</span>
+  <span class="st-shares">
+    Shares
+  </span>
+</div><div class="st-btn st-first" data-network="facebook" style="display: inline-block;">
+  <img alt="facebook sharing button" src="./Convolutions_ Basics of convolutions - AI Shack_files/facebook.svg">
+  
+</div><div class="st-btn" data-network="twitter" style="display: inline-block;">
+  <img alt="twitter sharing button" src="./Convolutions_ Basics of convolutions - AI Shack_files/twitter.svg">
+  
+</div><div class="st-btn" data-network="reddit" style="display: inline-block;">
+  <img alt="reddit sharing button" src="./Convolutions_ Basics of convolutions - AI Shack_files/reddit.svg">
+  
+</div><div class="st-btn" data-network="linkedin" style="display: inline-block;">
+  <img alt="linkedin sharing button" src="./Convolutions_ Basics of convolutions - AI Shack_files/linkedin.svg">
+  
+</div><div class="st-btn" data-network="email" style="display: inline-block;">
+  <img alt="email sharing button" src="./Convolutions_ Basics of convolutions - AI Shack_files/email.svg">
+  
+</div><div class="st-btn st-last" data-network="sharethis" style="display: inline-block;">
+  <img alt="sharethis sharing button" src="./Convolutions_ Basics of convolutions - AI Shack_files/sharethis.svg">
+  
+</div></div>
+        </div>
+
+        
+        
+            <hr>
+            <h4>Related posts</h4>
+            <div class="row">
+                
+                    <div class="col-md-3">
+                        <a href="https://www.aishack.in/tutorials/7-unique-neural-network-architectures/"><img class="img-responsive" src="./Convolutions_ Basics of convolutions - AI Shack_files/post-neural-types.jpg"></a>
+                        <div>
+                            <h4><a href="https://www.aishack.in/tutorials/7-unique-neural-network-architectures/">7 unique neural network architectures</a></h4>
+                            <p></p>
+                            <a class="read-more btn btn-default" href="https://www.aishack.in/tutorials/7-unique-neural-network-architectures/">Read more</a>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-3">
+                        <a href="https://www.aishack.in/tutorials/biological-neurons/"><img class="img-responsive" src="./Convolutions_ Basics of convolutions - AI Shack_files/post-biological-neurons.jpg"></a>
+                        <div>
+                            <h4><a href="https://www.aishack.in/tutorials/biological-neurons/">All about biological neurons</a></h4>
+                            <p></p>
+                            <a class="read-more btn btn-default" href="https://www.aishack.in/tutorials/biological-neurons/">Read more</a>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-3">
+                        <a href="https://www.aishack.in/tutorials/capturing-images/"><img class="img-responsive" src="./Convolutions_ Basics of convolutions - AI Shack_files/post-capturing-images.jpg"></a>
+                        <div>
+                            <h4><a href="https://www.aishack.in/tutorials/capturing-images/">Capturing images</a></h4>
+                            <p></p>
+                            <a class="read-more btn btn-default" href="https://www.aishack.in/tutorials/capturing-images/">Read more</a>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-3">
+                        <a href="https://www.aishack.in/tutorials/connected-component-labelling/"><img class="img-responsive" src="./Convolutions_ Basics of convolutions - AI Shack_files/post-connected-components.jpg"></a>
+                        <div>
+                            <h4><a href="https://www.aishack.in/tutorials/connected-component-labelling/">Connected Component Labelling</a></h4>
+                            <p></p>
+                            <a class="read-more btn btn-default" href="https://www.aishack.in/tutorials/connected-component-labelling/">Read more</a>
+                        </div>
+                    </div>
+                
+            </div>
+        
+
+        <hr>
+
+        
+        
+
+        
+        <div class="well">
+            <div class="col-sm-2"><a href="http://utkarshsinha.com/" target="_blank"><img class="img-circle" src="./Convolutions_ Basics of convolutions - AI Shack_files/066eac5a12b429666971cd4ae450f169.jpeg"> </a></div>
+            <div class="col-sm-10 author-bio">Utkarsh Sinha created AI Shack in 2010 and has since been working on computer vision and related fields. He is currently at Microsoft working on computer vision.</div>
+            <div class="clearfix"></div>
+        </div>
+
+        
+            <div id="disqus_thread"></div>
+            <script>
+            var disqus_config = function () {
+                this.page.url = "http://www.aishack.in/tutorials/convolutions/";  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = "tutorials_convolutions"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = '//aishack.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        
+
+    
+
+                </div>
+                    
+
+                
+            </div>
+        </div>
+        <div class="container">
+            
+
+<div class="row footer">
+    <div class="col-md-4">
+        <img src="./Convolutions_ Basics of convolutions - AI Shack_files/logo-footer-left.png" class="pull-left logo" alt="AI Shack logo">
+        <h4>About AI Shack</h4>
+        <p class="about-footer">Learn about the latest in AI technology with in-depth tutorials on vision and learning!</p>
+        <a class="pull-right" href="https://www.aishack.in/about/">More...</a>
+        <a href="https://twitter.com/utkarshsinha" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @utkarshsinha</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+    <div class="col-md-4 getting-started">
+        <h4>Get started</h4>
+        <ul class="about-footer">
+            <li><a href="https://www.aishack.in/tracks/opencv-basics/">Get started with OpenCV</a></li>
+            <li><a href="https://www.aishack.in/tutorials/tracking-colored-objects-opencv/">Track a specific color on video</a></li>
+            <li><a href="https://www.aishack.in/tracks/image-processing-algorithms-level-1/">Learn basic image processing algorithms</a></li>
+            <li><a href="https://www.aishack.in/tutorials/single-neuron-dictomizer/">How to build artificial neurons?</a></li>
+            <li><a href="http://github.com/aishack/">Look at some source code</a></li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/aishack" data-width="380" data-small-header="true" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true" data-show-posts="false" fb-xfbml-state="parsed" fb-iframe-plugin-query="adapt_container_width=false&amp;app_id=&amp;container_width=236&amp;hide_cover=true&amp;href=https%3A%2F%2Fwww.facebook.com%2Faishack&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=false&amp;small_header=true&amp;width=380"><span style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;"><iframe name="f3cd124a5619bf8" width="380px" height="1000px" data-testid="fb:page Facebook Social Plugin" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./Convolutions_ Basics of convolutions - AI Shack_files/page.html" style="border: none; visibility: hidden; width: 0px; height: 0px;"></iframe></span></div>
+        </div>
+    <!--div class='col-md-5'>
+        <div class='panel panel-default'>
+            <div class='panel-heading'>AI Shack on Facebook</div>
+            <div class='facebook-liker-nopadding panel-body'>
+                <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Faishack&amp;width=360&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:360px; height:258px;" allowTransparency="true"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-3'>
+        <div class='panel panel-default'>
+            <div class='panel-heading'><span class='glyphicon glyphicon-user'></span> Contact</div>
+            <div class='panel-body'><p>You can contact me through the internet over the following channels:</p>
+            <ul class='list-unstyled'>
+                <li><a href='http://facebook.com/aishack/' target='_blank'><span class='ico ico-facebook'></span>Facebook</a></li>
+                <li><a href='http://twitter.com/aishack' target='_blank'><span class='ico ico-twitter'></span>Twitter</a></li>
+                <li><a href='http://github.com/aishack' target='_blank'><span class='ico ico-github'></span>Github</a></li>
+                <li><a href='mailto:utkarsh@utkarshsinha.com'><span class='ico ico-email'></span>Email</a></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-4'>
+        <div class='panel panel-default'>
+            <div class='panel-heading'><span class='glyphicon glyphicon-question-sign'></span> Where to start?</div>
+            <div class='panel-body'>
+                <p>So you want to get started with AI but you're not sure where. Here are some links to get you started:</p>
+                <ul>
+                    <li><a href='/tracks/opencv-basics/'>Get started with OpenCV</a></li>
+                    <li><a href='/tutorials/tracking-colored-objects-in-opencv/'>Track a specific color on video</a></li>
+                    <li><a href='/tracks/image-processing-algorithms-level-1/'>Learn basic image processing algorithms</a></li>
+                    <li><a href='/tutorials/a-single-neuron-dictomizer/'>How to build artificial neurons?</a></li>
+                    <li><a href='http://github.com/aishack/'>Look at some source code</a></li>
+                </ul>
+            </div>
+        </div>
+    </div-->
+</div>
+
+        </div>
+        <div class="container-fluid footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="creator">Created by <a href="http://utkarshsinha.com/" target="_blank">Utkarsh Sinha</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--script src='/static/js/jquery-1.11.1.min.js'></script>
+        <script src='/static/js/bootstrap.min.js'></script>
+        <script src='/static/js/bootstrap-editable.min.js'></script-->
+        <script src="./Convolutions_ Basics of convolutions - AI Shack_files/bundle.min.js"></script>
+        
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-587551-5', 'auto');
+              ga('send', 'pageview');
+
+            </script>
+        
+        <script>
+        function gotoTop() {
+            var targetOffset = $('body').offset().top;
+            $('html,body').animate({scrollTop: targetOffset}, 1000);
+            return false;
+        }
+        $(document).ready(function() {
+            $("#btn-signup").tooltip({placement: 'top', title: 'Signup, track your progress, take quizzes.'});
+            $('.to-top').click(gotoTop);
+        });
+        
+        
+        </script>
+
+
+        
+    
+
+<iframe src="./Convolutions_ Basics of convolutions - AI Shack_files/portal-v2.html" id="st_gdpr_iframe" title="GDPR Consent Management" style="width: 0px; height: 0px; position: absolute; left: -5000px;"></iframe></body></html>

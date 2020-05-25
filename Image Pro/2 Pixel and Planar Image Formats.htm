@@ -1,0 +1,779 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0108)https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm -->
+<html lang="en-us" xml:lang="en-us"><head xmlns:mshelp="http://www.microsoft.com/MSHelp/"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      
+   
+
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Pixel and Planar Image Formats">
+<meta name="DC.Relation" scheme="URI" content="../../IPPI/ippi_ch6/ch6_Intro.htm">
+<meta name="DC.Relation" scheme="URI" content="http://www.intel.com/software/products/softwaredocs_feedback">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="ch6_pixel_and_planar_image_formats">
+<link rel="stylesheet" type="text/css" href="./2 Pixel and Planar Image Formats_files/intel_css_styles.css">
+<title>Pixel and Planar Image Formats</title>
+</head><body id="ch6_pixel_and_planar_image_formats"><xml>
+<mshelp:attr name="DocSet" value="Intel"></mshelp:attr>
+<mshelp:attr name="Locale" value="kbEnglish"></mshelp:attr>
+<mshelp:attr name="TopicType" value="kbReference"></mshelp:attr>
+</xml>
+
+<a xmlns:mshelp="http://www.microsoft.com/MSHelp/" name="ch6_pixel_and_planar_image_formats"><!-- --></a>
+
+<script src="./2 Pixel and Planar Image Formats_files/NavScript.js" language="JavaScript1.2" type="text/javascript"></script>
+<script language="JavaScript1.2" type="text/javascript">WriteNavLink(2);</script><div style="font-family: Verdana; font-size: 80%;color: #333333; margin:0px 0px 0px 0px; padding:0px 0px 0px 0px;"><a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/hh_goto.htm#IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm" style="padding:0px 5px 0px 5px;">&lt; Table Of Contents</a></div>
+<h1 class="topictitle1">Pixel and Planar Image Formats</h1>
+<div>
+<p xmlns:mshelp="http://www.microsoft.com/MSHelp/">Data storage for an image can be pixel-oriented or planar-oriented (planar). For images in pixel order, all channel values for each pixel are clustered and stored consecutively. Their layout depends on the color model and downsampling scheme.</p>
+
+<p xmlns:mshelp="http://www.microsoft.com/MSHelp/"><a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#tbl6-2">Table <span>“Pixel-Order Image Formats”</span></a> lists all pixel-order image formats that are supported by the Intel IPP color conversion functions and shows the corresponding channel values order (here, group of underlined symbols represents one pixel and symbol <var>A</var> denotes alpha-channel value). The last column of this table gives an example of an Intel IPP color conversion function that uses the respective image format.</p>
+
+
+<div class="tablenoborder"><a xmlns:mshelp="http://www.microsoft.com/MSHelp/" name="tbl6-2"><!-- --></a><table xmlns:mshelp="http://www.microsoft.com/MSHelp/" cellpadding="4" summary="" id="tbl6-2" class="AllLineStandard" frame="hsides" border="1" rules="all"><caption><span class="tablecap">Pixel-Order Image Formats</span></caption>
+
+<thead align="left">
+<tr>
+<th class="cellrowborder" valign="top" width="15%" id="d85041e48">Image Format</th>
+
+<th class="cellrowborder" valign="top" width="10%" id="d85041e51">Number of Channels</th>
+
+<th class="cellrowborder" valign="top" width="40%" id="d85041e54">Channel Values Order</th>
+
+<th class="row-nocellborder" valign="top" width="35%" id="d85041e57">Example</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>RGB</p>
+
+<p>RGB444</p>
+
+<p>RGB555</p>
+
+<p>RGB565</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">R0 G0 B0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">R1 G1 B1</span></u>
+<span class="keyword">&nbsp;</span><u><span class="keyword">R2 G2 B2</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">RGBT</span>ToYUV_8u_<span class="parmname">C3</span>R</p>
+
+<p>ippiYCbCrTo<span class="parmname">RGB444</span>_8u16u_<span class="parmname">C3</span>R</p>
+
+<p>ippiYCbCrTo<span class="parmname">RGB555</span>_8u16u_<span class="parmname">C3</span>R</p>
+
+<p>ippiYCbCrTo<span class="parmname">RGB565</span>_8u16u_<span class="parmname">C3</span>R</p>
+</td>
+</tr>
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>RGB</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>4</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">R0 G0 B0 A0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">R1 G1 B1 A1</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">RGB</span>ToYUV_8u_A<span class="parmname">C4</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>BGR</p>
+
+<p>BGR444</p>
+
+<p>BGR555</p>
+
+<p>BGR565</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">B0 G0 R0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">B1 G1 R1</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">B2 G2 R2</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippiYCbCrTo<span class="parmname">BGR</span>_8u_P3<span class="parmname">C3</span>R</p>
+
+<p>ippiYCbCrTo<span class="parmname">BGR444</span>_8u16u_<span class="parmname">C3</span>R</p>
+
+<p>ippiYCbCrTo<span class="parmname">BGR555</span>_8u16u_<span class="parmname">C3</span>R</p>
+
+<p>ippiYCbCrTo<span class="parmname">BGR565</span>_8u16u_<span class="parmname">C3</span>R</p>
+</td>
+
+</tr>
+
+
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>BGR</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>4</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">B0 G0 R0 A0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">B1 G1 R1 A1</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">BGR</span>ToHLS_8u_A
+<span class="parmname">C4</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>YUV</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">Y0 U0 V0</span></u><span class="keyword">&nbsp;</span>   
+<u><span class="keyword">Y1 U1 V1</span></u><span class="keyword">&nbsp;</span>      <u><span class="keyword">Y2 U2 V2</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">YUV</span>ToRGB_8u_
+<span class="parmname">C3</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>YUV</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>4</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">Y0 U0 V0 A0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">Y1 U1 V1 A1</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">YUV</span>ToRGB_8u_A
+<span class="parmname">C4</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>4:2:2 YUV</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>2</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">Y0 U0</span></u><span class="keyword">&nbsp;</span>   <u><span class="keyword">Y1 V0</span></u><span class="keyword">&nbsp;</span> 
+ <u><span class="keyword">Y2 U1</span></u><span class="keyword">&nbsp;</span>   <u><span class="keyword">Y3 V1</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">YUV422</span>T0RGB_8u_
+<span class="parmname">C2</span>C3R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>YCbCr</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">Y0 Cb0 Cr0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">Y1 Cb1 Cr1</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">YCbCr</span>ToRGB_8u_
+<span class="parmname">C3</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>YCbCr</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>4</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">Y0 Cb0 Cr0 A0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">Y1 Cb1 Cr1 A1</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">YCbCr</span>ToRGB_8u_A
+<span class="parmname">C4</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>4:2:2 YCbCr</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>2</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">Y0 Cb0</span></u><span class="keyword">&nbsp;</span>   <u><span class="keyword">Y1 Cr0</span></u><span class="keyword">&nbsp;</span>  
+<u><span class="keyword">Y2 Cb1</span></u><span class="keyword">&nbsp;</span>   <u><span class="keyword">Y3 Cr1</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">YCbCr422</span>ToRGB_8u_
+<span class="parmname">C2</span>C3R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>4:2:2 YCrCb</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>2</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">Y0 Cr0</span></u><span class="keyword">&nbsp;</span>  <u><span class="keyword">Y1 Cb0</span></u><span class="keyword">&nbsp;</span>  
+<u><span class="keyword">Y2 Cr1</span></u><span class="keyword">&nbsp;</span>   <u><span class="keyword">Y3 Cb1</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">YCrCb422</span>ToYCbCr422_8u_
+<span class="parmname">C2</span>P3R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>4:2:2 CbYCr</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>2</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">Cb0 Y0</span></u><span class="keyword">&nbsp;</span>   <u><span class="keyword">Cr0 Y1</span></u><span class="keyword">&nbsp;</span> 
+ <u><span class="keyword">Cb1 Y2</span></u><span class="keyword">&nbsp;</span>  <u><span class="keyword">Cr1 Y3</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">CbYCr422</span>ToRGB_8u_
+<span class="parmname">C2</span>C3R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>XYZ</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">X0 Y0 Z0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">X1 Y1 Z1</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">X2 Y2 Z2</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">XYZ</span>ToRGB_8u_
+<span class="parmname">C3</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>XYZ</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>4</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">X0 Y0 Z0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">X1 Y1 Z1</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">X2 Y2 Z2</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">XYZ</span>ToRGB_16u_A
+<span class="parmname">C4</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>LUV</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">L0 U0 V0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">L1 U1 V1</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">L2 U2 V2</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">LUV</span>ToRGB_16s_
+<span class="parmname">C3</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>LUV</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>4</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">L0 U0 V0 A0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">L1 U1 V1 A1</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p>ippi<span class="parmname">LUV</span>ToRGB_32f_A
+<span class="parmname">C4</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>YCC</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">Y0 C0 C0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">Y1 C1 C1</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">Y2 C2 C2</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p><samp class="codeph">ippi<strong>YCC</strong>ToRGB_8u_<strong>C3</strong>R</samp></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>YCC</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>4</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">Y0 C0 C0 A0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">Y1 C1 C1 A1</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p><samp class="codeph">ippi<strong>YCC</strong>ToRGB_8u_A
+<strong>C4</strong>R</samp></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>HLS</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">H0 L0 S0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">H1 L1 S1</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">H2 L2 S2</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p><samp class="codeph">ippi<strong>HLS</strong>ToRGB_16u_<strong>C3</strong>R</samp></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>HLS</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>4</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">H0 L0 S0 A0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">H1 L1 S1 A0</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p><samp class="codeph">ippi<strong>HLS</strong>ToRGB_16u_A<strong>C4</strong>R</samp></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>HSV</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">H0 S0 V0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">H1 S1 V1</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">H2 S2 V2</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p><samp class="codeph">ippi<strong>HSV</strong>ToRGB_16s_<strong>C3</strong>R</samp></p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="15%" headers="d85041e48 "><p>HSV</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e51 "><p>4</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="40%" headers="d85041e54 "><p><u><span class="keyword">H0 S0 V0 A0</span></u><span class="keyword">&nbsp;</span><u><span class="keyword">H1 S1 C1 A1</span></u></p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e57 "><p><samp class="codeph">ippi<strong>HSV</strong>ToRGB_16s_A<strong>C4</strong>R</samp></p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p xmlns:mshelp="http://www.microsoft.com/MSHelp/">Planar image formats supported by the Intel IPP color conversion functions are listed in Table <span>“Planar Image Formats”</span> along with examples of the Intel IPP functions using that format. Planes layout and their relative sizes are shown in <a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#fig6-15">Figure <span>Plane Size and Layout: 3-planes Images</span></a>
+ and <a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#fig6-16">Figure <span>Plane Size and Layout: 2-planes Images</span></a>.</p>
+
+<div class="tablenoborder"><a xmlns:mshelp="http://www.microsoft.com/MSHelp/" name="tbl6-3"><!-- --></a><table xmlns:mshelp="http://www.microsoft.com/MSHelp/" cellpadding="4" summary="" id="tbl6-3" frame="hsides" border="1" rules="all"><caption><span class="tablecap">Planar Image Formats</span></caption>
+
+
+<thead align="left">
+<tr>
+<th class="cellrowborder" rowspan="2" valign="top" width="13%" id="d85041e980"><p>Image Format</p>
+</th>
+
+<th class="cellrowborder" rowspan="2" valign="top" width="10%" id="d85041e984"><p>Number of Planes</p>
+</th>
+
+<th class="cellrowborder" colspan="4" align="center" valign="top" id="d85041e988"><p>Planes Layout</p>
+</th>
+
+<th class="row-nocellborder" rowspan="2" valign="top" width="35%" id="d85041e992"><p>Example</p>
+<p>&nbsp;</p>
+</th>
+
+</tr>
+
+<tr>
+<th class="cellrowborder" valign="top" width="5%" id="d85041e1001"><p>pl.1</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="10%" id="d85041e1005"><p>pl.2</p>
+</th>
+
+<th class="cellrowborder" valign="top" width="5%" id="d85041e1009"><p>pl.3</p>
+</th>
+
+<th class="row-nocellborder" valign="top" width="22%" id="d85041e1013"><p>&nbsp;</p>
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+<td class="cellrowborder" valign="top" width="13%" headers="d85041e980 "><p>RGB</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e984 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1001 "><p><span class="keyword">R</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e988 d85041e1005 "><p><span class="keyword">G</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1009 "><p><span class="keyword">B</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22%" headers="d85041e988 d85041e1013 "><p>see <a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#fig6-15">Figure <span>below</span></a>, a</p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e992 "><p>ippi<span class="parmname">RGB</span>ToYUV_8u_<span class="parmname">P3</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="13%" headers="d85041e980 "><p>YUV</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e984 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1001 "><p><span class="keyword">Y</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e988 d85041e1005 "><p><span class="keyword">U</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1009 "><p><span class="keyword">V</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22%" headers="d85041e988 d85041e1013 "><p>see <a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#fig6-15">Figure <span>below</span></a>, a</p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e992 "><p>ippi<span class="parmname">YUV</span>ToRGB_8u_<span class="parmname">P3</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="13%" headers="d85041e980 "><p>4:2:2 YUV</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e984 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1001 "><p><span class="keyword">Y</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e988 d85041e1005 "><p><span class="keyword">U</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1009 "><p><span class="keyword">V</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22%" headers="d85041e988 d85041e1013 "><p>see <a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#fig6-15">Figure <span>below</span></a>, b</p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e992 "><p>ippi<span class="parmname">YUV422</span>ToRGB_8u_P3</p>
+</td>
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="13%" headers="d85041e980 "><p>4:2:0 YUV</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e984 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1001 "><p><span class="keyword">Y</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e988 d85041e1005 "><p><span class="keyword">U</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1009 "><p><span class="keyword">V</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22%" headers="d85041e988 d85041e1013 "><p>see <a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#fig6-15">Figure <span>below</span></a>, d</p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e992 "><p>ippi<span class="parmname">YUV420</span>ToRGB_8u<span class="parmname">P3</span>C3R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="13%" headers="d85041e980 "><p>YCbCr</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e984 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1001 "><p><span class="keyword">Y</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e988 d85041e1005 "><p><span class="keyword">Cb</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1009 "><p><span class="keyword">Cr</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22%" headers="d85041e988 d85041e1013 "><p>see <a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#fig6-15">Figure <span>below</span></a>, a</p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e992 "><p>ippi<span class="parmname">YCbCr</span>ToRGB_8u_<span class="parmname">P3</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="13%" headers="d85041e980 "><p>4:2:2 YCbCr</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e984 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1001 "><p><span class="keyword">Y</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e988 d85041e1005 "><p><span class="keyword">Cb</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1009 "><p><span class="keyword">Cr</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22%" headers="d85041e988 d85041e1013 "><p>see <a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#fig6-15">Figure <span>below</span></a>, b</p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e992 "><p>ippi<span class="parmname">YCbCr422</span>_8u_<span class="parmname">P3</span>C2R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="13%" headers="d85041e980 "><p>4:1:1 YCbCr</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e984 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1001 "><p><span class="keyword">Y</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e988 d85041e1005 "><p><span class="keyword">Cb</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1009 "><p><span class="keyword">Cr</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22%" headers="d85041e988 d85041e1013 "><p>see <a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#fig6-15">Figure <span>below</span></a>, c</p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e992 "><p>ippi<span class="parmname">YCbCr411</span>_8u_<span class="parmname">P3</span>P2R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="13%" headers="d85041e980 "><p>4:1:1 YCbCr</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e984 "><p>2</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1001 "><p><span class="keyword">Y</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e988 d85041e1005 "><p><span class="keyword">CbCr</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1009 "><p>-</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22%" headers="d85041e988 d85041e1013 "><p>see <a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#fig6-16">Figure <span>below for 2-planes images</span></a>, a</p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e992 "><p>ippi<span class="parmname">YCbCr411</span>_8u_<span class="parmname">P2</span>P3R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="13%" headers="d85041e980 "><p>4:2:0 YCbCr</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e984 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1001 "><p><span class="keyword">Y</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e988 d85041e1005 "><p><span class="keyword">Cb</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1009 "><p><span class="keyword">Cr</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22%" headers="d85041e988 d85041e1013 "><p>see <a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#fig6-15">Figure <span>below</span></a>, d</p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e992 "><p>ippiRGBTo<span class="parmname">YCbCr420</span>_8u_C3<span class="parmname">P3</span>R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="13%" headers="d85041e980 "><p>4:2:0 YCbCr</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e984 "><p>2</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1001 "><p><span class="keyword">Y</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e988 d85041e1005 "><p><span class="keyword">CbCr</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1009 "><p>-</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22%" headers="d85041e988 d85041e1013 "><p>see <a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#fig6-16">Figure <span>below for 2-planes images</span></a>, b</p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e992 "><p>ippi<span class="parmname">YCbCr420</span>_8u_<span class="parmname">P2</span>P3R</p>
+</td>
+
+</tr>
+
+<tr>
+<td class="cellrowborder" valign="top" width="13%" headers="d85041e980 "><p>4:2:0 YCrCb</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e984 "><p>3</p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1001 "><p><span class="keyword">Y</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="10%" headers="d85041e988 d85041e1005 "><p><span class="keyword">Cr</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="5%" headers="d85041e988 d85041e1009 "><p><span class="keyword">Cb</span></p>
+</td>
+
+<td class="cellrowborder" valign="top" width="22%" headers="d85041e988 d85041e1013 "><p>see <a href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_pixel_and_planar_image_formats.htm#fig6-15">Figure <span>below</span></a>, d</p>
+</td>
+
+<td class="row-nocellborder" valign="top" width="35%" headers="d85041e992 "><p>ippi<span class="parmname">YCrCb420</span>ToYCbCr422_8u_<span class="parmname">P3</span>R</p>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<div class="fignone" id="fig6-15"><a xmlns:mshelp="http://www.microsoft.com/MSHelp/" name="fig6-15"><!-- --></a><span xmlns:mshelp="http://www.microsoft.com/MSHelp/" class="figcap">Plane Size and Layout - 3-planes Images</span>
+
+
+
+
+
+
+
+	<p xmlns:mshelp="http://www.microsoft.com/MSHelp/"><br></p><div class="imagecenter"><img src="./2 Pixel and Planar Image Formats_files/ch6_pixel_and_planar_image_formats_1.jpg" width="667" height="739" align="center"></div><br>
+<p></p>
+
+</div>
+<div class="fignone" id="fig6-16"><a xmlns:mshelp="http://www.microsoft.com/MSHelp/" name="fig6-16"><!-- --></a><span xmlns:mshelp="http://www.microsoft.com/MSHelp/" class="figcap">Plane Size and Layout - 2-planes Images</span>
+
+
+
+
+
+
+
+
+
+
+	<p xmlns:mshelp="http://www.microsoft.com/MSHelp/"><br></p><div class="imagecenter"><img src="./2 Pixel and Planar Image Formats_files/ch6_pixel_and_planar_image_formats_2.jpg" width="851" height="452" align="center"></div><br>
+<p></p>
+
+</div>
+
+</div>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a xmlns:mshelp="http://www.microsoft.com/MSHelp/" href="https://scc.ustc.edu.cn/zlsc/sugon/intel/ipp/ipp_manual/IPPI/ippi_ch6/ch6_Intro.htm">Image Color Conversion</a></div>
+</div>
+<div xmlns:mshelp="http://www.microsoft.com/MSHelp/">
+<br clear="all">
+<div class="docfeedback">
+<div><a href="http://www.intel.com/software/products/softwaredocs_feedback" target="_blank">Submit feedback on this help topic 
+        </a></div></div>
+</div><div style="margin-top: 10pt; font-size:8pt">
+<p>Copyright © 2000 - 2011, Intel Corporation. All rights reserved.</p>
+</div>
+
+
+</body></html>
