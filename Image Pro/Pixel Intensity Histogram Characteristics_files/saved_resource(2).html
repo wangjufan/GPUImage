@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!-- saved from url=(0118)https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>var inDapIF=true,inGptIF=true;</script></head><body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"><div class="GoogleActiveViewInnerContainer" style="left:0px;top:0px;width:100%;height:100%;position:fixed;pointer-events:none;z-index:-9999;"></div><div style="display:inline" class="GoogleActiveViewElement" data-google-av-cxn="//pagead2.googlesyndication.com/activeview?avi=BXPS7AK3RXreTKtmY8AKy9o-QCgAAAAAQATgByAEJwAIC4AIA4AQBoAYf0ggFCIBhEAE&amp;cid=CAASEuRoXo2j-WHZWxfx3aH1rxunRQ" data-google-av-adk="891156283" data-google-av-metadata="la=0&amp;xdi=0&amp;" data-google-av-override="-1" data-google-av-dm="2" data-google-av-aid="0" data-google-av-naid="1" data-google-av-slift="" data-google-av-cpmav="" data-google-av-btr="https://securepubads.g.doubleclick.net/pcs/view?xai=AKAOjsvhQKrT8nzXW-L6-WGViyVJcII6Lf4YeoIlsw0L0wtHeXCYssFs88xpBUNfp3Kn9g2Fn6oP10BJsm1GRLI6u6rpeOt3-7aqUwalXCQYfJ24S2wBFk33cH8OAJmlYwSSOYRqJeGKfwewMInkWLHklHoUr8BJfJQ1awT_fhOLcfz2m6bs-300mNj37wp6c1F3xdm_t89GwOAJ1JkD64G8dB40RjCLMTNedVxwhP_6mio3VYcDJG1z-akGaxgFrUwyirLgmaOvwI__aB51nAj97mmYW1Fy62A7av58xg&amp;sig=Cg0ArKJSzEu5__c55oa-EAE&amp;urlfix=1&amp;adurl=" data-google-av-itpl="19" data-google-av-rs="4">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    var url = "https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjss1HrstNU80NQa1twMNHIypFRlCNaaxjXS-YZXF4NwSSCnqfYLP3PTUCSvB5oLvWHlGb2RuMWhimJCngb7JLb7qkgVMq0szrX9MHhCZD3TOgRTM7L7FYWKbhWhjWgQbQwDhkW_AdhpSqaT0H9RzSywhQwmU875wMM1wyWp9DWKPfXZmZPwI-lAF9Bl0J1FLCkfoQpUaYKn32vuPckxLoiR0MEOe1nTeaPxUct30u8XAb0FqqjyLYju5IeRKeJ2XoUp0_kAo7hKI9cp-X5V2hJo-wME&sig=Cg0ArKJSzA2is0JkmQNaEAE&urlfix=1&adurl=https://www.youtube.com/watch?v=OEoliBONpPU&feature=youtu.be";
+    var image_small = "https://securepubads.g.doubleclick.net/pcs/view?xai=AKAOjstROhq9UBsTbWTmhawRg8T7RY5HFAq6pF2SQGRaUvV_Bl2QFqtTWHIr8EWPRwsYzHpXS948-ryD5B77cjZp0svSlZ2ZyMPkEcgz62dfx5709jlM-_wj-LPMURhjtQH32E_KUDDIQQJKuMqvajzCWgSUoJI5k3yrMY-uuF_eWaxuXsTU0nlgOJp7-ETD0AyvQZ-7X-xF7v_jRzE62-zxxJ86clmTCbEAzgn2u46bPQiN_cPX7PKwQgL3FqOePVcLEdazrKpxzbUeJ1_nolm4gTFv6xkeCPddIwM&sig=Cg0ArKJSzDu94sPMuYrkEAE&urlfix=1&adurl=";
+    var image_large = "https://securepubads.g.doubleclick.net/pcs/view?xai=AKAOjstROhq9UBsTbWTmhawRg8T7RY5HFAq6pF2SQGRaUvV_Bl2QFqtTWHIr8EWPRwsYzHpXS948-ryD5B77cjZp0svSlZ2ZyMPkEcgz62dfx5709jlM-_wj-LPMURhjtQH32E_KUDDIQQJKuMqvajzCWgSUoJI5k3yrMY-uuF_eWaxuXsTU0nlgOJp7-ETD0AyvQZ-7X-xF7v_jRzE62-zxxJ86clmTCbEAzgn2u46bPQiN_cPX7PKwQgL3FqOePVcLEdazrKpxzbUeJ1_nolm4gTFv6xkeCPddIwM&sig=Cg0ArKJSzDu94sPMuYrkEAE&urlfix=1&adurl=https://tpc.googlesyndication.com/simgad/15985084041797571680?";
+    var description = "NXP Semiconductors’ MRF24G300HS is a 300W Continuous Wave GaN transistor that exceeds the efficiency of magnetrons and is designed for industrial, scientific, and medical applications operating at 2450MHz.";
+    var title = "NXP MRF24G300HS RF Power GaN Transistor | New Product Brief";
+    var advertiser = "Mouser Electronics";
+
+    // on article ?
+    var elem = $(window.parent.document).find('.related-content');
+    if(elem.length) {
+        
+        $(elem).before('<a href="' + url + '" target="_blank" rel="nofollow noopener" class="w-full flex flex-wrap block bg-white shadow-sm hover:shadow-md group my-4 clearfix">\n' +
+            '                        <div class="w-full tracking-widest text-base px-4 bg-aac-blue-dark text-white uppercase whitespace-no-wrap overflow-hidden leading-relaxed">\n' +
+            '                            <span class="text-white">Content From Partners</span>\n' +
+            '                        </div>\n' +
+            '                        <div class="w-full float-left inline-block lg:w-1/4 px-4 pt-4 pb-2 lg:pb-4 lg:pr-0">\n' +
+            '                                <div class="relative inline-block">\n' +
+            '                                    <picture>\n' +
+            '                                        <source media="(max-width: 1024px)" srcset="' + image_large + ' 0.5x">\n' +
+            '                                        <img class="w-full" src="' + image_large + '" alt="">\n' +
+            '                                    </picture>\n' +
+            '                                    <div class="group-hover:opacity-25 bg-gradient-black opacity-0 absolute top-0 left-0 w-full h-full transition-ease"></div>\n' +
+            '                                </div>\n' +
+            '                        </div>\n' +
+            '                        <div class="flex-1 lg:overflow-hidden">\n' +
+            '                            <div class="px-4 pb-4 lg:pt-4">\n' +
+            '                                    <h4 class="font-pt-serif text-aac-blue-dark text-6xl font-bold italic leading-tight my-2 lg:mb-3 lg:mt-0 group-hover:text-aac-orange">\n' +
+            '                                    ' + title + '\n' +
+            '                                    </h4>\n' +
+            '                                <p class="text-black text-base mb-4">\n' +
+            '                                    Content <span class="text-aac-grey">from</span> <span class="text-aac-orange">' + advertiser + '</span>\n' +
+            '                                </p>\n' +
+            '                            </div>\n' +
+            '                        </div>\n' +
+            '                    </a>');
+
+    } else {
+        // on homepage?
+        elem = $(window.parent.document).find('#homepage_article_5');
+        if (elem.length) {
+            $(elem).after('<div class="mx-4 md:mx-0 w-full inline-block float-left flex flex-wrap bg-white shadow-sm hover:shadow-md group order-4 lg:order-4 mt-4 mb-4 md:mb-0 clearfix order-last">\n' +
+                '                        <div class="w-full tracking-widest text-base px-4 bg-aac-blue-dark text-white uppercase whitespace-no-wrap overflow-hidden leading-relaxed">\n' +
+                '                            <span class="text-white">Content From Partners</span>\n' +
+                '                        </div>\n' +
+                '                        <div class="w-full float-left inline-block lg:w-1/2 xl:w-370px px-4 pt-4 pb-2 lg:pb-4 lg:pr-0">\n' +
+                '                            <a href="' + url + '" target="_blank" rel="nofollow noopener">\n' +
+                '                                <div class="relative inline-block w-full">\n' +
+                '                                    <picture>\n' +
+                '                                        <source media="(max-width: 1024px)" srcset="' + image_large + ' 0.5x">\n' +
+                '                                        <img class="w-full" src="' + image_large + '" alt="">\n' +
+                '                                    </picture>\n' +
+                '                                    <div class="group-hover:opacity-25 bg-gradient-black opacity-0 absolute top-0 left-0 w-full h-full transition-ease"></div>\n' +
+                '                                </div>\n' +
+                '                            </a>\n' +
+                '                        </div>\n' +
+                '                        <div class="flex-1 lg:overflow-hidden">\n' +
+                '                            <div class="px-4 pb-4 lg:pt-4">\n' +
+                '                                <a href="' + url + '" target="_blank" rel="nofollow noopener">\n' +
+                '                                    <span href="/{exp:stash:get name=\'channel_url\' context=\'industry_articles\'}/" class="block tracking-wider text-11px font-bold text-aac-grey uppercase">\n' +
+                '                                        Content From Partners\n' +
+                '                                    </span>' +
+                '                                    <h4 class="font-pt-serif text-aac-blue-dark text-7xl font-bold italic leading-tight my-2 lg:mb-3 group-hover:text-aac-orange">\n' +
+                '                                    ' + title + '\n' +
+                '                                    </h4>\n' +
+                '                                </a>\n' +
+                '                                <p class="text-black text-base mb-4">\n' +
+                '                                    Content <span class="text-aac-grey">from</span> <a href="' + url + '" target="_blank" rel="nofollow noopener">' + advertiser + '</a>\n' +
+                '                                </p>\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                    </div>');
+        } else {
+            //listings - in /latest
+            elem = $(window.parent.document).find('#listing_1');
+            if (elem.length) {
+                $(elem).before('<div class=" px-4 md:px-0 md:w-full pb-4">\n' +
+                    '    <div class="group flex flex-wrap md:flex-no-wrap py-3 px-4 bg-white border-t-4 border-transparent hover:border-aac-orange hover:shadow clearfix">\n' +
+                    '        <div class="w-full sm:w-5/12 lg:flex-shrink-0 pb-4 lg:pb-0 float-right inline-block md:order-2">\n' +
+                    '            <a href="' + url + '" target="_blank" rel="nofollow noopener">\n' +
+                    '                <div class="relative inline-block mb-2 w-full">\n' +
+                    '                    <picture>\n' +
+                    '                        <source media="(max-width: 1024px)" srcset="' + image_large + ' 0.5x">\n' +
+                    '                        <img class="w-full" src="' + image_large + '" alt="" >\n' +
+                    '                    </picture>\n' +
+                    '                    <div class="group-hover:opacity-25 bg-gradient-black opacity-0 absolute top-0 left-0 w-full h-full transition-ease"></div>\n' +
+                    '                </div>\n' +
+                    '            </a>\n' +
+                    '        </div>\n' +
+                    '        <div class="flex-1 md:order-1 md:pr-2 mb-5 md:pl-0 sm:pl-2 pl-0">\n' +
+                    '            <a href="' + url + '" target="_blank" rel="nofollow noopener">\n' +
+                    '                <h3 class="text-aac-blue-dark leading-tight font-arimo font-bold mb-4 text-3xl group-hover:text-aac-orange">\n' +
+                    '                    ' + title + '\n' +
+                    '                </h3>\n' +
+                    '<p class="text-aac-blue-dark text-xl mb-4">\n' +
+                    '                        ' + description + '\n' +
+                    '                    </p>' +
+                    '            </a>\n' +
+                    '            <p class="text-base leading-normal">\n' +
+                    '                    Content <span class="text-grey">from</span> <a href="' + url + '" target="_blank" rel="nofollow noopener" class="hover:underline">' + advertiser + '</a>\n' +
+                    '            </p>\n' +
+                    '        </div>\n' +
+                    '    </div>\n' +
+                    '</div>');
+            } else {
+                // left sidebar
+                var elem = $(window.parent.document).find('.sidebar-left');
+                if(elem.length) {
+                    $(elem).after('<div class="w-full bg-white shadow-sm hover:shadow-md group">\n' +
+                        '                    <div class="tracking-widest text-base px-4 bg-aac-blue-dark text-white uppercase whitespace-no-wrap overflow-hidden leading-relaxed">Content From Partners</div>\n' +
+                        '                    <div class="bg-white p-4">\n' +
+                        '                        <a href="' + url + '" target="_blank" rel="nofollow noopener">\n' +
+                        '                            <div class="relative inline-block mb-2">\n' +
+                        '                                <picture>\n' +
+                        '                                    <source media="(max-width: 1024px)" srcset="' + image_large + ' 0.5x">\n' +
+                        '                                    <img class="w-full" src="' + image_large + '" alt="">\n' +
+                        '                                </picture>\n' +
+                        '                                <div class="group-hover:opacity-25 bg-gradient-black opacity-0 absolute top-0 left-0 w-full h-full transition-ease"></div>\n' +
+                        '                            </div>\n' +
+                        '                        </a>\n' +
+                        '                        <a href="' + url + '" target="_blank" rel="nofollow noopener">\n' +
+                        '                            <h2 class="text-5xl font-arimo text-aac-blue-dark group-hover:text-aac-orange font-bold leading-tight my-1">\n' +
+                        '                                ' + title + '\n' +
+                        '                            </h2>\n' +
+                        '                        </a>\n' +
+                        '                        <p class="text-black text-base pb-5">\n' +
+                        '                    Content <span class="text-grey">from</span> <a href="' + url + '" target="_blank" rel="nofollow noopener" class="hover:underline">' + advertiser + '</a>\n' +
+                        '                        </p>\n' +
+                        '                    </div>\n' +
+                        '                </div>\n');
+                } else {
+                    // add to forum above similair threads
+                    var elem = $(window.parent.document).find('.similarthreads-wrapper-wide');
+                    if (elem.length) {
+                        $(elem).before('<a href="' + url + '" target="_blank" rel="nofollow noopener" class="w-full flex flex-wrap block bg-white shadow-sm hover:shadow-md group mt-4 mb-8 clearfix">\n' +
+                            '                        <div class="w-full tracking-widest text-base px-4 bg-aac-blue-dark text-white uppercase whitespace-no-wrap overflow-hidden leading-relaxed">\n' +
+                            '                            <span class="text-white">Content From Partners</span>\n' +
+                            '                        </div>\n' +
+                            '                        <div class="w-full float-left inline-block lg:w-1/4 px-4 pt-4 pb-2 lg:pb-4 lg:pr-0">\n' +
+                            '                                <div class="relative inline-block">\n' +
+                            '                                    <picture>\n' +
+                            '                                        <source media="(max-width: 1024px)" srcset="' + image_large + ' 0.5x">\n' +
+                            '                                        <img class="w-full" src="' + image_large + '" alt="">\n' +
+                            '                                    </picture>\n' +
+                            '                                    <div class="group-hover:opacity-25 bg-gradient-black opacity-0 absolute top-0 left-0 w-full h-full transition-ease"></div>\n' +
+                            '                                </div>\n' +
+                            '                        </div>\n' +
+                            '                        <div class="flex-1 lg:overflow-hidden">\n' +
+                            '                            <div class="px-4 pb-4 lg:pt-4">\n' +
+                            '                                    <h4 class="font-pt-serif text-aac-blue-dark text-6xl font-bold italic leading-tight my-2 lg:mb-3 lg:mt-0 group-hover:text-aac-orange">\n' +
+                            '                                    ' + title + '\n' +
+                            '                                    </h4>\n' +
+                            '                                <p class="text-black text-base mb-4">\n' +
+                            '                                    Content <span class="text-aac-grey">from</span> <span class="text-aac-orange">' + advertiser + '</span>\n' +
+                            '                                </p>\n' +
+                            '                            </div>\n' +
+                            '                        </div>\n' +
+                            '                    </a>');
+                    }else{
+
+                        // add to right sidebar
+                        var elem = $(window.parent.document).find('.p-sidebar-inner');
+                        if (elem.length) {
+                            elem.append('<div class="w-full bg-white shadow-sm hover:shadow-md group">\n' +
+                                '                    <div class="tracking-widest text-base px-4 bg-aac-blue-dark text-white uppercase whitespace-no-wrap overflow-hidden leading-relaxed">Content From Partners</div>\n' +
+                                '                    <div class="bg-white p-4">\n' +
+                                '                        <a href="' + url + '" target="_blank" rel="nofollow noopener">\n' +
+                                '                            <div class="relative inline-block mb-2">\n' +
+                                '                                <picture>\n' +
+                                '                                    <source media="(max-width: 1024px)" srcset="' + image_large + ' 0.5x">\n' +
+                                '                                    <img class="w-full" src="' + image_large + '" alt="">\n' +
+                                '                                </picture>\n' +
+                                '                                <div class="group-hover:opacity-25 bg-gradient-black opacity-0 absolute top-0 left-0 w-full h-full transition-ease"></div>\n' +
+                                '                            </div>\n' +
+                                '                        </a>\n' +
+                                '                        <a href="' + url + '" target="_blank" rel="nofollow noopener">\n' +
+                                '                            <h2 class="text-5xl font-arimo text-aac-blue-dark group-hover:text-aac-orange font-bold leading-tight my-1">\n' +
+                                '                                ' + title + '\n' +
+                                '                            </h2>\n' +
+                                '                        </a>\n' +
+                                '                        <p class="text-black text-base pb-5">\n' +
+                                '                    Content <span class="text-grey">from</span> <a href="' + url + '" target="_blank" rel="nofollow noopener" class="hover:underline">' + advertiser + '</a>\n' +
+                                '                        </p>\n' +
+                                '                    </div>\n' +
+                                '                </div>\n');
+                        }
+                    }
+                }
+            }
+        }
+    }
+});
+</script>
+
+<div style="position: absolute; top: 0px; right: 0px; width: 1px; height: 1px; visibility: hidden; border: none;">
+<script type="text/javascript">
+    var trackingPixel="";
+    if ( trackingPixel.indexOf("http")==0 ) {
+        document.write('<iframe src="' + trackingPixel + '" height="1" width="1" style="width:1px !important;height 1px !important"></iframe>');
+    }
+</script>
+</div></div><div style="bottom:0;right:0;width:100px;height:100px;background:initial !important;position:absolute !important;max-width:100% !important;max-height:100% !important;pointer-events:none !important;image-rendering:pixelated !important;z-index:2147483647;background-image:url(&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAWBAMAAACrl3iAAAAABlBMVEUAAAD+AciWmZzWAAAAAnRSTlMAApidrBQAAAB/SURBVBjTbZEBDoAgDAPLD/r/1wpbu6KRIGbhaI4B/I/VA2emAli7ZyVTHe6A8+9je4cbY7Gp3tRNOxvFKdsmZmUyY1h7Q6zMK7uVZU2MkzNzwKZG2AWZXkDR/UWkqFbiy1RSuZ9vSdunC9P3TwdlDVz08nUV7ux+Gs/7LSPyADsuBbGOIp9bAAAAAElFTkSuQmCC&#39;) !important;"></div></body></html>

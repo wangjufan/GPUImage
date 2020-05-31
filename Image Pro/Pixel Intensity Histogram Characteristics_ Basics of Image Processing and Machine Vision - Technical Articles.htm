@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<!-- saved from url=(0118)https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no">
+<link rel="canonical" href="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/">
+<meta property="og:url" content="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/">
+<meta property="og:title" content="Pixel Intensity Histogram Characteristics: Basics of Image Processing and Machine Vision - Technical Articles">
+<meta property="og:image" content="https://www.allaboutcircuits.com/uploads/thumbnails/Sneha_histogram_featured.jpg">
+<meta name="thumbnail" content="https://www.allaboutcircuits.com/uploads/thumbnails/Sneha_histogram_featured.jpg">
+<meta property="og:type" content="article">
+<meta property="og:description" content="This article introduces the image histogram and discusses its characteristics and applications.">
+<meta name="description" content="This article introduces the image histogram and discusses its characteristics and applications.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@allaboutcircuit">
+<meta name="robots" content="noodp">
+<link href="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/css" rel="stylesheet">
+
+<link rel="stylesheet" href="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/jquery.modal.min.css">
+
+<link rel="stylesheet" href="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/jquery-ui.css">
+<link href="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/app.css" rel="stylesheet" type="text/css" media="screen">
+<link rel="stylesheet" media="print" href="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/print.css">
+<link rel="icon" href="https://www.allaboutcircuits.com/images/favicon.ico">
+<title>Pixel Intensity Histogram Characteristics: Basics of Image Processing and Machine Vision - Technical Articles</title>
+<link rel="alternate" type="application/rss+xml" title="All About Circuits Articles" href="https://www.allaboutcircuits.com/rss/">
+<link rel="alternate" type="application/rss+xml" title="All About Circuits Forum RSS Feed" href="https://forum.allaboutcircuits.com/forums/-/index.rss">
+<link rel="alternate" type="application/rss+xml" title="Moore&#39;s Law Podcast" href="https://eetech.libsyn.com/rss">
+
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/amp4ads-host-v0.js"></script><script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/osd.js"></script><script type="text/javascript" async="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/js"></script><script async="" src="https://a.quora.com/qevents.js"></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/analytics.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/jquery.cookie.min.js"></script>
+
+<script type="text/javascript">
+    var ad_categories = ['embedded-software','featured','automotive','computers-peripherals'];
+  </script>
+
+<script type="text/javascript">
+        var articleAuthor = "Sneha H.L.";
+    </script>
+
+<script type="text/javascript">
+        var articlePublishDate = "2017-12-07T15:52:00-07:00";
+    </script>
+
+<link rel="stylesheet" type="text/css" href="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/cookieconsent.min.css">
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/jstz.min.js"></script>
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/cookieconsent.min.js"></script>
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/tracking.js"></script>
+
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/gpt.js"></script><script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/pubads_impl_2020052601.js" id="gpt-impl-0.04327432761933103" nonce=""></script><link rel="preload" href="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/f(2).txt" as="script"><script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/f(2).txt"></script><script>processGoogleTokenSync({"newToken":"FBS"},5);</script>
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/ad.js"></script>
+<link rel="prefetch" href="https://25901995e9862da439a591fdb070977f.safeframe.googlesyndication.com/safeframe/1-0-37/html/container.html"><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-37/html/container.html"><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body><div id="MathJax_Message" style="display: none;"></div>
+
+<div id="aboveScrollMenu" class="w-full bg-aac-grey-light no-print">
+<ul class="container mx-auto relative z-40 clearfix hidden lg:flex lg:block">
+<li class="px-3 pt-1 pb-3 inline-block float-left">
+<span class="font-karla text-aac-black uppercase text-sm font-bold tracking-widest" href="#">Network Sites:</span>
+</li>
+
+<li id="network_control" class="group network-dropdown flex inline-block float-left">
+<a target="_blank" href="https://control.com/" class="dropdown-tab flex py-2 px-4 dropdown-bg-white text-aac-grey group-hover:text-aac-blue-dark"><i class="aac-control text-2xl"></i></a>
+<div class="hidden flex-wrap absolute left-0 top-full bg-white dropdown-shadow w-full">
+<ul class="container mx-auto relative mt-4 pl-10 overflow-hidden h-64">
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange w-1/5 gradient-line gradient-line-top" href="https://control.com/" data-category="network-header" data-action="control">Latest</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange" href="https://control.com/news/" data-category="network-header" data-action="control">News</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange" href="https://control.com/technical-articles/" data-category="network-header" data-action="control">Technical Articles</a></li>
+</ul>
+</div>
+</li>
+
+
+<li id="network_makerpro" class="group network-dropdown flex inline-block float-left">
+<a target="_blank" href="https://maker.pro/" class="dropdown-tab flex py-1 px-4 dropdown-bg-white text-aac-grey group-hover:text-aac-blue-dark"><i class="aac-maker-pro text-5xl"></i></a>
+<div class="hidden flex-wrap absolute left-0 top-full bg-white dropdown-shadow w-full">
+<ul class="container mx-auto relative mt-4 pl-10 overflow-hidden h-64">
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange w-1/5 gradient-line gradient-line-top" href="https://maker.pro/" data-category="network-header" data-action="makerpro">Latest</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange" href="https://maker.pro/projects/" data-category="network-header" data-action="makerpro">Projects</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange" href="https://maker.pro/education/" data-category="network-header" data-action="makerpro">Education</a></li>
+</ul>
+</div>
+</li>
+
+
+<li id="network_eepower" class="group network-dropdown flex inline-block float-left">
+<a target="_blank" href="https://eepower.com/" class="dropdown-tab flex py-2 px-4 dropdown-bg-white text-aac-grey group-hover:text-aac-blue-dark"><i class="aac-eepower text-2xl"></i></a>
+<div class="hidden flex-wrap absolute left-0 top-full bg-white dropdown-shadow w-full">
+<ul class="container mx-auto relative mt-4 pl-10 overflow-hidden h-64">
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange w-1/5 gradient-line gradient-line-top" href="https://eepower.com/" data-category="network-header" data-action="eepower">Latest</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange" href="https://eepower.com/news/" data-category="network-header" data-action="eepower">News</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange" href="https://eepower.com/technical-articles/" data-category="network-header" data-action="eepower">Technical Articles</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange" href="https://eepower.com/market-insights/" data-category="network-header" data-action="eepower">Market Insights</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange" href="https://eepower.com/textbook/" data-category="network-header" data-action="eepower">Education</a></li>
+</ul>
+</div>
+</li>
+
+
+<li id="network_electronicspoint" class="group network-dropdown flex inline-block float-left">
+<a target="_blank" href="https://www.electronicspoint.com/" class="dropdown-tab flex py-2 px-4 dropdown-bg-white text-aac-grey group-hover:text-aac-blue-dark"><i class="aac-electronics text-4xl"></i></a>
+<div class="hidden flex-wrap absolute left-0 top-full bg-white dropdown-shadow w-full">
+<ul class="container mx-auto relative mt-4 pl-10 overflow-hidden h-64">
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange w-1/5 gradient-line gradient-line-top" href="https://www.electronicspoint.com/latest/" data-category="network-header" data-action="electronicspoint">Latest</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange w-1/5" href="https://www.electronicspoint.com/news/" data-category="network-header" data-action="electronicspoint">News</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange" href="https://www.electronicspoint.com/opinion/" data-category="network-header" data-action="electronicspoint">Opinion</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange" href="https://www.electronicspoint.com/interviews/" data-category="network-header" data-action="electronicspoint">Interviews</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange" href="https://www.electronicspoint.com/product-highlights/" data-category="network-header" data-action="electronicspoint">Product Highlights</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange" href="https://www.electronicspoint.com/research/" data-category="network-header" data-action="electronicspoint">Research</a></li>
+<li><a target="_blank" itemprop="url" class="ga-link block font-karla text-base uppercase text-aac-black text-3xl pb-3 hover:text-aac-orange" href="https://www.electronicspoint.com/forums/" data-category="network-header" data-action="electronicspoint">Forums</a></li>
+</ul>
+</div>
+</li>
+
+
+<li id="network_mikrocontroller" class="flex inline-block float-left">
+<a target="_blank" href="https://www.mikrocontroller.net/" class="ga-link flex py-2 px-4 dropdown-bg-white text-aac-grey hover:text-aac-blue-dark hover:bg-white" data-category="network-header" data-action="mikrocontroller"><i class="aac-mikrocontroller"></i></a>
+</li>
+
+</ul>
+</div>
+
+<div id="scrollMenu" class="relative transition-fast z-30 w-full dropdown-shadow bg-aac-orange no-print">
+<div id="overlay" class="hidden fixed top-0 left-0 w-full h-full opacity-50 bg-black z-30"></div>
+
+<div class="w-full bg-white">
+<div class="container mx-auto flex clearfix h-16">
+<div class="flex items-center flex-1 lg:flex-none lg:w-auto float-left px-2 lg:px-0">
+<a class="w-auto inline-block py-4" href="https://www.allaboutcircuits.com/"><img src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/AAClogo.webp" alt="All About Circuits" width="163" height="50"></a>
+</div>
+<div class="w-auto lg:flex-1 flex flex-wrap lg:relative justify-end">
+<button id="searchToggle" class="inline-block float-left bg-transparent text-aac-orange focus:outline-none text-3xl pt-1 lg:text-5xl lg:pt-2 px-2 lg:pr-2 lg:pl-0">
+<i class="aac-search"></i>
+</button>
+<div id="userMenu" class="inline-block float-left fixed top-0 z-50 lg:z-10 w-5/6 lg:w-auto h-full -right-1000 transition-fast lg:transition-none lg:h-auto lg:static border-t-5 lg:border-0 border-aac-blue-dark px-6 lg:px-0 bg-white lg:bg-transparent">
+<ul class="font-karla flex flex-wrap lg:inline-flex lg:h-full items-center clearfix">
+
+<li class="lg:float-left w-full lg:w-auto lg:w-auto lg:flex lg:flex-col lg:inline-block justify-center h-full relative lg:pl-2 lg:pr-4">
+<a class="ga-link rounded bg-white border border-aac-orange lg:inline-block hidden text-base text-aac-orange hover:shadow uppercase font-bold tracking-wider px-5 py-2" href="https://forum.allaboutcircuits.com/login/?redirect=https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/" data-category="login" data-action="login (header desktop)" data-label="https://forum.allaboutcircuits.com/login/?redirect=https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/">Log In</a>
+</li>
+<li class="lg:float-left w-full lg:w-auto lg:w-auto lg:flex lg:flex-col lg:inline-block justify-center h-full relative lg:pr-4">
+<a class="rounded bg-gradient-reverse lg:inline-block hidden text-base text-white hover:shadow uppercase font-bold tracking-wider px-6 py-2" href="https://forum.allaboutcircuits.com/register/">Join</a>
+<div class="mobile-unhide-flex hidden static lg:absolute w-full lg:w-40 right-0 w-full bg-white z-30 lg:shadow lg:border-t-10 border-aac-blue-dark p-4">
+<ul class="text-5xl lg:text-xl font-karla w-full mt-2 lg:mt-0">
+<li class="pb-2 flex justify-between ">
+<a class="ga-link text-aac-blue-dark hover:text-aac-orange font-bold lg:font-normal" href="https://forum.allaboutcircuits.com/login/?redirect=https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/" data-category="login" data-action="login (header mobile)" data-label="/forums/login/?redirect=https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing">Log in</a>
+<a class="text-aac-blue-dark text-4xl menu-close lg:hidden" href="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/#"><i class="aac-close"></i></a>
+</li>
+<li class="pb-2"><a class="text-aac-blue-dark hover:text-aac-orange font-bold lg:font-normal" href="https://forum.allaboutcircuits.com/register/">Join AAC</a></li>
+<li class="pb-2 flex items-center my-2 lg:my-0">
+<div class="w-auto pr-2 text-3xl lg:text-xl">Or sign in with</div> <div class="flex-grow border-t border-aac-orange"></div>
+</li>
+<li>
+<ul class="flex flex-wrap text-5xl">
+<li class="w-full lg:w-auto mb-4 lg:mb-0 inline-block float-left">
+<a class="ga-link text-aac-blue-dark hover:text-aac-orange" href="https://forum.allaboutcircuits.com/register/connected-accounts/facebook/?setup=1" data-category="register" data-action="facebook" data-label="https://forum.allaboutcircuits.com/register/connected-accounts/facebook/?setup=1"><i class="aac-facebook"></i>
+<span class="lg:hidden text-5xl ml-4 leading-relaxed">Facebook</span></a>
+</li>
+<li class="w-full lg:w-auto lg:ml-4 mb-4 lg:mb-0 inline-block float-left">
+<a class="ga-link text-aac-blue-dark hover:text-aac-orange" href="https://forum.allaboutcircuits.com/register/connected-accounts/google/?setup=1" data-category="register" data-action="google" data-label="https://forum.allaboutcircuits.com/register/connected-accounts/google/?setup=1"><i class="aac-google"></i>
+<span class="lg:hidden text-5xl ml-4 leading-relaxed">Google</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+
+</ul>
+</div>
+</div>
+
+<div class="hidden lg:inline-block relative w-300px lg:mr-4 xl:mr-6 float-right">
+<div class="absolute z-20 top-0 left-0 w-full flex flex-col justify-between bg-white">
+<div class="flex flex-row pt-2 px-4 h-16">
+<button type="button" class="podcast-sound focus:outline-none inline-block float-left">
+<i class="ga-link aac-podcast-play text-aac-grey-lighter hover:text-aac-orange text-8xl play" data-category="Podcast" data-action="Play-Button" data-label="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing"></i>
+<i class="ga-link aac-podcast-pause text-aac-grey-lighter hover:text-aac-orange text-8xl pause hidden" data-category="Podcast" data-action="Pause-Button"></i>
+</button>
+<div class="pl-4 text-base w-3/4 inline-block float-left">
+<h4 class="podcast_title uppercase text-aac-grey-darkest">&nbsp;</h4>
+<div class="podcast_desc"><p class="ellipsis">&nbsp;</p></div>
+<div class="podcast-progress-slider h-2px rounded-l-full rounded-r-full bg-aac-grey w-full cursor-pointer mt-2px" data-slider-value="0"></div>
+<div class="text-right pr-1 mt-1 text-xxs">
+<span class="podcast-timer">0:00</span>&nbsp;/&nbsp;<span class="podcast-duration">0:00</span>
+</div>
+</div>
+</div>
+<ul class="border-t-1 border-aac-grey-lighter px-4 h-26px flex flex-row justify-between items-center list-none uppercase font-bold text-lg">
+<li class="inline-block float-left w-1/3">
+<a class="text-aac-black hover:text-aac-orange ga-link" href="https://www.allaboutcircuits.com/podcast/" data-category="Podcast" data-action="click-podcast-link" data-label="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing">Podcast</a>
+</li>
+<li class="inline-block float-left w-1/3">
+<a class="text-aac-black hover:text-aac-orange ga-link" href="https://www.allaboutcircuits.com/podcast/latest/" data-category="Podcast" data-action="click-latest-link" data-label="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing">Latest</a>
+</li>
+<li class="inline-block float-left w-1/3">
+<a class="dropdown-tab text-aac-black" href="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/#" data-category="Podcast" data-action="click-subscribe-link" data-label="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing">Subscribe</a>
+<div class="hidden lg:absolute border-t-1 w-full bg-white shadow-lg top-full left-0 px-4 py-2">
+<ul class="w-full flex flex-row flex-wrap justify-around list-none uppercase font-bold text-sm">
+<li class="my-2">
+<a class="ga-link text-aac-black hover:text-aac-orange whitespace-no-wrap flex items-center" href="https://podcasts.google.com/?feed=aHR0cDovL2VldGVjaC5saWJzeW4uY29tL3Jzcw" target="_blank" rel="noopener" data-category="Podcast" data-action="click-subscribe-google" data-label="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing"><i class="aac-podcasts-google text-2xl mr-2"></i> Google</a>
+</li>
+<li class="my-2">
+<a class="ga-link text-aac-black hover:text-aac-orange whitespace-no-wrap flex items-center" href="https://open.spotify.com/show/6EM7WrRcpZAngjo2h2ITgu?si=EQAbj_J7QeqQ1_AEkCRd6w" target="_blank" rel="noopener" data-category="Podcast" data-action="click-subscribe-spotify" data-label="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing"><i class="aac-podcasts-spotify text-2xl mr-2"></i> Spotify</a>
+</li>
+<li class="my-2">
+<a class="ga-link text-aac-black hover:text-aac-orange whitespace-no-wrap flex items-center" href="https://podcasts.apple.com/us/podcast/moores-lobby-where-engineers-talk-all-about-circuits/id1509620545" target="_blank" rel="noopener" data-category="Podcast" data-action="click-subscribe-apple" data-label="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing"><i class="aac-podcasts-apple text-2xl mr-2"></i> Apple</a>
+</li>
+<li class="my-2">
+<a class="ga-link text-aac-black hover:text-aac-orange whitespace-no-wrap flex items-center" href="https://www.iheart.com/podcast/269-moores-lobby-where-enginee-62401103/" target="_blank" rel="noopener" data-category="Podcast" data-action="click-subscribe-heartradio" data-label="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing"><i class="aac-podcasts-heartradio text-2xl mr-2"></i> iHeartRadio</a>
+</li>
+<li class="my-2">
+<a class="ga-link text-aac-black hover:text-aac-orange whitespace-no-wrap flex items-center" href="https://app.stitcher.com/browse/feed/526810/details" target="_blank" rel="noopener" data-category="Podcast" data-action="click-subscribe-stitcher" data-label="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing"><i class="aac-podcasts-stitcher text-2xl mr-2"></i> Stitcher</a>
+</li>
+<li class="my-2">
+<a class="ga-link text-aac-black hover:text-aac-orange whitespace-no-wrap flex items-center" href="https://tunein.com/podcasts/Technology-Podcasts/Moores-Lobby-Where-engineers-talk-all-about-circ-p1319857/" target="_blank" rel="noopener" data-category="Podcast" data-action="click-subscribe-tunein" data-label="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing"><i class="aac-podcasts-tunein text-2xl mr-2"></i> Tune In</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<button data-menu="#userMenu" data-direction="right" class="toggle-menu lg:hidden text-aac-orange px-3 focus:outline-none ">
+<i class="aac-user"></i>
+</button>
+<button id="menuToggle" data-menu="#mainMenu" data-direction="right" class="toggle-menu lg:hidden text-aac-orange px-3 focus:outline-none ">
+<i class="aac-all"></i>
+</button>
+</div>
+</div>
+
+
+<div id="mainMenu" class="font-karla fixed top-0 bg-aac-orange bg-gradient z-50 w-5/6 h-full -right-1000 transition-fast lg:transition-none lg:w-full lg:bg-gradient lg:left-0 lg:h-auto lg:static">
+<nav class="container lg:mx-auto">
+
+<div class="lg:hidden flex flex-wrap justify-between px-8 pt-5 mb-3 ">
+<span class="font-karla font-bold text-5xl tracking-wider inline-block text-white">Menu</span>
+<a class="text-white menu-close" href="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/#"><i class="aac-close"></i></a>
+<hr class="w-full pb-3 mb-3 border-b border-aac-orange-dark">
+</div>
+
+<ul class="lg:relative lg:flex clearfix" itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+
+<li class="flex flex-wrap lg:static lg:inline-block group">
+<a class="dropdown-tab text-3xl tracking-widest py-3 px-5 uppercase w-full mx-4 text-white lg:text-base lg:flex lg:py-1 lg:px-4 lg:w-24 lg:justify-center lg:mx-0 lg:group-hover:font-bold lg:group-hover:bg-white lg:group-hover:text-aac-orange" href="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/#">Explore</a>
+<div class="hidden lg:absolute lg:left-0 lg:z-20 bg-white w-full lg:dropdown-shadow">
+<div class="flex flex-wrap clearfix w-full">
+<div class="hidden w-full lg:w-1/3 xl:w-440px pl-0 lg:pl-5 xl:pl-11 pr-5 bg-aac-grey-light lg:inline-block lg:float-right order-2">
+<span class="block uppercase text-3xl font-bold tracking-wider text-aac-orange my-2 pb-2 px-6 lg:px-0">
+Content
+</span>
+<ul class="flex flex-wrap justify-between text-left xl:-mx-6">
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/bom/">BOM Tool</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/electronic-components/">Part Search</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/tools/">Calculators</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/projects/">Projects</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/electronic-components/">Datasheets</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/industry-designs/">Reference Designs</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/giveaways/">Giveaways</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/technical-articles/">Technical Articles</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/industry-articles/">Industry Articles</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/test-measurement/">Test Equipment</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/industry-training/">Industry Training</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/textbook/">Textbook</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/industry-webinars/">Industry Webinars</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/video-lectures/">Videos</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/news/">News</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/worksheets/">Worksheets</a></li>
+</ul>
+</div>
+<div class="w-full lg:w-auto flex flex-1 flex-wrap lg:overflow-hidden order-1">
+<div class="w-full lg:w-1/2 xl:w-440px pl-8 pb-6 text-center inline-block float-left flex flex-col">
+<span class="block uppercase text-3xl font-bold tracking-wider text-aac-blue-dark my-2 gradient-line gradient-line-bottom text-left mr-5">
+Products
+</span>
+<ul class="flex flex-wrap justify-between text-left -mx-6 mb-8">
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/analog/">Analog</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/optoelectronics/">Optoelectronics</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/connectors/">Connectors</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/passives/">Passives</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/cooling/">Cooling</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/pcb/">PCB’s</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/digital-ics/">Digital IC’s</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/power/">Power</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/eda-tools/">EDA Tools</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/risc-v/">RISC-V</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/electromechanical/">Electromechanical</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/sensors/">Sensors</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/embedded/">Embedded</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/test-and-measurement/">Test &amp; Measurement</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/ic-design/">IC Design</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/wireless-rf/">Wireless/RF</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/memory/">Memory</a></li>
+</ul>
+<a class="block text-3xl font-bold text-aac-blue-dark hover:text-aac-orange mt-auto" href="https://www.allaboutcircuits.com/latest/">View All</a>
+</div>
+<div class="w-full lg:w-1/2 xl:w-auto xl:flex-1 pl-8 lg:px-4 pb-6 text-center lg:overflow-hidden flex flex-col">
+<span class="block uppercase text-3xl font-bold tracking-wider text-aac-blue-dark my-2 gradient-line gradient-line-bottom text-left mr-5 xl:mr-24">
+Applications
+</span>
+<ul class="flex flex-wrap justify-between text-left -mx-6 mb-8">
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/audio/">Audio</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/iot/">IOT</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/automation/">Automation</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/lighting/">Lighting</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/automotive/">Automotive</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/medical-fitness/">Medical &amp; Fitness</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/computers-peripherals/">Computers &amp; Peripherals</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/military-aero-space/">Military / Aero / Space</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/cloud-computing/">Cloud Computing</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/motor-control/">Motor Control</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/it-networking/">IT / Networking</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/security-identification/">Security / Identification</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/consumer-electronics/">Consumer Electronics</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/smart-grid-energy/">Smart Grid / Energy</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/industrial/">Industrial</a></li>
+<li class="inline-block float-left w-full md:w-1/2 pb-2 px-6 ellipsis" itemprop="name"><a itemprop="url" class="text-xl lg:text-base xl:text-xl text-aac-black hover:text-aac-orange" href="https://www.allaboutcircuits.com/latest/telecom/">Telecom</a></li>
+</ul>
+<a class="block text-3xl font-bold text-aac-blue-dark hover:text-aac-orange mt-auto" href="https://www.allaboutcircuits.com/latest/">View All</a>
+</div>
+</div>
+</div>
+</div>
+</li>
+
+
+<li id="articles" class="flex flex-wrap md:static lg:inline-block">
+<a class="dropdown-tab text-3xl tracking-widest py-3 px-5 uppercase w-full mx-4 text-white lg:text-base lg:flex lg:py-1 lg:px-4 lg:w-24 lg:justify-center lg:mx-0" href="https://www.allaboutcircuits.com/latest/">Articles</a>
+<div class="hidden lg:flex-wrap lg:absolute lg:left-0 lg:z-20 lg:bg-aac-grey-light w-full lg:h-324px lg:dropdown-shadow">
+<ul class="w-full lg:w-7/25 flex flex-col bg-white h-full">
+
+<li itemprop="name" class="dropdown-hover default lg:pl-6 lg:pt-4">
+<span class="hidden lg:block gradient-line gradient-line-top w-11/12 h-1 p-0 -mb-1 clearfix"></span>
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/latest/">Latest</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/news/">News</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/projects/">Projects</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/technical-articles/">Technical Articles</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/industry-articles/">Industry Articles</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6 flex-1">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/industry-white-papers/">Industry White Papers</a>
+</li>
+
+</ul>
+</div>
+</li>
+
+
+<li id="forums" class="flex flex-wrap md:static lg:inline-block">
+<a class="dropdown-tab text-3xl tracking-widest py-3 px-5 uppercase w-full mx-4 text-white lg:text-base lg:flex lg:py-1 lg:px-4 lg:w-23 lg:justify-center lg:mx-0 lg:hover:font-bold" href="https://forum.allaboutcircuits.com/">Forums</a>
+<div class="hidden lg:flex-wrap lg:absolute lg:left-0 lg:z-20 lg:bg-aac-grey-light w-full lg:h-324px lg:dropdown-shadow">
+<ul class="w-full lg:w-7/25 flex flex-col bg-white h-full">
+
+<li itemprop="name" class="dropdown-hover default lg:pl-6 lg:pt-4">
+<span class="hidden lg:block gradient-line gradient-line-top w-11/12 h-1 p-0 -mb-1 clearfix"></span>
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/forums/">Latest</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://forum.allaboutcircuits.com/#hardware-design.3">Hardware Design</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1 ellipsis" href="https://forum.allaboutcircuits.com/#embedded-programming.16">Embedded &amp; Programming</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://forum.allaboutcircuits.com/#education.19">Education</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://forum.allaboutcircuits.com/#education.19">Math &amp; Science</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6 flex-1">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://forum.allaboutcircuits.com/#community.20">Community</a>
+</li>
+
+</ul>
+</div>
+</li>
+
+
+<li id="education" class="flex flex-wrap md:static lg:inline-block">
+<a class="dropdown-tab text-3xl tracking-widest py-3 px-5 uppercase w-full mx-4 text-white lg:text-base lg:flex lg:py-1 lg:px-4 lg:w-29 lg:justify-center lg:mx-0 lg:hover:font-bold" href="https://www.allaboutcircuits.com/education/">Education</a>
+<div class="hidden lg:flex-wrap lg:absolute lg:left-0 lg:z-20 lg:bg-aac-grey-light w-full lg:h-324px lg:dropdown-shadow">
+<ul class="w-full lg:w-7/25 flex flex-col bg-white h-full">
+
+<li itemprop="name" class="dropdown-hover default lg:pl-6 lg:pt-4">
+<span class="hidden lg:block gradient-line gradient-line-top w-11/12 h-1 p-0 -mb-1 clearfix"></span>
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/textbook/">Textbooks</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1 ellipsis" href="https://www.allaboutcircuits.com/video-tutorials/">Video Lectures &amp; Tutorials</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/worksheets/">Worksheets</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/industry-webinars/">Industry Webinars</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6 flex-1">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/industry-training/">Industry Training</a>
+</li>
+
+</ul>
+</div>
+</li>
+
+
+<li id="tools" class="flex flex-wrap md:static lg:inline-block">
+<a class="dropdown-tab text-3xl tracking-widest py-3 px-5 uppercase w-full mx-4 text-white lg:text-base lg:flex lg:py-1 lg:px-4 lg:w-19 lg:justify-center lg:mx-0 lg:hover:font-bold" href="https://www.allaboutcircuits.com/tools/">Tools</a>
+<div class="hidden lg:flex-wrap lg:absolute lg:left-0 lg:z-20 lg:bg-aac-grey-light w-full lg:h-324px lg:dropdown-shadow">
+<ul class="w-full lg:w-7/25 flex flex-col bg-white h-full">
+
+<li itemprop="name" class="dropdown-hover default lg:pl-6 lg:pt-4">
+<span class="hidden lg:block gradient-line gradient-line-top w-11/12 h-1 p-0 -mb-1 clearfix"></span>
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/tools/">Calculators</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/electronic-components/">Part Search</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/test-measurement/">Test Equipment Database</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/bom/">Bom Tool</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/industry-designs/">Reference Designs</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6 flex-1">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/ip-cores/">IC Design Center</a>
+</li>
+
+</ul>
+</div>
+</li>
+
+
+<li id="videos" class="flex flex-wrap md:static lg:inline-block">
+<a class="dropdown-tab text-3xl tracking-widest py-3 px-5 uppercase w-full mx-4 text-white lg:text-base lg:flex lg:py-1 lg:px-4 lg:w-19 lg:justify-center lg:mx-0 lg:hover:font-bold" href="https://www.allaboutcircuits.com/videos/">Videos</a>
+<div class="hidden lg:flex-wrap lg:absolute lg:left-0 lg:z-20 lg:bg-aac-grey-light w-full lg:h-324px lg:dropdown-shadow">
+<ul class="w-full lg:w-7/25 flex flex-col bg-white h-full">
+
+<li itemprop="name" class="dropdown-hover default lg:pl-6 lg:pt-4">
+<span class="hidden lg:block gradient-line gradient-line-top w-11/12 h-1 p-0 -mb-1 clearfix"></span>
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/videos/">Latest</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/new-industry-products/">New Products</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/video-tutorials/">Video Tutorials</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/industry-webinars/">On-Demand Webinars</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/industry-training/">Industry Training</a>
+</li>
+
+
+<li itemprop="name" class="dropdown-hover lg:pl-6">
+<a itemprop="url" class="text-base leading-relaxed uppercase text-aac-black text-3xl block px-8 lg:px-2 py-1" href="https://www.allaboutcircuits.com/tech-chats/">Tech Chats</a>
+</li>
+
+</ul>
+</div>
+</li>
+
+
+<li itemprop="name" class="flex flex-wrap lg:inline-block group lg:hover:bg-white">
+<a itemprop="url" class="text-3xl tracking-widest py-3 px-5 uppercase w-full mx-4 text-white lg:text-base lg:flex lg:py-1 lg:px-4 lg:mx-0 lg:w-31 lg:justify-center lg:group-hover:text-aac-orange lg:group-hover:font-bold" href="https://www.allaboutcircuits.com/electronic-components/">Datasheets</a>
+</li>
+
+
+<li itemprop="name" class="flex flex-wrap lg:hidden xl:inline-block group lg:hover:bg-white">
+<a itemprop="url" class="text-3xl tracking-widest py-3 px-5 uppercase w-full mx-4 text-white lg:text-base lg:flex lg:py-1 lg:px-4 lg:mx-0 lg:w-31 lg:justify-center lg:group-hover:text-aac-orange lg:group-hover:font-bold" href="https://www.allaboutcircuits.com/giveaways/">Giveaways</a>
+</li>
+
+
+<li itemprop="name" class="flex flex-wrap lg:hidden">
+<a itemprop="url" class="text-3xl tracking-widest py-3 px-5 uppercase w-full mx-4 text-white" href="https://www.allaboutcircuits.com/podcast/">Podcast</a>
+</li>
+
+
+<li class="ml-1 xl:ml-auto px-8 xl:pr-3 lg:hidden items-center lg:float-right">
+<ul class="flex flex-wrap items-center text-white" itemscope="" itemtype="http://schema.org/Organization">
+<link itemprop="url" href="https://www.allaboutcircuits.com/">
+<li class="w-full lg:w-auto text-3xl lg:text-base tracking-widest uppercase mt-8 mb-4 lg:my-0 float-left">Connect with us</li>
+<li class="lg:pl-5 text-7xl lg:text-xl float-left"><a href="https://www.facebook.com/allaboutcircuits" itemprop="sameAs" target="_blank" rel="noopener"><i class="aac-facebook text-white"></i></a></li>
+<li class="pl-3 text-7xl lg:text-xl float-left"><a href="https://twitter.com/AllAboutCircuit" itemprop="sameAs" target="_blank" rel="noopener"><i class="aac-twitter text-white"></i></a></li>
+<li class="pl-3 text-7xl lg:text-xl float-left"><a href="https://www.linkedin.com/company/10236224/" itemprop="sameAs" target="_blank" rel="noopener"><i class="aac-linkedin text-white"></i></a></li>
+<li class="pl-3 text-7xl lg:text-xl float-left"><a href="https://www.youtube.com/c/AllAboutCircuitsVideo" itemprop="sameAs" target="_blank" rel="noopener"><i class="aac-youtube text-white"></i></a></li>
+<li class="pl-3 text-7xl lg:text-xl float-left"><a href="https://www.instagram.com/all_about_circuits/" itemprop="sameAs" target="_blank" rel="noopener"><i class="aac-instagram text-white"></i></a></li>
+</ul>
+</li>
+
+
+<li class="block lg:hidden ml-1 px-8">
+<ul class="flex flex-col text-white">
+<li class="text-3xl tracking-widest uppercase mt-8 mb-4">
+Network Sites:
+</li>
+<li class="my-3">
+<a href="https://control.com/" target="_blank" class="text-white hover:text-aac-blue-dark"><i class="aac-control text-5xl"></i></a>
+</li>
+<li class="my-3">
+<a href="https://maker.pro/" target="_blank" class="text-white hover:text-aac-blue-dark"><i class="aac-maker-pro text-5xl"></i></a>
+</li>
+<li class="my-3">
+<a href="https://eepower.com/" target="_blank" class="text-white hover:text-aac-blue-dark"><i class="aac-eepower text-2xl"></i></a>
+</li>
+<li class="my-3">
+<a href="https://www.electronicspoint.com/" target="_blank" class="text-white hover:text-aac-blue-dark"><i class="aac-electronics text-4xl"></i></a>
+</li>
+<li class="my-3">
+<a href="https://www.mikrocontroller.net/" target="_blank" class="text-white hover:text-aac-blue-dark"><i class="aac-mikrocontroller"></i></a>
+</li>
+</ul>
+</li>
+
+</ul>
+</nav>
+</div>
+
+
+<div class="w-full bg-white">
+<form action="https://www.allaboutcircuits.com/search" method="GET" id="searchForm" class="w-full flex hidden">
+<input type="text" name="q" id="q" class="block text-center w-full rounded bg-white text-aac-grey-dark  font-pt-serif text-4xl p-3 focus:outline-none" placeholder="Search..." aria-label="Search..." onkeypress="javascript: if(event.keyCode == 13 &amp;&amp; typeof ga === &#39;function&#39;) ga(&#39;send&#39;, &#39;event&#39;, &#39;site-search&#39;, &#39;search&#39;, this.value);">
+</form>
+</div>
+
+</div>
+<div id="contentHeader" class="no-print block bg-white shadow w-full fixed -top-160 left-0 z-10">
+<div class="max-w-7xl mx-auto bg-white flex pt-1 md:pt-0 lg:pt-1">
+<div class="w-auto lg:w-324px float-left inline-block p-4">
+<a href="https://www.allaboutcircuits.com/">
+<img src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/AAClogo.webp" alt="All About Circuits" class="w-40 h-auto">
+</a>
+</div>
+<div class="hidden md:flex w-auto flex-1 flex-grow float-left">
+<div id="contentTitle" class="w-full flex flex-col justify-center items-center text-center">
+<span class="text-aac-grey font-bold text-sm lg:text-base tracking-widest uppercase lg:mb-1">
+Technical Article
+</span>
+<h2 class="font-pt-serif text-xl text-aac-blue-dark font-extrabold">
+Pixel Intensity Histogram Characteristics: Basics of Image Processing and Machine Vision
+</h2>
+</div>
+<div id="contentRegister" class="w-full flex justify-center items-center" style="display: none;">
+<h2 class="font-arial text-2xl text-aac-blue-dark font-extrabold w-auto lg:w-1/2 mr-3">
+Join our Community <span class="hidden lg:inline"> of 580,000+ Engineers</span>
+</h2>
+<form action="https://forum.allaboutcircuits.com/register" method="GET" class="w-auto lg:w-1/2 flex">
+<input type="text" name="email" class="flex-1 rounded bg-white pl-4 text-aac-grey-darker text-base py-2 float-left hidden lg:inline-block border border-aac-grey-darker" placeholder="Email address" aria-label="Enter you email address" aria-describedby="basic-addon1">
+<button type="submit" class="ga-link bg-gradient bg-aac-orange rounded py-2 px-10 text-white text-16px float-right hover:shadow-md cursor-pointer mx-3" data-category="header-scroll-register" data-action="Article" data-label="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing">Register</button>
+</form>
+</div>
+</div>
+<ul class="flex items-center justify-end w-full md:w-auto lg:w-324px float-right text-base">
+<li class="inline-block float-left mr-8 py-2">
+<a class="group font-bold text-aac-blue-dark hover:text-aac-orange flex items-center" href="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/#loginModal" rel="modal:open">
+<i class="aac-bookmarked text-aac-grey group-hover:text-aac-orange text-2xl mr-2"></i>
+</a>
+</li>
+<li class="inline-block float-left mr-8 py-2">
+<a class="group font-bold text-aac-blue-dark hover:text-aac-orange flex items-center" href="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/#loginModal" rel="modal:open">
+<i class="aac-like text-aac-grey group-hover:text-aac-orange text-2xl mr-2"></i>
+</a>
+</li>
+<li class="inline-block float-left mr-4 py-2">
+<a class=" group font-bold text-aac-blue-dark hover:text-aac-orange flex items-center" href="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/#loginModal" rel="modal:open">
+<i class="aac-commnet text-aac-grey group-hover:text-aac-orange text-4xl mr-2"></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<main>
+<div class="container relative w-full lg:container mx-auto lg:px-4 xl:px-6 pt-5 mt-1 bg-aac-grey-light">
+<div class="mx-4 lg:mx-0">
+
+<ul class="no-print md:flex clearfix text-base text-aac-grey hidden">
+<li class="float-left inline-block flex items-center ellipsis">
+<a class="text-aac-grey hover:text-aac-blue-dark hover:no-underline ellipsis" href="https://www.allaboutcircuits.com/"><i class="aac-home text-sm mr-1"></i> <span>Home</span></a>
+<i class="aac-caret-right text-sm mx-2"></i>
+</li>
+<li class="float-left inline-block flex items-center ellipsis" itemprop="itemListElement">
+<a class="text-aac-grey hover:text-aac-blue-dark hover:no-underline ellipsis" href="https://www.allaboutcircuits.com/technical-articles/"><span>Technical Articles</span></a>
+<i class="aac-caret-right text-sm mx-2"></i>
+</li>
+<li class="float-left inline-block flex items-center ellipsis" itemprop="itemListElement">
+<span itemprop="name">Pixel Intensity Histogram Characteristics: Basics of Image Processing and Machine Vision</span>
+</li>
+</ul>
+
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement":
+        [
+            {
+                "@type": "ListItem",
+                "position": 0,
+                "item":
+                {
+                    "@id": "https://www.allaboutcircuits.com",
+                    "name": "Home"
+                }
+            }
+            
+            ,
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item":
+                {
+                    "@id": "https://www.allaboutcircuits.com/technical-articles/",
+                    "name": "Technical Articles"
+                }
+            }
+            
+            ,
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item":
+                {
+                    "@id": "https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/",
+                    "name": "Pixel Intensity Histogram Characteristics: Basics of Image Processing and Machine Vision"
+                }
+            }
+            
+        ]
+    }
+</script>
+</div>
+
+<div class="flex flex-wrap clearfix mt-3 mb-7">
+
+<div class="no-print w-full lg:w-300px float-right inline-block flex flex-wrap order-2 pb-7 -mt-2">
+<div class="md:flex-1 order-1 md:order-2 w-full text-center">
+
+<div class="vertical-ad transition-fast flex justify-center mt-2">
+<div id="div-gpt-ad-1429623690593-0" data-google-query-id="CLWTv7Cu2ukCFVkMXAodMvsDog">
+<div id="google_ads_iframe_/62616433/main_sidebar_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 600px;"><iframe frameborder="0" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/container.html" id="google_ads_iframe_/62616433/main_sidebar_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="300" height="600" data-is-safeframe="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-google-container-id="3" style="border: 0px; vertical-align: bottom;" data-load-complete="true"></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<article class="w-full lg:w-auto md:flex-1 flex flex-wrap md:pr-4 overflow-hidden order-1 mb-7 lg:mb-0 ">
+
+<div class="border-t-7 border-aac-orange w-full bg-white lg:px-4 pt-5 pb-7">
+<div class="mx-4">
+<span class="block tracking-widest text-base font-bold text-aac-grey uppercase">
+Technical Article
+</span>
+<h1 class="font-pt-serif text-40px font-bold my-2 leading-tight">
+Pixel Intensity Histogram Characteristics: Basics of Image Processing and Machine Vision
+</h1>
+<span class="block text-xl border-b border-aac-dirty-gray pb-7 mb-7">
+December 07, 2017 <span class="text-aac-grey">by</span> <a class="font-bold" href="https://www.allaboutcircuits.com/author/sneha-h.l">Sneha H.L.</a>
+</span>
+<h2 class="text-5xl font-arimo leading-tight mb-6">
+This article introduces the image histogram and discusses its characteristics and applications.
+</h2>
+</div>
+
+<div class="flex w-full text-center justify-center order-first md:order-3">
+<div id="div-gpt-ad-1430160961981-0" class="w-full flex justify-center" data-google-query-id="CLaTv7Cu2ukCFVkMXAodMvsDog">
+
+<div id="google_ads_iframe_/62616433/main_leaderboard_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/62616433/main_leaderboard_0" title="3rd party ad content" name="google_ads_iframe_/62616433/main_leaderboard_0" width="800" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="4" data-load-complete="true" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/saved_resource.html"></iframe></div></div>
+</div>
+
+<div class="wysiwyg-content lg:mx-4">
+<p>This article introduces the image histogram and discusses its characteristics and applications.</p><p>How does a neural network or robot "see"? How are they able to process visual information? Machine vision is a complicated field, but one of the most important concepts is image processing.</p>
+<p>The term "image processing" encompasses many forms of image analysis, including edge detection, shape identification, optical character recognition, and color analysis. Also under the image processing umbrella are thresholding and image enhancement, applications I will expand upon further in this article.</p>
+<p>How&nbsp;does&nbsp;image processing work? Let's start with the basics. An important&nbsp;piece of the puzzle is the concept of a pixel and how&nbsp;a neural network or algorithm can interpret it&nbsp;as visual information. In this article, we'll aim to attain a basic understanding of what histograms are, how they're formed for various image types, and what information they represent.</p><h3>Histogram Background Information</h3>
+<p>Digital images are composed of two-dimensional integer arrays that represent individual components of the image, which are called picture elements, or pixels. The number of bits used to represent these pixels determines the number of gray levels used to describe each pixel.</p>
+<p>The pixel values in black-and-white images can be either 0 (black) or 1 (white), representing the darker and brighter areas of the image, respectively, as shown in Figure 1(a).</p>
+<p>&nbsp;</p>
+<p><img alt="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Figure1_ImHist.webp" style="width: 600px; height: 147px; border: solid 1px #CDCDCD"></p>
+<h5 style="text-align: center;"><em><strong>Figure 1.</strong>&nbsp;Available pixel intensities for 1-bit, 2-bit, 3-bit, and 4-bit image data</em></h5><p>If <em>n</em> bits are used to represent a pixel, then there will be 2<sup><em>n</em></sup> pixel values ranging from 0 to (2<sup><em>n</em></sup> -1). Here 0 and (2<sup><em>n</em></sup> - 1) correspond to black and white, respectively, and all other intermediate values represent shades of gray. Such images are said to be monochromatic (Figures 1(b) through 1(d)).</p>
+<p>A combination of multiple monochrome images results in a color image. For example, an RGB image is a combined set of three individual 2-D pixel arrays that are interpreted as red, green, and blue color components.<sup>1</sup></p>
+<p>&nbsp;</p>
+<h3>Histogram</h3>
+<p>An image histogram is a graph of pixel intensity (on the <em>x</em>-axis) versus number of pixels (on the <em>y</em>-axis). The <em>x</em>-axis has all available gray levels, and the <em>y</em>-axis indicates the number of pixels that have a particular gray-level value.<sup>2</sup>&nbsp;Multiple gray levels can be combined into groups in order to reduce the number of individual values on the <em>x</em>-axis.</p><h4>Histogram of a Monochrome Image</h4>
+<p>Figure 2(a) shows a simple 4 × 4 black-and-white image whose histogram is shown in Figure 2(b). Here the first vertical line of the histogram (at gray level 0) indicates that there are 4 black pixels in the image. The second line indicates that there are 12 white pixels in the image.</p>
+<p>&nbsp;</p>
+<p><img alt="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Figure2_ImHist.jpg" style="width: 784px; height: 318px; border: solid 1px #CDCDCD"></p>
+<h5 style="text-align: center;"><em><strong>Figure 2.&nbsp;</strong>A black-and-white image and its histogram. Image created by Sneha H.L.</em></h5><p>Figure 3(a) is a grayscale image. The four pixel intensities (including black and white) of this image are represented by the four vertical lines of the associated histogram (Figure 3(b)). Here the <em>x</em>-axis values span from 0 to 255, which means that there are 256 (=2<sup>8</sup>) possible pixel intensities.</p>
+<p>&nbsp;</p>
+<p><img alt="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Figure3_ImHist.jpg" style="width: 600px; height: 241px; border: solid 1px #CDCDCD"></p>
+<h5 style="text-align: center;"><em><strong>Figure 3.</strong> 8-bit grayscale image and its histogram. Image created by Sneha H.L.</em></h5><h4>Histogram of a Coloured (RGB) Image</h4><p>The histogram of an RGB image can be displayed in terms of three separate histograms—one for each color component (R, G, and B) of the image. An example is shown in Figure 4. The same information can be represented also by using a 3-D histogram whose axes correspond to the red, green, and blue intensities.<sup>3</sup></p>
+<p>&nbsp;</p>
+<p><img alt="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Figure4_ImHist(2).jpg" style="width: 700px; height: 443px; border: 1px solid rgb(205, 205, 205);"></p>
+<h5 style="text-align: center;"><em><strong>Figure 4. </strong>Colour image and the&nbsp;histograms corresponding to its red, green and blue monochrome channels. Image assembled by Sneha H.L.</em></h5><h3>Analyzing Histograms of Monochrome Images</h3>
+<p>A mere look at the histogram reveals important facts regarding its image.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</p>
+<h4>1. &nbsp;&nbsp;&nbsp; &nbsp;The total number of pixels</h4>
+<p>The total number of pixels constituting the image can be obtained by adding up the number of pixels corresponding to each gray level.</p>
+<h4>2. &nbsp;&nbsp;&nbsp; &nbsp;Image brightness</h4>
+<p>You can get a general idea of the brightness of an image by looking at the histogram and observing the spatial distribution of the values. If the histogram values are concentrated toward the left, the image is darker (Figure 5). If they are concentrated toward the right, the image is lighter (Figure 6).</p><p><img alt="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Figure5_ImHist.webp" style="width: 700px; height: 193px; border: solid 1px #CDCDCD"></p>
+<h5 style="text-align: center;"><em><strong>Figure 5. </strong>Histogram of a dark image. Image by Sneha H.L.</em></h5>
+<p>&nbsp;</p>
+<p><img alt="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Figure6_ImHist.jpg" style="width: 700px; height: 225px; border: solid 1px #CDCDCD"></p>
+<h5 style="text-align: center;"><em><strong>Figure 6.</strong> Histogram of a bright image. Image by Sneha H.L.</em></h5><h4>3. &nbsp;&nbsp;&nbsp; &nbsp;Contrast of the image</h4>
+<p>A histogram in which the pixel counts evenly cover a broad range of grayscale levels indicates an image with good contrast (Figure 7). Pixel counts that are restricted to a smaller range indicate low contrast (Figure 8).</p>
+<p>&nbsp;</p>
+<p><img alt="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Figure7_ImHist.webp" style="width: 700px; height: 256px; border: solid 1px #CDCDCD"></p>
+<h5 style="text-align: center;"><em><strong>Figure 7. </strong>Histogram of a high-contrast image. Image by Sneha H.L.</em></h5>
+<p>&nbsp;</p>
+<p><img alt="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Figure8_ImHist.webp" style="height: 195px; width: 700px; border: solid 1px #CDCDCD"></p>
+<h5 style="text-align: center;"><em><strong>Figure 8. </strong>Histogram of a low-contrast image. Image by Sneha H.L.</em></h5><h4>4. &nbsp;&nbsp;&nbsp; &nbsp;Saturation Effects</h4>
+<p>A histogram with a prominent spike at the highest possible pixel value (Figure 9) indicates that the image’s pixel intensities have experienced saturation, perhaps because of an image processing routine that failed to keep the pixel values within their original range.</p>
+<p>&nbsp;</p>
+<p><img alt="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Figure9_ImHist.webp" style="width: 600px; height: 311px; border: solid 1px #CDCDCD"></p>
+<h5 style="text-align: center;"><em><strong>Figure 9.</strong> Histogram of a saturated image. Image by Sneha H.L.</em></h5><h4>Drawback</h4>
+<p>One limitation that we need to keep in mind is that a histogram provides no information regarding the spatial distribution of an image’s pixel values. Thus, we can have multiple different images that share the same histogram (Figure 10), and we cannot reconstruct an image from its histogram.<sup>4</sup></p>
+<p>&nbsp;</p>
+<p><img alt="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Figure10_ImHist.webp" style="width: 600px; height: 459px; border: solid 1px #CDCDCD"></p>
+<h5 style="text-align: center;"><em><strong>Figure 10. </strong>Different images that have the same histogram. Image by Sneha H.L.</em></h5><h3>Applications of Histogram</h3>
+<h4><br>
+1. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thresholding</h4>
+<p>A grayscale image can be converted into a black-and-white image by choosing a threshold and converting all values above the threshold to the maximum intensity and all values below the threshold to the minimum intensity. A histogram is a convenient means of identifying an appropriate threshold.</p>
+<p>In Figure 11, the pixel values are concentrated in two groups, and the threshold would be a value in the middle of these two groups. In Figure 12, the more continuous nature of the histogram indicates that the image is not a good candidate for thresholding, and that finding the ideal threshold value would be difficult.</p>
+<p>&nbsp;</p>
+<p><img alt="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Figure11_ImHist.jpg" style="width: 600px; height: 510px; border: solid 1px #CDCDCD"></p>
+<h5 style="text-align: center;"><em><strong>Figure 11.</strong> Histogram of the original image and thresholding results. Image by Sneha H.L.</em></h5><p><img alt="" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Histogram_figure12.webp" style="width: 700px; height: 410px; border: 1px solid rgb(205, 205, 205);"></p>
+<h5 style="text-align: center;"><em><strong>Figure 12.</strong> Histogram of the original image and two thresholding attempts. Image by Sneha H.L.</em></h5><h4>2. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Image Enhancement</h4>
+<p>Image enhancement refers to the process of transforming an image so as to make it more visually appealing or to facilitate further analysis.<sup>5</sup> It can involve simple operations (addition, multiplication, logarithms, etc.)<sup>6</sup>&nbsp;or advanced techniques such as contrast stretching and histogram equalization.<sup>7</sup></p>
+<p>An image histogram can help us to quickly identify processing operations that are appropriate for a particular image. For example, if the pixel values are concentrated in the far-left portion of the histogram (this would correspond to a very dark image), we can improve the image by shifting the values toward the center of the available range of intensities, or by spreading the pixel values such that they more fully cover the available range.</p><h3>Summary</h3>
+<p>This article has explained the essential characteristics of an image histogram, and it also discusses the histogram’s role in image processing.</p><h3>References</h3>
+<ol>
+<li><em>Digital Image Processing Using Matlab, II Edition</em>, R.C. Gonzalez, R. E. Woods, S.L. Eddins, Gatesmark Publishing, ISBN 978-0-9820854-0-0</li>
+<li>https://www.tutorialspoint.com/dip/histograms_introduction.htm</li>
+<li>https://homepages.inf.ed.ac.uk/rbf/HIPR2/histgram.htm</li>
+<li>http://web.cs.wpi.edu/~emmanuel/courses/cs545/S14/slides/lecture02.pdf</li>
+<li>http://www.theijes.com/papers/vol6-issue6/G0606015963.pdf</li>
+<li>http://web.cs.wpi.edu/~emmanuel/courses/cs545/S14/slides/lecture02.pdf</li>
+<li>https://homepages.inf.ed.ac.uk/rbf/HIPR2/histgram.htm</li>
+</ol>
+</div>
+<div class="mx-4">
+
+
+<div class="related-content no-print w-full border-t-7 border-aac-blue-dark ">
+<h3 class="uppercase font-bold font-open-sans mb-5 tracking-wide md:text-3xl text-2xl pt-3">
+Related Content
+</h3>
+<ul class="lg:mb-16 md:mb-8 mb-5 lg:ml-16 md:ml-12 ml-8 list-disc font-pt-serif text-2xl">
+<li class="lg:mb-7 mb-4"><a class="ga-link" href="https://www.allaboutcircuits.com/news/voyager-mission-anniversary-rtg-radioisotope-thermoelectric-generator/" data-category="related-content-click" data-action="/news/voyager-mission-anniversary-rtg-radioisotope-thermoelectric-generator/">Powering the Voyager Spacecraft with Radiation: The RTG (Radioisotope Thermoelectric Generator)</a></li>
+<li class="lg:mb-7 mb-4"><a class="ga-link" href="https://www.allaboutcircuits.com/projects/add-custom-bluetoothle-to-your-next-project/" data-category="related-content-click" data-action="/projects/add-custom-bluetoothle-to-your-next-project/">“Everything is Better with Bluetooth”:&nbsp; Add Your Own Custom Bluetooth LE to Your Next Project</a></li>
+<li class="lg:mb-7 mb-4"><a class="ga-link" href="https://www.allaboutcircuits.com/industry-articles/embedded-fpga-changing-the-way-chips-are-designed/" data-category="related-content-click" data-action="/industry-articles/embedded-fpga-changing-the-way-chips-are-designed/">Embedded FPGA: Changing the Way Chips Are Designed</a></li>
+</ul>
+</div>
+
+<div class="no-print w-full border-t border-aac-grey">
+<h3 class="font-bold text-aac-blue-dark text-3xl mt-6 font-arimo">
+Learn More About:
+</h3>
+<ul class="flex flex-wrap clearfix mt-4">
+<li class="pr-4 pb-4 inline-block float-left"><a class="ga-link uppercase inline-block whitespace-no-wrap px-4 py-1 rounded-r-full bg-aac-orange-light text-aac-blue-dark text-xl hover:shadow-sm" href="https://www.allaboutcircuits.com/search?q=pixel" rel="nofollow" data-category="content-tag-click" data-action="pixel">pixel</a></li>
+<li class="pr-4 pb-4 inline-block float-left"><a class="ga-link uppercase inline-block whitespace-no-wrap px-4 py-1 rounded-r-full bg-aac-orange-light text-aac-blue-dark text-xl hover:shadow-sm" href="https://www.allaboutcircuits.com/search?q=machine%20vision" rel="nofollow" data-category="content-tag-click" data-action="machine vision">machine vision</a></li>
+<li class="pr-4 pb-4 inline-block float-left"><a class="ga-link uppercase inline-block whitespace-no-wrap px-4 py-1 rounded-r-full bg-aac-orange-light text-aac-blue-dark text-xl hover:shadow-sm" href="https://www.allaboutcircuits.com/search?q=image%20processing" rel="nofollow" data-category="content-tag-click" data-action="image processing">image processing</a></li>
+<li class="pr-4 pb-4 inline-block float-left"><a class="ga-link uppercase inline-block whitespace-no-wrap px-4 py-1 rounded-r-full bg-aac-orange-light text-aac-blue-dark text-xl hover:shadow-sm" href="https://www.allaboutcircuits.com/search?q=histogram" rel="nofollow" data-category="content-tag-click" data-action="histogram">histogram</a></li>
+<li class="pr-4 pb-4 inline-block float-left"><a class="ga-link uppercase inline-block whitespace-no-wrap px-4 py-1 rounded-r-full bg-aac-orange-light text-aac-blue-dark text-xl hover:shadow-sm" href="https://www.allaboutcircuits.com/search?q=image%20contrast" rel="nofollow" data-category="content-tag-click" data-action="image contrast">image contrast</a></li>
+</ul>
+</div>
+
+
+
+<div class="no-print w-full lg:w-1/3 lg:pr-8 mt-5 float-left inline-block">
+<ul class="flex flex-wrap clearfix justify-between bg-white border-t-7 border-aac-blue-dark">
+<li class="w-full font-arimo uppercase text-aac-blue-dark font-bold text-4xl tracking-wider pt-1 lg:pb-4">Share</li>
+<li class="text-7xl float-left inline-block pr-7 lg:pr-2"><a class="text-aac-grey hover:text-aac-blue-dark" href="https://www.facebook.com/sharer/sharer.php?u=https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/" target="_blank"><i class="aac-facebook"></i></a></li>
+<li class="text-7xl float-left inline-block pr-7 lg:pr-2"><a class="text-aac-grey hover:text-aac-blue-dark" href="https://twitter.com/share?url=https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/&amp;via=allaboutcircuit" target="_blank"><i class="aac-twitter"></i></a></li>
+<li class="text-7xl float-left inline-block pr-7 lg:pr-2"><a class="text-aac-grey hover:text-aac-blue-dark" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/" target="_blank"><i class="aac-linkedin"></i></a></li>
+<li class="text-7xl float-left inline-block"><a class="text-aac-grey hover:text-aac-blue-dark" href="https://www.reddit.com/submit?url=https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/&amp;title=Pixel%20Intensity%20Histogram%20Characteristics:%20Basics%20of%20Image%20Processing%20and%20Machine%20Vision%20-%20Technical%20Articles" target="_blank"><i class="aac-reddit"></i></a></li>
+</ul>
+</div>
+
+
+</div>
+</div>
+
+</article>
+
+</div>
+
+
+<div class="no-print w-full border-t-8 md:border-t-10 border-aac-blue-dark px-4 py-2 lg:px-7 lg:py-4 bg-white mb-7">
+<h3 class="uppercase font-arimo font-bold text-aac-blue-dark tracking-wider text-3xl mt-2 mb-6">
+You May Also Like
+</h3>
+<ul class="flex flex-wrap mb-4 mx-0 md:-mx-3 clearfix recommended-articles">
+
+<li id="recommended_1" class="w-full md:w-1/5 flex flex-col justify-between px-0 md:px-4 group float-left inline-block ">
+<a class="ga-link" href="https://www.allaboutcircuits.com/news/how-do-you-reduce-emi-in-dc-dc-power-management/" data-category="you-may-also-like" data-action="/news/how-do-you-reduce-emi-in-dc-dc-power-management/">
+<div class="relative inline-block">
+<picture>
+<source media="(max-width: 1024px)" srcset="https://www.allaboutcircuits.com/uploads/thumbnails/EMI_performance_.jpg 0.5x">
+<img class="w-full" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/EMI_performance_.webp" alt="">
+</picture>
+<div class="group-hover:opacity-25 bg-gradient-black opacity-0 absolute top-0 left-0 w-full h-full transition-ease"></div>
+</div>
+<h4 class="mt-3 mb-2 font-bold font-arimo text-24px leading-tight lg:leading-normal md:text-base xl:text-2xl text-aac-blue-dark group-hover:text-aac-orange">
+How Do You Reduce EMI in DC-DC Power Management?
+</h4>
+</a>
+<p class="text-aac-grey ml-2 text-base pb-4 lg:pb-8">
+by <a class="font-bold" href="https://www.allaboutcircuits.com/author/john-koon">John Koon</a>
+</p>
+</li>
+
+
+
+<li id="recommended_2" class="w-full md:w-1/5 flex flex-col justify-between px-0 md:px-4 group float-left inline-block pt-8 md:pt-0 border-t md:border-t-0 md:border-l border-aac-grey">
+<a class="ga-link" href="https://www.allaboutcircuits.com/news/how-do-you-design-the-lc-low-pass-filter-for-a-class-d-amp/" data-category="you-may-also-like" data-action="/news/how-do-you-design-the-lc-low-pass-filter-for-a-class-d-amp/">
+<div class="relative inline-block">
+<picture>
+<source media="(max-width: 1024px)" srcset="https://www.allaboutcircuits.com/uploads/thumbnails/FDA901_block_diagram.jpg 0.5x">
+<img class="w-full" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/FDA901_block_diagram.webp" alt="">
+</picture>
+<div class="group-hover:opacity-25 bg-gradient-black opacity-0 absolute top-0 left-0 w-full h-full transition-ease"></div>
+</div>
+<h4 class="mt-3 mb-2 font-bold font-arimo text-24px leading-tight lg:leading-normal md:text-base xl:text-2xl text-aac-blue-dark group-hover:text-aac-orange">
+How Do You Design an LC Low-Pass Filter for a Class D Amp?
+</h4>
+</a>
+<p class="text-aac-grey ml-2 text-base pb-4 lg:pb-8">
+by <a class="font-bold" href="https://www.allaboutcircuits.com/author/robert-keim">Robert Keim</a>
+</p>
+</li>
+
+
+<li id="recommended_3" class="w-full md:w-1/5 flex flex-col justify-between px-0 md:px-4 group float-left inline-block pt-8 md:pt-0 border-t md:border-t-0 md:border-l border-aac-grey">
+<a class="ga-link" href="https://www.allaboutcircuits.com/news/teslas-expansion-of-the-hornsdale-power-reserve-comes-with-a-price/" data-category="you-may-also-like" data-action="/news/teslas-expansion-of-the-hornsdale-power-reserve-comes-with-a-price/">
+<div class="relative inline-block">
+<picture>
+<source media="(max-width: 1024px)" srcset="https://www.allaboutcircuits.com/uploads/thumbnails/Tesla_Hornsdale_Facility_Australia.jpg 0.5x">
+<img class="w-full" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Tesla_Hornsdale_Facility_Australia.webp" alt="">
+</picture>
+<div class="group-hover:opacity-25 bg-gradient-black opacity-0 absolute top-0 left-0 w-full h-full transition-ease"></div>
+</div>
+<h4 class="mt-3 mb-2 font-bold font-arimo text-24px leading-tight lg:leading-normal md:text-base xl:text-2xl text-aac-blue-dark group-hover:text-aac-orange">
+Tesla’s Expansion of the Hornsdale Power Reserve Comes with a Price
+</h4>
+</a>
+<p class="text-aac-grey ml-2 text-base pb-4 lg:pb-8">
+by <a class="font-bold" href="https://www.allaboutcircuits.com/author/luke-james">Luke James</a>
+</p>
+</li>
+
+
+<li id="recommended_4" class="w-full md:w-1/5 flex flex-col justify-between px-0 md:px-4 group float-left inline-block pt-8 md:pt-0 border-t md:border-t-0 md:border-l border-aac-grey">
+<a class="ga-link" href="https://www.allaboutcircuits.com/industry-white-papers/embed/building-a-smarter-ultra-wide-dc-dc-converter-solution-with-multiple-parts/" data-category="you-may-also-like" data-action="/industry-white-papers/embed/building-a-smarter-ultra-wide-dc-dc-converter-solution-with-multiple-parts/">
+<div class="relative inline-block">
+<picture>
+<source media="(max-width: 1024px)" srcset="https://www.allaboutcircuits.com/uploads/thumbnails/Vicor_Feb_Thumbnail.jpeg 0.5x">
+<img class="w-full" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/Vicor_Feb_Thumbnail.webp" alt="">
+</picture>
+<div class="group-hover:opacity-25 bg-gradient-black opacity-0 absolute top-0 left-0 w-full h-full transition-ease"></div>
+</div>
+<h4 class="mt-3 mb-2 font-bold font-arimo text-24px leading-tight lg:leading-normal md:text-base xl:text-2xl text-aac-blue-dark group-hover:text-aac-orange">
+Building a Smarter Ultra-Wide DC-DC Converter Solution with Multiple Parts
+</h4>
+</a>
+<p class="text-aac-grey ml-2 text-base pb-4 lg:pb-8">
+In Partnership with <a href="http://www.vicorpower.com/">Vicor</a>
+</p>
+</li>
+
+
+<li id="recommended_5" class="w-full md:w-1/5 flex flex-col justify-between px-0 md:px-4 group float-left inline-block pt-8 md:pt-0 border-t md:border-t-0 md:border-l border-aac-grey">
+<a class="ga-link" href="https://www.allaboutcircuits.com/news/uk-completes-vehicle-to-grid-project-step-to-eliminating-diesel-cars-by-2035/" data-category="you-may-also-like" data-action="/news/uk-completes-vehicle-to-grid-project-step-to-eliminating-diesel-cars-by-2035/">
+<div class="relative inline-block">
+<picture>
+<source media="(max-width: 1024px)" srcset="https://www.allaboutcircuits.com/uploads/thumbnails/V2G_hub.jpg 0.5x">
+<img class="w-full" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/V2G_hub.webp" alt="">
+</picture>
+<div class="group-hover:opacity-25 bg-gradient-black opacity-0 absolute top-0 left-0 w-full h-full transition-ease"></div>
+</div>
+<h4 class="mt-3 mb-2 font-bold font-arimo text-24px leading-tight lg:leading-normal md:text-base xl:text-2xl text-aac-blue-dark group-hover:text-aac-orange">
+UK Completes Vehicle-to-Grid Project, Step to Eliminating Diesel Cars by 2035
+</h4>
+</a>
+<p class="text-aac-grey ml-2 text-base pb-4 lg:pb-8">
+by <a class="font-bold" href="https://www.allaboutcircuits.com/author/gary-elinoff">Gary Elinoff</a>
+</p>
+</li>
+
+</ul>
+</div>
+
+
+<div id="comment_container" class="no-print w-full border-t-10 border-aac-blue-dark bg-white mb-7">
+<div class="w-full py-4 px-6">
+<a data-menu="#comments" class="menu-toggle flex items-center uppercase font-bold font-arimo text-aac-blue-dark tracking-wider text-2xl hover:no-underline" href="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/#">
+Comments <i class="aac-caret-up transition-ease text-lg ml-4"></i>
+</a>
+</div>
+<div id="comments" class="w-full py-4 pb-7 px-6 flex flex-wrap border-t border-aac-blue-dark">
+
+<strong class="w-full block text-aac-grey text-xl">
+0 Comments
+</strong>
+
+
+<form id="main_form" class="w-full flex flex-wrap items-start mt-5 mb-8" method="post" action="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing">
+<div class="hiddenFields">
+<input type="hidden" name="ACT" value="4">
+<input type="hidden" name="RET" value="tyPLNsobaf7vPVl4wtJflck+nvdhk51IdBzJwv3jZFdObV3NGtLM/FEm+hKE1p52TOOBL8gjYDO6AbPr7q6Yol85KosfweVW0erEHNtvkZlEQx3rlnQCNRgWMKG+HdFylBRnGTvM6uMfo7Jz5BFDt91ydqlGsS/fcKKbEZDOYgsudlGZdFoQOebNumoA0/ea">
+<input type="hidden" name="URI" value="technical-articles/image-histogram-characteristics-machine-learning-image-processing">
+<input type="hidden" name="PRV" value="">
+<input type="hidden" name="entry_id" value="3551">
+<input type="hidden" name="parent_id" value="0">
+<input type="hidden" name="site_id" value="1">
+<input type="hidden" name="csrf_token" value="13a96d1e18eb982ade626e095f07148fd198bd6f">
+</div>
+<img class="float-left inline-block" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/default_avatar.webp" height="35px" width="35px">
+<textarea name="comment" class="flex-1 flex-grow w-4/5 border border-aac-grey-light ml-4 text-xl px-4 py-2" placeholder="Please log in before you can comment." readonly=""></textarea>
+<div class="w-full flex justify-end pt-4">
+<a href="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/#loginModal" rel="modal:open" class="bg-gradient bg-aac-orange rounded py-2 px-7 font-bold text-white text-xl float-right hover:shadow-md cursor-pointer">Log in to comment</a>
+</div>
+</form>
+
+
+<form id="reply_form" class="hidden w-full flex flex-wrap items-start mt-5 mb-8" method="post" action="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing">
+<div class="hiddenFields">
+<input type="hidden" name="ACT" value="4">
+<input type="hidden" name="RET" value="kAFKhVgmx5L5H3ff8Xl3WG5Zlm93cfyTXGinAOEY4s5AuBEbMrxzYiYaNerKbX2df7p2KOZ0yx6Hf0fxZOdUKqThyV2w9lW+zNpckDS3xFCw6QjYEMHPRXUnnLiDV8TX8oL0ZeQlCSAmCu3GEDQIGc6gHBqGgFhaItbhTvTpGaSICXZdvhfDIkIjkUPw7PTM">
+<input type="hidden" name="URI" value="technical-articles/image-histogram-characteristics-machine-learning-image-processing">
+<input type="hidden" name="PRV" value="">
+<input type="hidden" name="entry_id" value="3551">
+<input type="hidden" name="parent_id" value="0">
+<input type="hidden" name="site_id" value="1">
+<input type="hidden" name="csrf_token" value="13a96d1e18eb982ade626e095f07148fd198bd6f">
+</div>
+<img class="float-left inline-block" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/default_avatar.webp" height="35px" width="35px">
+<textarea name="comment" class="flex-1 flex-grow w-4/5 border border-aac-grey-light ml-4 text-xl px-4 py-2" placeholder="Please log in before you can comment." readonly=""></textarea>
+<div class="w-full flex justify-end pt-4">
+<input type="submit" disabled="true" class="ga-link bg-gradient rounded py-2 px-7 font-bold text-white text-xl float-right hover:shadow-md cursor-pointer" value="Submit" data-category="article-comment" data-action="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing">
+</div>
+<input type="hidden" id="parent_id" name="parent_id" value="">
+</form>
+
+
+<ul class="w-full">
+</ul>
+
+</div>
+</div>
+
+</div>
+</main>
+<script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Technical Articles Article",
+  "mainEntityOfPage": {
+  "@type": "WebPage",
+  "@id": "https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/"
+  },
+  "headline": "Pixel Intensity Histogram Characteristics: Basics of Image Processing and Machine Vision",
+  "image": [
+  "https://www.allaboutcircuits.com/uploads/thumbnails/Sneha_histogram_featured.jpg"
+  ],
+  "datePublished": "2017-12-07T15:52:00-07:00",
+  "dateModified": "2017-12-07T19:02:12-07:00",
+  "author": {
+  "@type": "Person",
+  
+  "name": "Sneha H.L.",
+  "sameAs": "https://www.allaboutcircuits.com/author/sneha-h.l",
+  "image": "https://www.allaboutcircuits.com/uploads/members/Sneha.jpg"
+  
+  },
+  "keywords": "pixel machine vision image processing histogram image contrast",
+  "publisher": {
+  "@type": "Organization",
+  "name": "All About Circuits",
+  "logo": {
+  "@type": "ImageObject",
+  "url": "https://www.allaboutcircuits.com/images/site/AAClogo.png"
+  }
+  },
+  "description": "This article introduces the image histogram and discusses its characteristics and applications."
+  }
+</script>
+<footer class="footer-bg bg-black border-t-3 border-aac-orange no-print">
+<div class="container mx-auto hidden md:block">
+<div class="flex flex-wrap block clearfix mt-8 md:mt-16 md:mb-7 ">
+<div class="w-1/2 md:w-1/4 pl-8 md:px-4 xl:pl-0 xl:pr-7 pb-8 md:pb-0 inline-block float-left">
+<h6 class="text-white font-bold text-xl uppercase tracking-widest mb-3">
+Products
+</h6>
+<ul class="text-lg leading-tight flex flex-wrap category-list">
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/">Latest</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/analog/">Analog</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/optoelectronics/">Optoelectronics</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/connectors/">Connectors</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/passives/">Passives</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/cooling/">Cooling</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/pcb/">PCB’s</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/digital-ics/">Digital IC’s</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/power/">Power</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/eda-tools/">EDA Tools</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/ic-design/">IC Design</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/risc-v/">RISC-V</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/electromechanical/">Electromechanical</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/sensors/">Sensors</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/embedded/">Embedded</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/test-and-measurement/">Test &amp; Measurement</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/memory/">Memory</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/wireless-rf/">Wireless/RF</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline font-bold" href="https://www.allaboutcircuits.com/latest/">View All <i class="aac-caret-right text-base"></i></a></li>
+</ul>
+</div>
+<div class="w-1/2 md:w-1/4 px-4 xl:pl-0 xl:px-12 inline-block float-left pb-8 md:pb-0">
+<h6 class="text-white font-bold text-xl uppercase tracking-widest mb-3">
+Applications
+</h6>
+<ul class="text-lg leading-tight flex flex-wrap category-list">
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/audio/">Audio</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/iot/">IOT</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/automation/">Automation</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/lighting/">lighting</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/automotive/">Automotive</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/medical-fitness/">Medical &amp; Fitness</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/computers-peripherals/">Computers &amp; Peripherals</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/military-aero-space/">Military / Aero / Space</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/cloud-computing/">Cloud Computing</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/motor-control/">Motor Control</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/it-networking/">IT / Networking</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/security-identification/">Security / Identification</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/consumer-electronics/">Consumer Electronics</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/smart-grid-energy/">Smart Grid / Energy</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/industrial/">Industrial</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/latest/telecom/">Telecom</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline font-bold" href="https://www.allaboutcircuits.com/latest/">View All <i class="aac-caret-right text-base"></i></a></li>
+</ul>
+</div>
+<div class="w-1/2 md:w-1/4 pl-8 md:px-4 xl:pl-0 xl:pr-7 inline-block float-left">
+<h6 class="text-white font-bold text-xl uppercase tracking-widest mb-3">
+Content
+</h6>
+<ul class="text-lg leading-tight flex flex-wrap category-list">
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/bom/">BOM Tool</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/tools/">Calculators</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/electronic-components/">Datasheets</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/giveaways/">Giveaways</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/industry-articles/">Industry Articles</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/industry-training/">Industry Training</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/industry-webinars/">Industry Webinars</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/ip-cores/">IC Design Center</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/news/">News</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/electronic-components/">Part Search</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/podcast/">Podcast</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/projects/">Projects</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/industry-designs/">Reference Designs</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/tech-chats/">Tech Chats</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/technical-articles/">Technical Articles</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/test-measurement/">Test Equipment</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/textbook/">Textbook</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/video-lectures/">Video Lectures</a></li>
+<li class="py-1 w-full"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/worksheets/">Worksheets</a></li>
+</ul>
+</div>
+<div class="w-full text-center md:text-left md:w-1/4 xl:pr-4 sm:pl-0 px-4 inline-block float-left">
+<h6 class="text-white font-bold text-xl uppercase tracking-widest mb-2 mt-12 md:mt-0">
+Who We Are
+</h6>
+<img class="my-6 md:my-3 mx-auto md:mx-0" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/AAClogo.webp" alt="">
+<a class="block text-lg text-aac-grey text-decoration-none my-2" href="https://www.allaboutcircuits.com/about-us/">
+More about us <i class="aac-more-arrow ml-2 text-white text-sm"></i>
+</a>
+<h6 class="text-white font-bold text-xl uppercase tracking-widest mt-8 mb-2">
+Connect With Us
+</h6>
+<ul class="w-3/5 mx-auto md:w-full md:mx-0 flex flex-wrap justify-between text-5xl my-3">
+<li class="inline-block float-left mr-3"><a class="text-aac-grey-dark hover:text-aac-grey" href="https://www.facebook.com/allaboutcircuits" target="_blank" rel="noopener"><i class="aac-facebook"></i></a></li>
+<li class="inline-block float-left mr-3"><a class="text-aac-grey-dark hover:text-aac-grey" href="https://twitter.com/AllAboutCircuit" target="_blank" rel="noopener"><i class="aac-twitter"></i></a></li>
+<li class="inline-block float-left mr-3"><a class="text-aac-grey-dark hover:text-aac-grey" href="https://www.linkedin.com/company/10236224/" target="_blank" rel="noopener"><i class="aac-linkedin"></i></a></li>
+<li class="inline-block float-left mr-3"><a class="text-aac-grey-dark hover:text-aac-grey" href="https://www.youtube.com/c/AllAboutCircuitsVideo" target="_blank" rel="noopener"><i class="aac-youtube"></i></a></li>
+<li class="inline-block float-left"><a class="text-aac-grey-dark hover:text-aac-grey" href="https://www.instagram.com/all_about_circuits/" target="_blank" rel="noopener"><i class="aac-instagram"></i></a></li>
+</ul>
+<ul class="text-lg leading-loose flex flex-wrap justify-between md:text-justify md:px-0 sm:px-8">
+<li class="py-1 w-1/2"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/contact-us/">Contact Us</a></li>
+<li class="py-1 w-1/2"><a class="text-aac-grey hover:text-white hover:underline" href="https://www.eetech.com/" target="_blank">Advertise</a></li>
+<li class="py-1 w-1/2"><a class="ga-link text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/write-for-us/" data-category="write-for-us" data-action="write-for-us">Write For Us</a></li>
+<li class="py-1 w-1/2"><a class="text-aac-grey hover:text-white hover:underline" href="http://us8.campaign-archive1.com/home/?u=18656ef6df14c935d4d9192ee&amp;id=2565529c4b" target="_blank" rel="noopener">Newsletters</a></li>
+</ul>
+</div>
+</div>
+<div class="flex flex-wrap block clearfix py-4 md:py-8">
+<div class="w-full lg:w-2/3 px-4 xl:pl-0 xl:pr-32 text-center md:text-left inline-block float-left ">
+<h6 class="text-white font-bold text-xl uppercase tracking-widest pb-5 mb-4 border-b border-aac-blue-dark">
+More From Our Network
+</h6>
+<div class="flex flex-wrap">
+<div class="w-full pr-3">
+<ul class="flex flex-wrap flex-col md:flex-row items-center md:justify-between">
+<li class="py-4 md:py-0 inline-block float-left mr-4">
+<a href="https://control.com/" target="_blank" class="text-aac-grey-dark hover:text-aac-grey">
+<span class="aac-control text-5xl"></span>
+</a>
+</li>
+<li class="py-4 md:py-0 inline-block float-left mr-4">
+<a href="https://maker.pro/" target="_blank" class="text-aac-grey-dark hover:text-aac-grey">
+<span class="aac-maker-pro text-5xl"></span>
+</a>
+</li>
+<li class="py-4 md:py-0 inline-block float-left mr-4">
+<a href="https://eepower.com/" target="_blank" class="text-aac-grey-dark hover:text-aac-grey">
+<span class="aac-eepower text-3xl"></span>
+</a>
+</li>
+<li class="py-4 md:py-0 inline-block float-left mr-4">
+<a href="https://www.electronicspoint.com/" target="_blank" class="text-aac-grey-dark hover:text-aac-grey">
+<span class="aac-electronics text-5xl"></span>
+</a>
+</li>
+<li class="py-4 md:py-0 inline-block float-left">
+<a href="https://www.mikrocontroller.net/" target="_blank" class="text-aac-grey-dark hover:text-aac-grey">
+<span class="aac-mikrocontroller text-2xl"></span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/3 px-4 xl:pl-24 xl:pr-12 pt-4 md:pt-8 lg:pt-0 pb-4 lg:pb-0 inline-block float-left ">
+<h6 class="text-white font-bold text-xl uppercase tracking-widest mt-2 mb-3">
+Sign Up
+</h6>
+<form action="https://forum.allaboutcircuits.com/register" method="GET" class="flex w-full md:w-1/2 lg:w-full">
+<input type="text" name="email" class="float-left inline-block flex-1 rounded-l bg-aac-blue-dark pl-4 py-4 text-aac-grey-light text-base" placeholder="Enter your email address" aria-label="Enter you email address" aria-describedby="basic-addon1">
+<button type="submit" class="ga-link float-left inline-block w-auto bg-gradient bg-aac-orange rounded-r text-white px-5 py-4 text-base" data-category="register" data-action="email" data-label="https://forum.allaboutcircuits.com/register">Register</button>
+</form>
+</div>
+</div>
+</div>
+<div class="w-full bg-aac-blue-dark">
+<div class="container mx-auto p-0">
+<div class="flex flex-wrap py-3 lg:py-5 px-4 lg:pl-0 lg:pr-12 clearfix">
+<div class="w-full lg:flex-1 lg:w-auto text-aac-grey text-base text-center lg:text-left order-2 md:order-1 inline-block float-left">
+<span class="text-aac-orange">© EETech Media, LLC.</span> All rights reserved
+</div>
+<div class="mx-auto lg:mx-0 lg:w-auto float-right text-base flex items-center whitespace-no-wrap order-1 md:order-2 mb-3 lg:mb-0">
+<a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/privacy-policy/">Privacy Policy</a>
+<span class="text-aac-grey mx-1">·</span>
+<a class="text-aac-grey hover:text-white hover:underline" href="https://forum.allaboutcircuits.com/help/terms">Terms of Service</a>
+<span class="text-aac-grey mx-1">·</span>
+<a class="text-aac-grey hover:text-white hover:underline" href="https://www.allaboutcircuits.com/user-agreement/">User Agreement</a>
+<a id="backToTop" class="hidden md:inline-block" href="https://www.allaboutcircuits.com/technical-articles/image-histogram-characteristics-machine-learning-image-processing/"><i class="aac-back-to-top ml-5 text-4xl"></i></a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/jquery.matchHeight-min.js" integrity="sha256-+oeQRyZyY2StGafEsvKyDuEGNzJWAbWqiO2L/ctxF6c=" crossorigin="anonymous"></script>
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/jstorage.min.js" integrity="sha256-JpV4IWnt/w4RQKkIQd0NORsrqy7mnydQFD0iQjKEc/Y=" crossorigin="anonymous"></script>
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/jquery.hoverIntent.min.js" integrity="sha256-rsusDYnTpKDiboGp6W+t4oB9VOdybAuz3F/JalS7P5Y=" crossorigin="anonymous"></script>
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/MathJax.js" async=""></script>
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/jquery.modal.min.js" crossorigin="anonymous"></script>
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/jquery-ui.min.js"></script>
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/howler.min.js" integrity="sha256-/Q4ZPy6sMbk627wHxuaWSIXS1y7D2KnMhsm/+od7ptE=" crossorigin="anonymous"></script>
+<script src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/app.js"></script>
+
+<div class="w-5/6 md:w-590px absolute z-50 bg-white border-t-7 border-aac-orange mt-24 top-0 mx-auto left-0 right-0 modal" id="loginModal">
+<img src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/AAClogo2.webp" alt="All About Circuits" class="mx-auto mt-4 w-1/2 h-auto">
+<h2 class="text-center text-aac-blue-dark font-arimo font-bold text-7xl my-4">Welcome Back</h2>
+<form method="POST" action="https://forum.allaboutcircuits.com/login/login">
+<input class="appearance-none block w-full bg-aac-grey-light text-aac-grey focus:text-aac-blue-dark text-xl focus:font-bold border border-aac-grey focus:border-aac-orange rounded-sm p-4 mb-2 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="Username or Email" name="login" id="username" tabindex="1">
+<p class="text-xl text-aac-blue-dark mb-4">Don't have an AAC account? <a href="https://forum.allaboutcircuits.com/register/">Create one now</a>.</p>
+<input class="appearance-none block w-full bg-aac-grey-light text-aac-grey focus:text-aac-blue-dark text-xl focus:font-bold border border-aac-grey focus:border-aac-orange rounded-sm p-4 mb-2 leading-tight focus:outline-none focus:bg-white" type="password" placeholder="Password" name="password" id="password" tabindex="2">
+<p class="text-xl text-aac-blue-dark mb-4">Forgot your password? <a href="https://forum.allaboutcircuits.com/lost-password">Click here</a>.</p>
+<button class="block w-full font-open-sans text-xl bg-gradient text-center px-8 py-5 rounded font-bold text-white mb-4 hover:shadow-md">Sign In</button>
+<label class="text-xl font-open-sans font-bold cursor-pointer mb-4 orange-checkbox">
+<input class="mr-2 leading-tight" type="checkbox" name="remember" value="1" id="remember_me" checked="checked">
+<span class="checkmark"></span>
+<span>Stay logged in</span>
+</label>
+<input type="hidden" id="_xfRedirect" name="_xfRedirect" value="">
+<input type="hidden" id="_xfToken" name="_xfToken" value="">
+</form>
+<div class="italic font-xl text-aac-blue-dark px-16 mb-4 flex items-center"><span>Or sign in with</span> <hr class="h-px bg-gray-400 flex-grow ml-4"></div>
+<ul class="flex flex-wrap md:flex-no-wrap mx-auto items-center clearfix">
+<li class="mb-5 w-full md:w-1/2 float-left inline-block md:pr-2"><a href="https://forum.allaboutcircuits.com/register/connected-accounts/facebook/?setup=1" class="ga-link flex block items-center py-4 px-8 md:px-3 lg:px-6 text-center text-white text-xl rounded-md bg-facebook hover:bg-facebook-dark" data-category="register" data-action="facebook" data-label="https://https://forum.allaboutcircuits.com/register/connected-accounts/facebook/?setup=1"><i class="aac-facebook text-4xl mr-2"></i> Facebook</a></li>
+<li class="mb-5 w-full md:w-1/2 float-left inline-block md:pl-2"><a href="https://forum.allaboutcircuits.com/register/connected-accounts/google/?setup=1" class="ga-link flex block items-center py-4 px-6 md:px-3 lg:px-6 text-center text-white text-xl rounded-md bg-google hover:bg-google-dark" data-category="register" data-action="google" data-label="https://https://forum.allaboutcircuits.com/register/connected-accounts/google/?setup=1"><i class="aac-google text-4xl mr-2"></i> Google</a></li>
+</ul>
+</div>
+
+
+<div id="div-gpt-ad-1430235245447-0" class="wallpaperadpixel" data-google-query-id="CLSTv7Cu2ukCFVkMXAodMvsDog">
+
+<div id="google_ads_iframe_/62616433/main_wallpaper_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/62616433/main_wallpaper_0" title="3rd party ad content" name="google_ads_iframe_/62616433/main_wallpaper_0" width="1" height="1" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" data-google-container-id="2" style="border: 0px; vertical-align: bottom;" data-load-complete="true" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/saved_resource(1).html"></iframe></div></div>
+
+<div id="my_popup" class="no-print hidden fixed h-full top-0 left-0 bottom-0 right-0 bg-aac-blue-transparent z-999 text-white py-12 px-20">
+<div class="w-full">
+<div class="flex flex-wrap mb-12 px-4">
+<div class="w-full lg:my-3 lg:px-3 lg:w-1/2">
+<img src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/aac_logo.webp" alt="All About Circuits Logo" class="w-60">
+</div>
+<div class="w-full uppercase lg:my-3 lg:px-3 lg:w-1/2 text-right my_popup_close continue-site text-arimo text-7xl font-bold cursor-pointer hover:text-aac-orange">
+Continue to site
+</div>
+</div>
+<div class="flex">
+<div class="hidden xl:inline-block w-auto text-8xl text-white">
+<div class="uppercase font-bold leading-none font-arimo text-60px mb-7 px-16">
+<span class="text-aac-grey-darkest block text-left whitespace-no-wrap">QUOTE OF</span>
+<span class="text-aac-grey-darker block text-right whitespace-no-wrap">THE DAY</span>
+</div>
+<div class="font-karla leading-tight mb-3 text-left flex pr-20">
+<div class="text-10xl text-aac-grey-darker">“</div>
+<div class="pt-4 text-6xl"><span id="welcomequote"></span><span>”</span></div>
+</div>
+<div class="italic font-open-sans text-9xl text-right pr-20"> - <span id="welcomeauthor"></span></div>
+</div>
+<div class="w-full xl:mw-1/2 flex items-center justify-center">
+<div id="div-gpt-ad-1430160889889-0" class="w-640px" data-google-query-id="CLOTv7Cu2ukCFVkMXAodMvsDog"><div id="google_ads_iframe_/62616433/main_welcome_0__container__" style="border: 0pt none; display: inline-block; width: 640px; height: 480px;"><iframe frameborder="0" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/container(1).html" id="google_ads_iframe_/62616433/main_welcome_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="640" height="480" data-is-safeframe="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-google-container-id="1" style="border: 0px; vertical-align: bottom;" data-load-complete="true"></iframe></div></div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="div-gpt-ad-1441294234226-0" data-google-query-id="CLeTv7Cu2ukCFVkMXAodMvsDog">
+<div id="google_ads_iframe_/62616433/main_native_ad_unit_1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/62616433/main_native_ad_unit_1_0" title="3rd party ad content" name="google_ads_iframe_/62616433/main_native_ad_unit_1_0" width="1" height="1" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" data-google-container-id="5" style="border: 0px; vertical-align: bottom;" data-load-complete="true" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/saved_resource(2).html"></iframe></div><script>
+        googletag.cmd.push(function() {googletag.display('div-gpt-ad-1441294234226-0');});
+      </script>
+</div>
+
+
+<iframe id="google_osd_static_frame_3352161370904" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./Pixel Intensity Histogram Characteristics_ Basics of Image Processing and Machine Vision - Technical Articles_files/saved_resource(3).html"></iframe></body></html>

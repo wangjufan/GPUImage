@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://tpc.googlesyndication.com/safeframe/1-0-37/html/container.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>SafeFrame Container</title>
+    <script>
+(function(){var n=this||self;var w={};var y=function(a){y[" "](a);return a};y[" "]=function(){};var B=null,G=function(a){var b=a.length,c=3*b/4;c%3?c=Math.floor(c):-1!="=.".indexOf(a[b-1])&&(c=-1!="=.".indexOf(a[b-2])?c-2:c-1);var d=new Uint8Array(c),f=0;C(a,function(g){d[f++]=g});return d.subarray(0,f)},C=function(a,b){function c(q){for(;d<a.length;){var e=a.charAt(d++),k=B[e];if(null!=k)return k;if(!/^[\s\xa0]*$/.test(e))throw Error("Unknown base64 encoding at char: "+e);}return q}H();for(var d=0;;){var f=c(-1),g=c(0),h=c(64),p=c(64);if(64===p&&-1===f)break;b(f<<2|g>>4);64!=h&&(b(g<<4&240|h>>2),64!=p&&b(h<<6&192|p))}},H=function(){if(!B){B={};for(var a="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split(""),b=["+/=","+/","-_=","-_.","-_"],c=0;5>c;c++)for(var d=a.concat(b[c].split("")),f=0;f<d.length;f++){var g=d[f];void 0===B[g]&&(B[g]=f)}}};var I=function(a,b){if(a)for(var c in a)Object.prototype.hasOwnProperty.call(a,c)&&b.call(void 0,a[c],c,a)};var J=function(a,b){var c=void 0===c?{}:c;this.error=a;this.context=b.context;this.msg=b.message||"";this.id=b.id||"jserror";this.meta=c};var K=/^https?:\/\/(\w|-)+\.cdn\.ampproject\.(net|org)(\?|\/|$)/,L=function(a,b){this.a=a;this.b=b},M=function(a,b){this.url=a;this.g=!!b;this.depth=null};var N=function(a){n.google_image_requests||(n.google_image_requests=[]);var b=n.document.createElement("img");b.src=a;n.google_image_requests.push(b)};var O=function(){this.c="&";this.f=!1;this.b={};this.i=0;this.a=[]},Q=function(a,b){var c={};c[a]=b;return[c]},S=function(a,b,c,d,f){var g=[];I(a,function(h,p){(h=R(h,b,c,d,f))&&g.push(p+"="+h)});return g.join(b)},R=function(a,b,c,d,f){if(null==a)return"";b=b||"&";c=c||",$";"string"==typeof c&&(c=c.split(""));if(a instanceof Array){if(d=d||0,d<c.length){for(var g=[],h=0;h<a.length;h++)g.push(R(a[h],b,c,d+1,f));return g.join(c[d])}}else if("object"==typeof a)return f=f||0,2>f?encodeURIComponent(S(a,b,c,d,f+1)):"...";return encodeURIComponent(String(a))},T=function(a,b,c,d){a.a.push(b);a.b[b]=Q(c,d)},V=function(a){var b="https://pagead2.googlesyndication.com/pagead/gen_204?id=jserror&",c=U(a)-27;if(0>c)return"";a.a.sort(function(k,m){return k-m});for(var d=null,f="",g=0;g<a.a.length;g++)for(var h=a.a[g],p=a.b[h],q=0;q<p.length;q++){if(!c){d=null==d?h:d;break}var e=S(p[q],a.c,",$");if(e){e=f+e;if(c>=e.length){c-=e.length;b+=e;f=a.c;break}a.f&&(f=c,e[f-1]==a.c&&--f,b+=e.substr(0,f),f=a.c,c=0);d=null==d?h:d}}a="";null!=d&&(a=f+"trn="+d);return b+a+""},U=function(a){var b=1,c;for(c in a.b)b=c.length>b?c.length:b;return 3997-b-a.c.length-1};var W=function(a){if(.01>Math.random())try{if(a instanceof O)var b=a;else b=new O,I(a,function(d,f){var g=b,h=g.i++;d=Q(f,d);g.a.push(h);g.b[h]=d});var c=V(b);c&&N(c)}catch(d){}};var X=function(a){var b=a.toString();a.name&&-1==b.indexOf(a.name)&&(b+=": "+a.name);a.message&&-1==b.indexOf(a.message)&&(b+=": "+a.message);if(a.stack){a=a.stack;var c=b;try{-1==a.indexOf(c)&&(a=c+"\n"+a);for(var d;a!=d;)d=a,a=a.replace(/((https?:\/..*\/)[^\/:]*:\d+(?:.|\n)*)\2/,"$1");b=a.replace(/\n */g,"\n")}catch(f){b=c}}return b};var Y=function(a){if(!a)return a;var b=a.toLowerCase();return-1<b.indexOf("<!doctype")||-1<b.indexOf("<html")?a:"<html><head></head><body>"+a+"</body></html>"},Z=function(a){var b=/<startguard>(.*)<endguard>/g.exec(a);return b&&b[1]?b[1]:a};var aa=new function(){this.a=w===w&&"https://ff.doubleclick.net"||""};var ba=/^([^;]+);(\d+);([\s\S]*)$/,ca=function(){var a=window.name,b=ba.exec(a);if(null===b)throw Error("Cannot parse serialized data. "+a.substring(0,50));a=+b[2];var c=b[3];if(a>c.length)throw Error("Parsed content size doesn't match. "+a+":"+c.length);return{j:b[1],content:c.substr(0,a),h:c.substr(a)}};var da=/(<head(\s+[^>]*)?>)/i;(function(a){if(window.name){var b=function(e){try{var k=new O;k.f=!0;T(k,1,"context",507);e.error&&e.meta&&e.id||(e=new J(e,{message:X(e)}));e.msg&&T(k,2,"msg",e.msg.substring(0,512));var m=[e.meta||{}];k.a.push(3);k.b[3]=m;e=n;m=[];var D=null;do{var l=e;try{var z;if(z=!!l&&null!=l.location.href)b:{try{y(l.foo);z=!0;break b}catch(A){}z=!1}var P=z}catch(A){P=!1}if(P){var t=l.location.href;D=l.document&&l.document.referrer||null}else t=D,D=null;m.push(new M(t||""));try{e=l.parent}catch(A){e=null}}while(e&&l!=e);t=0;for(var u=m.length-1;t<=u;++t)m[t].depth=u-t;l=n;if(l.location&&l.location.ancestorOrigins&&l.location.ancestorOrigins.length==m.length-1)for(u=1;u<m.length;++u){var v=m[u];v.url||(v.url=l.location.ancestorOrigins[u-1]||"",v.g=!0)}var E=new M(n.location.href,!1);l=null;var F=m.length-1;for(v=F;0<=v;--v){var r=m[v];!l&&K.test(r.url)&&(l=r);if(r.url&&!r.g){E=r;break}}r=null;var ea=m.length&&m[F].url;0!=E.depth&&ea&&(r=m[F]);var x=new L(E,r);x.b&&T(k,4,"top",x.b.url||"");T(k,5,"url",x.a.url||"");W(k)}catch(A){try{W({context:"ecmserr",rctx:507,msg:X(A),url:x&&x.a.url})}catch(fa){}}};try{var c=ca(),d=JSON.parse(c.h),f=function(e){d.goog_safeframe_hlt&&(n.goog_safeframe_hlt=d.goog_safeframe_hlt);d._context&&(n.AMP_CONTEXT_DATA=d._context);n.sf_={v:c.j,cfg:d};var k=window.document;k.open("text/html","replace");k.write(e);k.close();n.sf_&&(window.name="")},g=void 0===d.encryptionMode?null:d.encryptionMode,h=d.secureFetchFrame,p=d.uid;if(h){var q=new MessageChannel;q.port1.onmessage=function(e){e=Y(e.data).replace(da,'$1<script>window.addEventListener("load", function() {window.parent.postMessage("sf-load:'+(p+'", "*");});\x3c/script>'));a(e,g,f,b);q.port1.close()};window.parent.frames[h].postMessage("sf-ready:"+p,aa.a,[q.port2])}else window.name="",a(c.content,g,f,b)}catch(e){b(e)}}})(function(a,b,c){2===b&&(a=Y((new TextDecoder).decode(G(Z(a)))));c(a)});}).call(this);
+    </script></head><body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"><script src="./ext.js"></script><script>window.dicnf = {};</script><script data-jc="42" data-jc-version="r20200526">(function(){/*  Copyright The Closure Library Authors. SPDX-License-Identifier: Apache-2.0 */ 'use strict';window.viewReq=[];const c=a=>{fetch(a,{keepalive:!0,credentials:"include",redirect:"follow",method:"get",mode:"no-cors"}).catch(()=>{{const b=new Image;b.src=a.replace("&amp;","&");viewReq.push(b)}})};window.vu=a=>{if(window.fetch)c(a);else{{const b=new Image;b.src=a.replace("&amp;","&");viewReq.push(b)}}};}).call(this);</script><script>vu("https://securepubads.g.doubleclick.net/pcs/view?xai\x3dAKAOjstAbePpiWTgY3imgCTgz8uCCu7v2iVEj-uI_I52yhlaJmWxEve8i7R8qPHWbu6Jka6qnC5k1xr_uxqoii2uS9Bithm7ZoLGtlMIh01Pn03n-3nbVfcK_O4FhsSiSl3ecQguVrYWuMNKmaWlbDE7aXiKNM5lhmwlFyQUJMNXhLhaplSQhbPjl2v42IxUy2OGOG3dwEWOhrvW76_C3o0Da9yJzPsUx8LBqV1PEUwuDVIB--aPLGcGqq9-kID_rpNR1pJ792mmFIyoNqY7lLg\x26sig\x3dCg0ArKJSzOO_aY2eTGxoEAE\x26urlfix\x3d1\x26adurl\x3d")</script><div class="GoogleActiveViewInnerContainer" style="left:0px;top:0px;width:100%;height:100%;position:fixed;pointer-events:none;z-index:-9999;"></div><div style="display:inline" class="GoogleActiveViewElement" data-google-av-cxn="https://pagead2.googlesyndication.com/pcs/activeview?xai=AKAOjsuQoyhHHlFwBXY8Mh-A3tNU2REQiiclsZnQ-jewnIllHEBEkQhqb-Nnb_57o7sW11uUoj_zdV_Xuzv3ZTOFsLZ1yBKGA2of3r7CaupXl7M&amp;sig=Cg0ArKJSzL-kgxINX28oEAE" data-google-av-adk="3514567234" data-google-av-metadata="la=0&amp;xdi=0&amp;" data-google-av-override="-1" data-google-av-dm="2" data-google-av-immediate="" data-google-av-aid="0" data-google-av-naid="1" data-google-av-slift="" data-google-av-cpmav="" data-google-av-btr="https://securepubads.g.doubleclick.net/pcs/view?xai=AKAOjsvKTSqmcxJo7R4XBiEpIbeCJrSChkYW4Iq85BlkWNbNIZ0nQOKsh_u7O1x8dnO-DShibvJbEdaGXkNRmVsWu-s3b0n1whSuGsTz-GJKsnPTqFrzp5_TGXqZcsK5hF8LyraswT85_iJ9AG2JsmaZOtqOPz6kDYuiW2gg98syvCpjpl1w4jD3tnmLecEJhPPYnk7l-7q1f-Em6ZCRXWfcLG3l_KqaluhtjEWM0YgBfnAQ14nnVMSlgV2AQ04YCVs3YZ_bTm_H1njaXxff4OnS6A&amp;sig=Cg0ArKJSzC_qeVBfYGwdEAE&amp;urlfix=1&amp;adurl=" data-google-av-itpl="19" data-google-av-rs="4">
+
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ad-container {
+            width: 300px;
+            overflow: hidden;
+            min-height: 600px;
+            max-height: 600px;
+            font-family: Arial;
+            background: transparent;
+        }
+
+        .ad-container .heading {
+            text-align: left;
+            padding-bottom: 0px;
+            border-bottom: 0px;
+            clear: both;
+            display: block;
+            width: calc(100% - 20px);
+            padding: 10px;
+            background: url('https://sub.allaboutcircuits.com/htmlads/laird/apr20/background.png');
+            background-color: #fff;
+            height: 95px;
+        }
+
+        .ad-container .logo {
+            text-align: left;
+        }
+
+        .ad-container .logo img {
+            width: 150px;
+        }
+
+        .ad-container h1 {
+            color: #369fe3;
+            text-transform: uppercase;
+            font-family: Arial;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0px;
+            top: -20px;
+            padding-bottom: 10px;
+        }
+
+        .ad-container .button, .cart-btn p {
+            color: #369fe3;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 0px 20px;
+            display: inline-block;
+            text-decoration: none;
+            width: 100%;
+            text-align: left;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .ad-container .content {
+            padding: 6.4px 5px;
+            border: solid 5px #369fe3;
+            border-top: none;
+            background: #fff;
+            padding-top: 0px;
+            position: relative;
+        }
+
+        .ad-container .content .item {
+            display: block;
+            color: initial;
+            position: relative;
+            text-decoration: none;
+            padding: 5.3px 0px;
+            min-height: 150px;
+            background: #fff;
+        }
+
+
+        .ad-container .content .item:hover {
+            background-color: #edecee;
+        }
+
+        .ad-container .content .item:last-child {
+            margin-bottom: 0;
+            border: 0px;
+        }
+
+        .ad-container .content .item img {
+            position: absolute;
+            top: 7px;
+            left: 5px;
+        }
+
+        .ad-container .content .item .item-content {
+            padding-left: 85px;
+        }
+
+        .ad-container .content .item .item-content h3 {
+            margin: 0px;
+            padding: 0;
+            font-size: 18px;
+            line-height: 1.2;
+            margin-bottom: 6px;
+            color: #369fe3; 
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .ad-container .content .item .item-content p {
+            margin: 0;
+            padding: 0;
+            line-height: 1.2;
+            color: #000;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .ad-container .content .cart-btn {
+            padding: 0;
+            padding-left: 85px;
+            margin-bottom: 5px;
+        }
+
+        .ad-container .content .cart-btn:hover {
+            background: none;
+        }
+
+        .ad-container .content .cart-btn a {
+            text-decoration: none;
+        }
+
+        .cart-btn p {
+            margin: 0px;
+        }
+
+        .ad-container .content .cart-btn .item-buttons {
+            display: flex;
+            align-items: center;
+            background: #369fe3;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid #369fe3;
+            border-radius: 4px;
+        }
+
+        .ad-container .content .cart-btn .item-buttons:hover {
+            border-color:#092f42;
+            background: #092f42;
+        }
+
+        .ad-container .content .cart-btn .item-buttons img {
+            border-radius: 0 4px 4px 0;
+        }
+
+        .ad-container .content .cart-btn .button {
+            padding: 0 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>    
+
+
+    <div class="container">
+        <div class="ad-container">
+            <div class="heading">
+                <a href="https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjssRBQZpedQvKqdwrfEm7CliHzg7t2sqAd7zFmcofY6IRebfJBB12JBu3QeXp8T7sNb_YHSzOEe26XA5U1PDAQ9v3cERwt7WHd3vA-kGqG4EPm9Lbi5aUJvV_HWVRwYrux2z4kNwIq7ePwpUFoazCcoGQUFLJZLVJWJ2Xo9fnTxnIcfy3WbTFX0nRYal_6Cdj4h2W7iRubfThOyqrMr5jndrK-x5-F_NK4lxsxweHceMgUOLhBzpowut2RawiFtOCoTAv7TpJT_hyWA&amp;sig=Cg0ArKJSzJu7dSunMgHyEAE&amp;urlfix=1&amp;adurl=https://lairdthermal.com/" target="_blank" class="logo">
+                    <img src="./laird-logo.webp">
+                </a>
+            </div>
+            <div class="content">
+                <h1>
+                    新产品
+                </h1>
+                
+                <a target="_blank" href="https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjssRBQZpedQvKqdwrfEm7CliHzg7t2sqAd7zFmcofY6IRebfJBB12JBu3QeXp8T7sNb_YHSzOEe26XA5U1PDAQ9v3cERwt7WHd3vA-kGqG4EPm9Lbi5aUJvV_HWVRwYrux2z4kNwIq7ePwpUFoazCcoGQUFLJZLVJWJ2Xo9fnTxnIcfy3WbTFX0nRYal_6Cdj4h2W7iRubfThOyqrMr5jndrK-x5-F_NK4lxsxweHceMgUOLhBzpowut2RawiFtOCoTAv7TpJT_hyWA&amp;sig=Cg0ArKJSzJu7dSunMgHyEAE&amp;urlfix=1&amp;adurl=https://www.lairdthermal.com/products/liquid-cooling-systems/nextreme-recirculating-chillers?utm_source=abm_all_about_circuits_china&amp;utm_medium=abm_newsletter&amp;utm_campaign=chiller&amp;utm_content=chiller_info" class="item">
+                    <img src="./Chiller.webp" width="65px">
+                    <div class="item-content">
+                        <h3>面向未来的冷却器平台</h3>
+                        <p>冷却器：结构紧凑、高效，采用可靠的低噪声组件和环保型制冷剂设计</p>
+                        <div class="item-buttons">
+                            <span class="button">
+                                查看库存 »
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="cart-btn">
+                    <a target="_blank" href="https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjssRBQZpedQvKqdwrfEm7CliHzg7t2sqAd7zFmcofY6IRebfJBB12JBu3QeXp8T7sNb_YHSzOEe26XA5U1PDAQ9v3cERwt7WHd3vA-kGqG4EPm9Lbi5aUJvV_HWVRwYrux2z4kNwIq7ePwpUFoazCcoGQUFLJZLVJWJ2Xo9fnTxnIcfy3WbTFX0nRYal_6Cdj4h2W7iRubfThOyqrMr5jndrK-x5-F_NK4lxsxweHceMgUOLhBzpowut2RawiFtOCoTAv7TpJT_hyWA&amp;sig=Cg0ArKJSzJu7dSunMgHyEAE&amp;urlfix=1&amp;adurl=https://www.digikey.com/en/product-highlight/l/laird-thermal-systems/nextreme-recirculating-chiller-platform">
+                        <div class="item-buttons">
+                            <span class="button">
+                                入手可能性をチェック
+                            </span>
+                            <img src="./digiykey.webp" width="25px">
+                        </div>
+                    </a>
+                </div>
+
+                <a target="_blank" href="https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjssRBQZpedQvKqdwrfEm7CliHzg7t2sqAd7zFmcofY6IRebfJBB12JBu3QeXp8T7sNb_YHSzOEe26XA5U1PDAQ9v3cERwt7WHd3vA-kGqG4EPm9Lbi5aUJvV_HWVRwYrux2z4kNwIq7ePwpUFoazCcoGQUFLJZLVJWJ2Xo9fnTxnIcfy3WbTFX0nRYal_6Cdj4h2W7iRubfThOyqrMr5jndrK-x5-F_NK4lxsxweHceMgUOLhBzpowut2RawiFtOCoTAv7TpJT_hyWA&amp;sig=Cg0ArKJSzJu7dSunMgHyEAE&amp;urlfix=1&amp;adurl=https://lairdthermal.com/products/thermoelectric-cooler-modules/peltier-utx-series?utm_source=abm_all_about_circuits_china&amp;utm_medium=abm_newsletter&amp;utm_campaign=utx&amp;utm_content=utx_info" class="item">
+                    <img src="./UTX.webp" width="75px">
+                    <div class="item-content">
+                        <h3>以更小体积实现更高冷却能力</h3>
+                        <p>UltraTEC UTX热电冷却器：以更小的体积将热泵容量提高10％</p>
+                        <div class="item-buttons">
+                            <span class="button">
+                                产品信息 »
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="cart-btn">
+                    <a target="_blank" href="https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjssRBQZpedQvKqdwrfEm7CliHzg7t2sqAd7zFmcofY6IRebfJBB12JBu3QeXp8T7sNb_YHSzOEe26XA5U1PDAQ9v3cERwt7WHd3vA-kGqG4EPm9Lbi5aUJvV_HWVRwYrux2z4kNwIq7ePwpUFoazCcoGQUFLJZLVJWJ2Xo9fnTxnIcfy3WbTFX0nRYal_6Cdj4h2W7iRubfThOyqrMr5jndrK-x5-F_NK4lxsxweHceMgUOLhBzpowut2RawiFtOCoTAv7TpJT_hyWA&amp;sig=Cg0ArKJSzJu7dSunMgHyEAE&amp;urlfix=1&amp;adurl=https://www.digikey.com/en/product-highlight/l/laird-thermal-systems/ultratec-utx-series-thermoelectric-coolers">
+                        <div class="item-buttons">
+                            <span class="button">
+                                Digi-Key可提供供货
+                            </span>
+                            <img src="./digiykey.webp" width="25px">
+                        </div>
+                    </a>
+                </div>
+                
+               
+            </div>
+        </div>
+    </div>
+
+</div><script src="./osd_listener.js"></script><script type="text/javascript">osdlfm(-1,'','Ba4znAK3RXrWTKtmY8AKy9o-QCgAAAAAQATgByAEJwAIC4AIA4AQBoAYg0ggFCIBhEAE','',3514567234,true,'la\x3d0\x26xdi\x3d0\x26',3,'CAASEuRocIFt6eKsOAjzX9vzm-vZbw','https://pagead2.googlesyndication.com/pcs/activeview?xai\x3dAKAOjsuQoyhHHlFwBXY8Mh-A3tNU2REQiiclsZnQ-jewnIllHEBEkQhqb-Nnb_57o7sW11uUoj_zdV_Xuzv3ZTOFsLZ1yBKGA2of3r7CaupXl7M\x26sig\x3dCg0ArKJSzL-kgxINX28oEAE','');</script><div style="bottom:0;right:0;width:300px;height:600px;background:initial !important;position:absolute !important;max-width:100% !important;max-height:100% !important;pointer-events:none !important;image-rendering:pixelated !important;z-index:2147483647;background-image:url(&#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAWBAMAAACrl3iAAAAABlBMVEUAAAD+AciWmZzWAAAAAnRSTlMAApidrBQAAAB7SURBVBjTbVCBDcAwCKIf8P+1mwrYLLOJKylDBPivM9W3G7Ff305y0SkG+hRbqF6KxrkE5d0t7GiDq63Z1rcT13LlG+GP/xDZrT8Denx7nh3VxJaR/c3bxfolDm+bXOLbkp8EuXO4KSRyfBL0CvK9eSeZW5vYcyco54UeW9wFsRwokSwAAAAASUVORK5CYII=&#39;) !important;"></div>
+  
+  
+  
+
+</body></html>

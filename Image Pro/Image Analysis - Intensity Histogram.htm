@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!-- saved from url=(0053)https://homepages.inf.ed.ac.uk/rbf/HIPR2/histgram.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Image Analysis - Intensity Histogram</title>
+</head>
+<body bgcolor="#ffffff">
+<img src="./Image Analysis - Intensity Histogram_files/logo.gif" alt="" align="right"><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/hipr_top.htm"><img alt="home" src="./Image Analysis - Intensity Histogram_files/home.gif"></a>
+<a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/classify.htm"><img alt="right" src="./Image Analysis - Intensity Histogram_files/right.gif"></a>
+<a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/analops.htm"><img alt="up" src="./Image Analysis - Intensity Histogram_files/up.gif"></a>
+<br clear="right"><br><center><img alt="---" src="./Image Analysis - Intensity Histogram_files/line2.gif" width="75%" height="4"></center><br>
+<a name="1"><img alt="" src="./Image Analysis - Intensity Histogram_files/mote.gif"></a><h1>Intensity Histogram</h1>
+
+<p>
+
+
+	</p><center>
+	<img alt="" align="middle" src="./Image Analysis - Intensity Histogram_files/histb.gif"><br> 
+	<strong>Common Names:</strong> Histogram
+	</center>
+
+<p>
+</p><h2>Brief Description</h2>
+
+<p>In an image processing context, the histogram of an image normally
+refers to a histogram of the <a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/value.htm">pixel intensity values</a>. This
+histogram is a graph showing the number of <a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/pixel.htm">pixels</a> in an image at each
+different intensity value found in that image. For an 8-bit
+<a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/gryimage.htm">grayscale image</a> there are 256 different possible
+intensities, and so the histogram will graphically display 256 numbers
+showing the distribution of pixels amongst those grayscale
+values. Histograms can also be taken of <a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/colimage.htm">color images</a>
+--- either individual histograms of red, green and blue channels can
+be taken, or a 3-D histogram can be produced, with the three
+axes representing the <a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/rgb.htm">red, blue and green</a> channels, and brightness at
+each point representing the pixel count. The exact output from the
+operation depends upon the implementation --- it may simply be a
+picture of the required histogram in a suitable image format, or it
+may be a data file of some sort representing the histogram statistics.
+
+</p><p></p><h2>How It Works</h2>
+
+<p>The operation is very simple. The image is scanned in a single pass and
+a running count of the number of pixels found at each intensity value
+is kept. This is then used to construct a suitable histogram.
+
+</p><p></p><h2>Guidelines for Use</h2>
+
+<p>Histograms have many uses. One of the more common is to decide what
+value of threshold to use when converting a <a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/gryimage.htm">grayscale image</a> to a
+<a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/binimage.htm">binary</a> one by <a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/threshld.htm">thresholding</a>. If the image is suitable
+for thresholding then the histogram will be <a name="2"><img alt="" src="./Image Analysis - Intensity Histogram_files/mote.gif"></a><em>bi-modal</em> --- <em>i.e.</em> the
+pixel intensities will be clustered around two well-separated values.
+A suitable threshold for separating these two groups will be found
+somewhere in between the two peaks in the histogram. If the
+distribution is not like this then it is unlikely that a good
+segmentation can be produced by thresholding.
+
+</p><p>The intensity histogram for the input image 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/wdg2.gif"><img alt="wdg2" src="./Image Analysis - Intensity Histogram_files/wdg2.GIF"></a></blockquote>
+<p> is 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/wdg2hst1.gif"><img alt="wdg2hst1" src="./Image Analysis - Intensity Histogram_files/wdg2hst1.GIF"></a></blockquote>
+<p>
+The object being viewed is dark in color and it is
+placed on a light background, and so the histogram exhibits a good
+bi-modal distribution. One peak represents the object pixels, one
+represents the background.
+The histogram 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/wdg2hst3.gif"><img alt="wdg2hst3" src="./Image Analysis - Intensity Histogram_files/wdg2hst3.GIF"></a></blockquote>
+<p> is the same,
+but with the <em>y</em>-axis expanded to show more detail. It is clear that a
+threshold value of around 120 should segment the picture nicely, as can
+be seen in 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/wdg2thr2.gif"><img alt="wdg2thr2" src="./Image Analysis - Intensity Histogram_files/wdg2thr2.GIF"></a></blockquote>
+<p>
+
+</p><p>The histogram of image 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/wdg3.gif"><img alt="wdg3" src="./Image Analysis - Intensity Histogram_files/wdg3.GIF"></a></blockquote>
+<p> is 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/wdg3hst1.gif"><img alt="wdg3hst1" src="./Image Analysis - Intensity Histogram_files/wdg3hst1.GIF"></a></blockquote>
+<p>
+This time there is a significant incident illumination gradient across the
+image, and this blurs out the histogram. The bi-modal distribution has
+been destroyed and it is no longer possible to select a single global
+threshold that will neatly segment the object from its background. Two
+failed thresholding segmentations are shown in 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/wdg3thr1.gif"><img alt="wdg3thr1" src="./Image Analysis - Intensity Histogram_files/wdg3thr1.GIF"></a></blockquote>
+<p> and
+
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/wdg3thr2.gif"><img alt="wdg3thr2" src="./Image Analysis - Intensity Histogram_files/wdg3thr2.GIF"></a></blockquote>
+<p> using thresholds of 80 and 120, respectively.
+
+</p><p>It is often helpful to be able to adjust the scale on the <em>y</em>-axis of
+the histogram manually. If the scaling is simply done automatically,
+then very large peaks may force a scale that makes smaller features
+indiscernible.
+
+</p><p>The histogram is used and altered by many image enhancement
+operators. Two operators which are closely connected to the histogram
+are <a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/stretch.htm">contrast stretching</a> and <a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/histeq.htm">histogram
+equalization</a>. They are based on the assumption that an image has to
+use the full intensity range to display the maximum contrast. Contrast
+stretching takes an image in which the intensity values don't span the
+full intensity range and stretches its values linearly. This can be
+illustrated with 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/cla3.gif"><img alt="cla3" src="./Image Analysis - Intensity Histogram_files/cla3.GIF"></a></blockquote>
+<p> Its histogram, 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/cla3hst1.gif"><img alt="cla3hst1" src="./Image Analysis - Intensity Histogram_files/cla3hst1.GIF"></a></blockquote>
+<p>
+shows that most of the pixels have rather high intensity
+values. Contrast stretching the image yields 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/cla3str1.gif"><img alt="cla3str1" src="./Image Analysis - Intensity Histogram_files/cla3str1.GIF"></a></blockquote>
+<p> which
+has a clearly improved contrast. The corresponding histogram is
+
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/cla3hst2.gif"><img alt="cla3hst2" src="./Image Analysis - Intensity Histogram_files/cla3hst2.GIF"></a></blockquote>
+<p> If we expand the <em>y</em>-axis, as was done in
+
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/cla3hst3.gif"><img alt="cla3hst3" src="./Image Analysis - Intensity Histogram_files/cla3hst3.GIF"></a></blockquote>
+<p> we can see that now the pixel values are
+distributed over the entire intensity range. Due to the discrete
+character of the pixel values, we can't increase the number of
+distinct intensity values. That is the reason why the stretched
+histogram shows the gaps between the single values.
+
+</p><p>The image 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/wom2.gif"><img alt="wom2" src="./Image Analysis - Intensity Histogram_files/wom2.GIF"></a></blockquote>
+<p> also has low contrast. However, if we
+look at its histogram, 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/wom2hst1.gif"><img alt="wom2hst1" src="./Image Analysis - Intensity Histogram_files/wom2hst1.GIF"></a></blockquote>
+<p> we see that the entire
+intensity range is used and we therefore cannot apply contrast
+stretching. On the other hand, the histogram also shows that most of
+the pixels values are clustered in a rather small area, whereas the
+top half of the intensity values is used by only a few pixels. The
+idea of <a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/histeq.htm">histogram equalization</a> is that the pixels should
+be distributed evenly over the whole intensity range, <em>i.e.</em> the aim is
+to transform the image so that the output image has a <em>flat</em>
+histogram. The image 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/wom2heq1.gif"><img alt="wom2heq1" src="./Image Analysis - Intensity Histogram_files/wom2heq1.GIF"></a></blockquote>
+<p> results from the histogram equalization
+and 
+</p><blockquote><a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/images/wom2hst2.gif"><img alt="wom2hst2" src="./Image Analysis - Intensity Histogram_files/wom2hst2.GIF"></a></blockquote>
+<p> is the corresponding histogram. Due to the
+discrete character of the intensity values, the histogram is not
+entirely flat. However, the values are much more evenly distributed than in
+the original histogram and the contrast in the image was essentially
+increased.
+
+</p><p>
+    </p><h2>Interactive Experimentation</h2>
+
+<p>    You can interactively experiment with this operator by clicking
+    <a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/histdemo.htm">here</a>.
+
+</p><p>
+</p><h2>Exercises</h2>
+
+<p></p><ol>
+<li> Suppose that you had a scene of three objects of different distinct
+intensities against an extremely bright background. What
+would the corresponding histogram look like?
+
+<p></p></li><li> How could you get a program to automatically work out the
+ideal threshold for an image from its histogram? What do you think
+might be the problems?
+
+<p></p></li><li> If there is a very high peak right at the top end of the
+histogram, what does this suggest?
+</li></ol>
+
+<p></p><h2>References</h2>
+
+<p><strong>R. Boyle and R. Thomas</strong> <em>Computer Vision: A First Course</em>,
+Blackwell Scientific Publications, 1988, Chap.&nbsp;4.
+
+</p><p><strong>E. Davies</strong> <em>Machine Vision: Theory, Algorithms and
+Practicalities</em>, Academic Press, 1990, Chap.&nbsp;4.
+
+</p><p><strong>A. Marion</strong> <em>An Introduction to Image Processing</em>, Chapman
+and Hall, 1991, Chap.&nbsp;5.
+
+</p><p><strong>D. Vernon</strong> <em>Machine Vision</em>, Prentice-Hall, 1991, p 49.
+
+</p><p></p><h2>Local Information</h2>
+
+<p>Specific information about this operator may be found
+<a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/local/histgram.txt">here.</a>
+
+</p><p>More general advice about the local HIPR installation is available in the
+<a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/local.htm"><em>Local Information</em></a> introductory section.
+
+</p><p>
+
+
+</p><p></p><center><img alt="---" src="./Image Analysis - Intensity Histogram_files/line2.gif" width="75%" height="4"></center><br>
+<a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/hipr_top.htm"><img alt="home" src="./Image Analysis - Intensity Histogram_files/home.gif"></a>
+<a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/classify.htm"><img alt="right" src="./Image Analysis - Intensity Histogram_files/right.gif"></a>
+<a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/analops.htm"><img alt="up" src="./Image Analysis - Intensity Histogram_files/up.gif"></a><br><br>
+<p>
+<a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/copyrght.htm">©2003 R.&nbsp;Fisher, S.&nbsp;Perkins, 
+A.&nbsp;Walker and E.&nbsp;Wolfart.</a><br>
+</p><p><a href="http://validator.w3.org/">
+         <img border="0" src="./Image Analysis - Intensity Histogram_files/vh40.gif" alt="Valid HTML 4.0!" height="31" width="88"></a>
+
+</p></body></html>
