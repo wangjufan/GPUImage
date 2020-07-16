@@ -1,0 +1,533 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, input, button, select, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, picture,
+details, embed, figure, figcaption, footer, header, main, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+{
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	vertical-align: baseline;
+	text-align: left;
+	outline: none;
+	font: inherit;
+	font-size: 100%;
+	line-height: inherit;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+body {line-height: 1; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+article, main, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, address, picture, audio, video {display: block;}
+summary, time, mark, details {display: inline;}
+
+table {border-collapse: collapse; border-spacing: 0px;}
+ol, ul, li {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: ''; 	content: none;}
+a {text-decoration: none; color: inherit; cursor: pointer; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+a:active, a:focus {outline: none;}
+
+form, fieldset, label, input, button, select, textarea {background: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+input, textarea, select, button {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+input, textarea, select, button, input:focus, input:checked, textarea:focus, select:focus, button:focus {outline: none;}
+select > option {min-height: 0px; padding: 0px; line-height: inherit;}
+textarea, input[type="text"], input[type="password"] {cursor: text;}
+label, button, select, input[type="checkbox"], input[type="radio"], input[type="button"], input[type="submit"], input[type="reset"] {cursor: pointer;}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {color: inherit; opacity: 1; font-size: 100%; text-overflow: ellipsis;}
+input::-moz-placeholder, textarea::-moz-placeholder {color: inherit; opacity: 1; font-size: 100%; text-overflow: ellipsis;}
+input:-moz-placeholder, textarea:-moz-placeholder {color: inherit; opacity: 1; font-size: 100%; text-overflow: ellipsis;}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {color: inherit; opacity: 1; font-size: 100%; text-overflow: ellipsis;}
+input::placeholder, textarea::placeholder {color: inherit; opacity: 1; font-size: 100%; text-overflow: ellipsis;}
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {color: transparent;}
+input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {color: transparent;}
+input:focus:-moz-placeholder, textarea:focus:-moz-placeholder {color: transparent;}
+input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {color: transparent;}
+input:focus::placeholder, textarea:focus::placeholder {color: transparent;}
+html, body {width: 100%; box-sizing: border-box;}
+html {height: 100%;}
+body {position: relative; min-height: 100%;}
+header, footer, main, section, article, aside {position: relative; width: 100%; height: auto; box-sizing: border-box;}
+footer {position: absolute; bottom: 0px;}
+
+.mobile {display: none !important;}
+.desktop {display: inherit;}
+
+.flex {display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start;}
+.flex.end {justify-content: flex-end;}
+.flex.middle {align-items: center;}
+.flex.bottom {align-items: flex-end;}
+
+.fix {position: fixed; left: 0px; bottom: 0px; width: 100%; z-index: 9999;}
+.none {visibility: hidden;}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6 {box-sizing: border-box;}
+.col-1 {width: 1140px;}
+.col-2 {width: 770px;}
+.col-3 {width: calc(100% / 2 - 10px);}
+.col-4 {width: calc(770px - 205px);}
+.col-5 {width: 300px;}
+.col-6 {width: 205px;}
+
+.center {margin-left: auto; margin-right: auto;}
+.right {margin-left: auto; margin-right: 0px;}
+.fleft {float: left;}
+.fright {float: right;}
+.fclear {clear: both; overflow: hidden;}
+
+.round {border-radius: 3px;}
+
+.bkg-white {background-color: #fff;}
+.bkg-grey {background-color: #ebebeb;}
+.bkg-blue {background-color: #18a0fb;}
+
+.brd-dark {border: 1px solid #bdbdbd;}
+.brd-grey {border: 1px solid #dedede;}
+.brd-blue {border: 1px solid #18a0fb;}
+
+.shd {box-shadow: 0px 0px 19px #bfbfbf;}
+.shd-top {box-shadow: 0px -8px 8px #bfbfbf;}
+.shd-bot {box-shadow: 0px 10px 10px #bfbfbf;}
+
+.anim {transition: transform 500ms 0ms cubic-bezier(0.8, 0, 1, 1), opacity 350ms 250ms linear;}
+.anim.show {transition-timing-function: cubic-bezier(0, 0, 0, 0.8), linear; transition-duration: 500ms, 200ms; transition-delay: 0ms, 0ms;}
+.from-bottom {transform: translateY(120%); opacity: 0.9;}
+.from-bottom.show {transform: translateY(0%); opacity: 1;}
+
+.txt-dark {color: #000;}
+.txt-grey {color: #555;}
+.txt-light {color: #8f8f8f;}
+.txt-blond {color: #bdbdbd;}
+.txt-white {color: #fff;}
+.txt-blue {color: #18a0fb;}
+.txt-red {color: #f00;}
+
+.txt-tiny {font-size: 10.5pt; line-height: 1;}
+.txt-small {font-size: 12pt; line-height: 1.7;}
+.txt-regular {font-size: 14pt; line-height: 1.5;}
+.txt-big {font-size: 18pt; line-height: 1.5;}
+.txt-large {font-size: 33pt; line-height: 1;}
+
+.txt-strong, strong, b {font-weight: 700;}
+.txt-bold {font-weight: 500;}
+.txt-italic, i {font-style: italic}
+.txt-ups {text-transform: uppercase;}
+.txt-del, strike, s, del {text-decoration: line-through;}
+
+.txt-right {text-align: right;}
+.txt-center {text-align: center;}
+.txt-nowrap {white-space: nowrap;}
+
+.ico, .cat {display: inline-block; line-height: 0px;}
+.cat {width: 26px; height: 26px;}
+.ico {width: 16px; height: 16px;}
+
+.ico.dark > svg *, .cat.dark > svg * {fill: #000000;}
+.ico.grey > svg *, .cat.grey > svg * {fill: #626262;}
+.ico.light > svg *, .cat.light > svg * {fill: #bdbdbd;}
+
+h1 {margin-bottom: 90px;}
+a:hover, a:active, a:focus {color: #18a0fb;}
+
+input, button:not(.ico), select {width: 100%; height: 40px; line-height: 38px !important; padding: 0px 15px;}
+textarea {width: 100%; height: auto; padding: 15px; resize: none;}
+button:not(.ico), input[type="button"], input[type="submit"], input[type="reset"] {width: 130px;}
+input[size] {width: auto;}
+input[type="checkbox"], input[type="radio"] {width: 20px; height: 20px; padding: 0px; vertical-align: middle;}
+select > option {line-height: 38px !important;}
+button.bkg-blue:hover, input[type="button"].bkg-blue:hover, input[type="submit"].bkg-blue:hover, input[type="reset"].bkg-blue:hover,
+button.bkg-blue:focus, input[type="button"].bkg-blue:focus, input[type="submit"].bkg-blue:focus, input[type="reset"].bkg-blue:focus
+    {background-color: #347aba;}
+textarea.brd-grey:hover, input[type="text"].brd-grey:hover, input[type="password"].brd-grey:hover, select.brd-grey:hover,
+textarea.brd-grey:focus, input[type="text"].brd-grey:focus, input[type="password"].brd-grey:focus, select.brd-grey:focus
+    {border-color: #18a0fb;}
+
+label {display: inline-block; width: 100%; line-height: 40px !important;}
+label > input[type="checkbox"], label > input[type="radio"] {margin-right: 10px;}
+label > input[type="checkbox"].fleft, label > input[type="radio"].fleft {margin-top: 10px;}
+label > input[type="checkbox"] + span, label > input[type="radio"] + span {display: block; line-height: 1.3;}
+label > input[type="checkbox"].fleft + span, label > input[type="radio"].fleft + span {margin-left: 30px;}
+label > input[type="checkbox"].fright + span, label > input[type="radio"].fright + span {margin-right: 30px;}
+label.ctrl-ico {position: relative;}
+label.ctrl-ico > .ico {position: absolute; bottom: 12px; z-index: 2;}
+label.ctrl-ico > input, label.ctrl-ico > select {position: relative;}
+label.ctrl-ico > input {padding-left: 40px; z-index: 1;}
+label.ctrl-ico > input + .ico {left: 13px;}
+label.ctrl-ico > select {padding-right: 53px; -moz-appearance: none; -webkit-appearance: none; appearance: none; z-index: 3;}
+label.ctrl-ico > select + .ico {right: 1px; bottom: 1px; padding: 11px;}
+label.ctrl-ico > select + .ico.brd-grey {border-width: 0px 0px 0px 1px;}
+
+form.row input[type="text"], form.row input[type="password"], form.row label {width: auto;}
+form.row input:not([type="hidden"]) + input, form.row input:not([type="hidden"]) + label,
+form.row input:not([type="hidden"]) + textarea, form.row input:not([type="hidden"]) + button,
+form.row input:not([type="hidden"]) + select, form.row label + input, form.row label + label,
+form.row label + textarea, form.row label + button, form.row label + select, form.row textarea + input,
+form.row textarea + label, form.row textarea + textarea, form.row textarea + button, form.row textarea + select,
+form.row button + input, form.row button + label, form.row button + textarea, form.row button + button,
+form.row button + select, form.row select + input, form.row select + label, form.row select + textarea,
+form.row select + button, form.row select + select
+    {margin-left: 15px;}
+form.column input:not([type="hidden"]) + input, form.column input:not([type="hidden"]) + label,
+form.column input:not([type="hidden"]) + textarea, form.column input:not([type="hidden"]) + button,
+form.column input:not([type="hidden"]) + select, form.column label + input, form.column label + label,
+form.column label + textarea, form.column label + button, form.column label + select, form.column textarea + input,
+form.column textarea + label, form.column textarea + textarea, form.column textarea + button, form.column textarea + select,
+form.column button + input, form.column button + label, form.column button + textarea, form.column button + button,
+form.column button + select, form.column select + input, form.column select + label, form.column select + textarea,
+form.column select + button, form.column select + select
+    {margin-top: 15px;}
+
+@media screen and (max-width: 1230px) and (min-width: 941px) {
+    .col-1, .col-2 {width: 100%;}
+    .col-4 {width: calc(100% - 300px - 40px);}
+}body {padding-bottom: 311px;}
+
+header {height: 136px; padding: 25px 0px;}
+header.brd-dark {border-width: 0px 0px 1px 0px;}
+header .col-1 {height: 100%;}
+header .search.desktop {position: relative; margin-left: 40px;}
+header nav.desktop li + li {margin-left: 40px;}
+
+footer {height: 311px; padding: 35px 0px;}
+footer.brd-dark {border-width: 1px 0px 0px 0px;}
+footer small {padding-left: 20px;}
+
+main {padding: 80px 0px;}
+
+.logo {display: block; width: 205px; height: auto; font-size: 0px;}
+.logo > * {width: 100%;}
+
+.top-image {position: relative; width: 100%; margin: -81px 0px 80px 0px; overflow: hidden; line-height: 0px;}
+.top-image img {width: 100%; height: auto;}
+
+.social-block {width: 300px;}
+.social-block .facebook {height: 200px; margin-top: 15px;}
+
+.pager, .pager * {height: 30px; font-family: monospace;}
+.pager .flex {justify-content: center;}
+.pager a {display: inline-block; width: 30px; text-align: center; line-height: 30px;}
+.pager .brd-grey {border-width: 1px 0px 1px 1px;}
+.pager .brd-grey:first-child {border-width: 1px 0px 1px 1px;}
+.pager .brd-grey:last-child {border-width: 1px;}
+.pager .round:first-child {border-top-right-radius: 0px; border-bottom-right-radius: 0px;}
+.pager .round:last-child {border-top-left-radius: 0px; border-bottom-left-radius: 0px;}
+
+.search aside {overflow-y: auto;}
+.search aside a {display: block; position: relative; padding-top: 5px; padding-bottom: 5px; line-height: 1.5;}
+.search aside a.txt-white:hover {color: #fff;}
+.search.desktop aside {position: absolute; display: none; max-height: 400px; z-index: 99999;}
+.search.desktop aside a {padding-left: 15px; padding-right: 15px;}
+.search.desktop aside.brd-grey {border-top-width: 0px;}
+
+.subscribe {height: 70px; padding: 15px 0px;}
+.subscribe > button {position: absolute; top: 15px; right: 15px;}
+.subscribe form > input[type="text"] {width: 170px;}
+.subscribe .head {margin-right: 30px; line-height: 1;}
+.subscribe .head h3 {margin-bottom: 4px;}
+.subscribe .head a {text-decoration: underline;}
+
+.cats-list .flex {flex-wrap: wrap;}
+.cats-list ul {margin-bottom: -35px;}
+.cats-list li {min-height: 145px; margin-bottom: 35px; padding-left: 45px;}
+.cats-list li .cat {margin-left: -45px;}
+.cats-list li h2 {margin-bottom: 5px; line-height: 1;}
+.cats-list li p {line-height: 1.35;}
+
+.cat-items {padding-top: 15px;}
+.cat-items .cat {width: 55px; height: 55px; margin: -5px 20px 0px 0px;}
+.cat-items .count {position: absolute; left: 75px; top: -20px;}
+.cat-items .sub-title {position: absolute; top: -20px;}
+.cat-items .list .flex {flex-wrap: wrap;}
+.cat-items .list ul {margin-bottom: -25px;}
+.cat-items .list li {margin-bottom: 25px;}
+.cat-items .pager {margin-top: 80px;}
+
+.article.col-1 {padding-left: 185px;}
+.article aside > * + * {margin-top: 40px;}
+.article .messages li {margin-top: 30px;}
+.article .messages li + li {margin-top: 10px;}
+.article .authin a {margin-top: 15px; line-height: 40px;}
+.article .authout span {line-height: 20px;}
+.article .authout button {margin-left: 20px;}
+.article .twitter-follow {height: 32px; line-height: 32px;}
+.article .twitter-follow > img {width: 32px; height: 32px; margin-right: 10px;}
+
+.article .head nav select {width: calc(100% - 75px);}
+.article .head header {height: auto; margin-bottom: 60px; padding: 0px;}
+.article .head header > * {display: block; margin-bottom: 10px; line-height: 1;}
+.article .head header > h1 {margin-bottom: 25px;}
+.article .head header .twitter-share {position: relative; top: -15px; height: 28px;}
+
+.article .related ul > li + li {margin-top: 10px;}
+.article .search-result > iframe {width:100% !important;}
+.article .login .authin {max-width: 500px;}
+.article .login .authout {max-width: 500px;}
+.article .signup form {max-width: 500px;}
+.article .recovery form {max-width: 500px;}
+
+.article .content h2, .article .content h3 {font-size: 18pt; font-weight: 700;}
+.article .content h4, .article .content h5, .article .content h6 {font-weight: 700;}
+.article .content a {font-weight: 700; text-decoration: underline;}
+.article .content ul ul, .article .content ul ol, .article .content ol ol, .article .content ol ul {margin: 20px 0px 20px 40px;}
+.article .content ul.dolled > li + li, .article .content ol.dolled > li + li {margin-top: 10px;}
+.article .content ul:not(.clear), .article .content ul:not(.clear) li {list-style: disc inside;}
+.article .content ol:not(.clear), .article .content ol:not(.clear) li {list-style: decimal inside;}
+.article .content figure img {max-width: 100%; width: auto; height: auto;}
+.article .content figure figcaption {margin-top: 20px;}
+.article .content table {width: 100%; border-collapse: collapse;}
+.article .content table thead, .article .content table th {background-color: #ebebeb;}
+.article .content table th, .article .content table td {padding: 10px;}
+.article .content table:not([border="0"]) th, .article .content table:not([border="0"]) td {padding: 20px;}
+.article .content table[border="0"] td:first-child, .article .content table[border="0"] th:first-child {padding-left: 0px;}
+.article .content table[border="0"] td:last-child, .article .content table[border="0"] th:last-child {padding-right: 0px;}
+.article .content table:not([border="0"]), .article .content table:not([border="0"]) td, .article .content table:not([border="0"]) th
+    {border: 1px solid #dedede;}
+.article .content p, .article .content figure, .article .content table, .article .content ul, .article .content ol,
+    .article .content h2, .article .content h3, .article .content h4, .article .content h5, .article .content h6 {margin-bottom: 40px;}
+
+.article .other {padding: 40px 0px;}
+.article .other.brd-dark {border-width: 1px 0px 0px 0px;}
+.article .other h2 {margin-bottom: 40px;}
+
+.article .details + section {margin-top: 40px;}
+.article .details.flex > * + * {margin-left: 20px;}
+
+.article .quizgeek {position: relative; width: 100%; height: 690px;}
+.article .quizgeek .loader {position: absolute; left: 50%; top: 50%; width: 32px; height: 32px; margin: -16px 0px 0px -16px;}
+.article .quizgeek .loader img {width: 100%; height: 100%;}
+.article .quizgeek iframe {display: none; border: none; width: 100%; height: 100%;}
+
+.article .comments {padding-bottom: 0px;}
+.article .comments h6 {margin-bottom: 30px;}
+.article .comments article {margin-bottom: 40px;}
+.article .comments article.brd-dark {padding-top: 40px; padding-bottom: 40px; border-width: 1px 0px;}
+.article .comments article.brd-dark + article.brd-dark {padding-top: 0px; border-top-width: 0px;}
+.article .comments article address {margin-right: 40px;}
+.article .comments article p {padding-top: 20px; clear: both;}
+.article .comments .post {padding: 20px;}
+.article .comments .post .user {margin-bottom: 20px;}
+.article .comments .post .user select {width: calc(100% - 60px);}
+.article .comments .post textarea {min-height: 200px; margin-bottom: 20px; padding: 0px; border: none;}
+.article .comments .notif {width: calc(100% - 170px); max-width: 360px; min-width: 260px;}
+.article .comments .notif input {margin-top: 8px;}
+.article .comments .captcha {display: none; width: 290px; height: 40px;}
+.article .comments .captcha img, .article .comments .captcha input {width: 80px; height: 40px; vertical-align: top;}
+.article .comments .captcha img {margin-left: 10px; margin-right: 10px;}
+.article .comments .captcha span {display: inline-block; width: 110px; line-height: 1.3;}
+.article .comments .authin {margin-top: 40px;}
+.article .comments .authout {margin-top: 40px; padding-right: 21px;}
+.article .comments .suggestions {margin-top: 40px;}
+.article .comments .suggestions .brd-grey {padding: 20px;}
+.article .comments .suggestions .progress, .article .comments .suggestions a {display: block; line-height: 16px;}
+.article .comments .suggestions li + li {margin-top: 10px;}
+.article .comments .suggestions a {margin-left: 26px;}
+.article .comments .moderator-control {margin-bottom: 40px; justify-content: flex-start;}
+.article .comments .moderator-control button {width: calc(50% - 15px / 2);}
+.article .comments .moderator-control button + button {margin-left: 15px;}
+.article .comments .moderator-list .edit-but {margin-top: -7px;}
+.article .comments .post-edit label {width: auto;}
+.article .comments .post-edit textarea {resize: vertical;}
+.article .comments .post-edit .text {min-height: 100px;}
+.article .comments .post-edit .error select {width: 170px; margin-left: 10px}
+.article .comments .post-edit .email {margin: 40px 0px 15px 0px;}
+.article .comments .post-edit .email select {width: 300px;}
+.article .comments .post-edit .email input {width: 70px; margin-left: 15px;}
+.article .comments .post-edit .note {width: 100%; margin-top: 30px;}
+
+.form-style img {vertical-align: middle;}
+.form-style input, .form-style textarea, .form-style button, .form-style select {border: 1px solid #dedede; border-radius: 3px;}
+.form-style input[type="checkbox"], .form-style input[type="radio"] {width: 20px; margin: 0px 15px;}
+.form-style input, .form-style textarea, .form-style button, .form-style select, .form-style label
+    {margin: 0px 15px 15px 0px; width: auto; font-family: "ff-meta-web-pro", sans-serif; font-size: 10.5pt; color: #8f8f8f;}
+.form-style button:not(.ico), .form-style input[type="button"], .form-style input[type="submit"], .form-style input[type="reset"]
+    {min-width: 130px; border: none; background-color: #18a0fb; font-size: 12pt; font-weight: 500; color: #fff;}
+.form-style button:hover, .form-style input[type="button"]:hover, .form-style input[type="submit"]:hover,
+.form-style input[type="reset"]:hover, .form-style button:focus, .form-style input[type="button"]:focus,
+.form-style input[type="submit"]:focus, .form-style input[type="reset"]:focus
+    {background-color: #347aba;}
+.form-style textarea:hover, .form-style input[type="text"]:hover, .form-style input[type="password"]:hover, .form-style select:hover,
+.form-style textarea:focus, .form-style input[type="text"]:focus, .form-style input[type="password"]:focus, .form-style select:focus
+    {border-color: #18a0fb;}
+
+@media screen and (max-width: 1230px) and (min-width: 941px) {
+    header, main, .subscribe {padding-left: 40px; padding-right: 40px;}
+    footer {padding-left: 175px; padding-right: 175px;}
+
+    .top-image {width: calc(100% + 80px); margin-left: -40px;}
+    .subscribe form {padding-right: 6px;}
+    .cats-list, .cat-items {padding-left: 135px; padding-right: 135px;}
+    .cat-items .count {left: 210px;}
+    .article.col-1 {padding-left: 135px;}
+}
+
+@media screen and (max-width: 1130px) and (min-width: 941px) {
+    .article .comments .authin input[type="submit"] {width: 100px;}
+}
+
+@media screen and (max-width: 1070px) and (min-width: 941px) {
+    footer {padding-left: 40px; padding-right: 40px;}
+
+    .cats-list, .cat-items {padding-left: 80px; padding-right: 80px;}
+    .cat-items .count {left: 155px;}
+    .article.col-1 {padding-left: 0px;}
+}@media screen and (max-width: 940px) {
+    .mobile {display: block !important;}
+    .desktop {display: none !important;}
+
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6 {width: 100%;}
+
+    .from-left {transform: translateX(-110%); opacity: 0.9;}
+    .from-right {transform: translateX(110%); opacity: 0.9;}
+    .from-left.show, .from-right.show {transform: translateX(0%); opacity: 1;}
+    .from-left.anim, .from-right.anim {transition-duration: 800ms, 450ms; transition-delay: 0ms, 500ms}
+    .from-left.anim.show, .from-right.anim.show {transition-duration: 800ms, 300ms; transition-delay: 0ms, 0ms}
+
+    .ico {width: 28px; height: 28px;}
+
+    h1 {margin-bottom: 50px;}
+
+    label.ctrl-ico > .ico {width: 16px; height: 16px;}
+}
+
+@media screen and (max-width: 550px) {
+    button:not(.ico), input[type="button"], input[type="submit"], input[type="reset"] {width: 100%;}
+}@media screen and (max-width: 940px) {
+    body {padding-bottom: 460px;}
+
+    main {padding: 80px 40px;}
+
+    header {padding: 35px 40px;}
+    header .search {margin: 0px;}
+    header .menu-but.ico {width: 35px; height: 35px;}
+    header .search-but.ico {width: 30px; height: 30px;}
+    header nav.mobile, header .search.mobile {height: 100%; padding: 136px 40px 35px 40px; box-sizing: border-box; z-index: 99999;}
+    header nav.mobile button, header .search.mobile button {position: absolute; top: 53px; right: 40px;}
+    header nav.mobile li + li {margin-top: 10px;}
+
+    footer {height: 460px; padding: 50px 40px;}
+    footer .flex {display: block;}
+    footer nav {margin-top: 30px;}
+    footer nav .txt-right {text-align: left;}
+    footer small {display: block; margin-top: 30px; padding: 0px;}
+
+    .top-image {width: calc(100% + 80px); margin-left: -40px;}
+
+    .search.mobile form {position: absolute; top: 45px; width: calc(100% - 80px - 68px);}
+    .search.mobile aside {max-height: 100%;}
+
+    .subscribe {height: auto; padding: 15px 40px 25px 40px;}
+    .subscribe > .flex {flex-wrap: wrap;}
+    .subscribe > button {width: 16px; height: 16px; top: 22px; right: 40px;}
+    .subscribe form > input[type="text"] {width: calc((100% - 30px - 130px) / 2);}
+    .subscribe .head {width: 100%; margin-right: 0px; margin-bottom: 15px; text-align: left; line-height: 1.5;}
+    .subscribe .head h3 {margin-bottom: 0px; display: inline;}
+    .subscribe .head a {font-size: 14pt; white-space: nowrap;}
+
+    .cats-list ul {margin-bottom: -40px;}
+    .cats-list li {min-height: 0px; margin-bottom: 40px;}
+
+    .cat-items .cat {margin-right: 15px;}
+    .cat-items .count {left: 70px;}
+    .cat-items .list ul {margin-bottom: -30px;}
+    .cat-items .list li {margin-bottom: 30px;}
+
+    .article.col-1 {padding-left: 0px;}
+    .article aside {margin-top: 40px;}
+    .article .flex {flex-wrap: wrap;}
+    .article .head {flex-direction: column-reverse;}
+    .article .head nav {position: relative; top: -60px; margin-bottom: 20px;}
+    .article .head nav select {width: 100%; margin-left: 0px;}
+    .article .comments .authin .col-3 {width: calc(100% / 2 - 10px);}
+    .article .comments .suggestions .progress, .article .comments .suggestions a {line-height: 20px;}
+    .article .comments .suggestions .ico {width: 20px; height: 20px;}
+    .article .comments .suggestions a {margin-left: 30px;}
+    .article .details.flex > * {width: 100%;}
+    .article .details.flex > * + * {margin-top: 20px; margin-left: 0px;}
+}
+
+@media screen and (max-width: 640px) {
+    .subscribe form > input[type="text"] {width: calc((100% - 30px - 100px) / 2);}
+    .subscribe form > input[type="submit"] {width: 100px;}
+
+    .article .content ul ul, .article .content ul ol, .article .content ol ol, .article .content ol ul {margin-left: 20px;}
+    .article .comments .authin .col-3 {width: 100%;}
+    .article .comments .authin form + form {margin-top: 40px;}
+    .article .comments .moderator-list .edit-but {width: 70px;}
+}
+
+@media screen and (max-width: 550px) {
+    .subscribe .head {text-align: center; padding-right: 40px; box-sizing: border-box;}
+    .subscribe form > input[type="text"], .subscribe form > input[type="submit"] {width: 100%;}
+    .subscribe form > input[type="text"] + input[type="text"], .subscribe form > input[type="text"] + input[type="submit"]
+        {margin-top: 15px; margin-left: 0px;}
+
+    .article .authin a {display: block; width: 100%; line-height: 1.5; text-align: center;}
+    .article .authout button {margin-top: 20px; margin-left: 0px;}
+    .article .comments .notif, .article .comments .captcha {width: 100%; margin-bottom: 20px;}
+    .article .comments .captcha input {width: calc(100% - 210px); padding-left: 10px; padding-right: 10px;}
+    .article .comments .authout {padding-right: 0px;}
+    .article .comments .moderator-control button {padding-left: 0px; padding-right: 0px;}
+    .article .comments .moderator-list .edit-but {width: 100%; margin-top: 20px;}
+    .article .comments .post-edit .error {width: 100%; margin-top: 5px;}
+    .article .comments .post-edit .error select {width: calc(100% - 90px);}
+    .article .comments .post-edit .email > span {display: block; width: 100%;}
+    .article .comments .post-edit .email .ctrl-ico {width: calc(100% - 85px);}
+    .article .comments .post-edit .email select {width: 100%;}
+    .article .comments .post-edit .email a {margin-top: 15px; line-height: 20px;}
+}
+
+@media screen and (max-width: 500px) {
+    header, main, footer, header nav.mobile, header .search.mobile, .subscribe {padding-left: 30px; padding-right: 30px;}
+    header nav.mobile button, header .search.mobile button, .subscribe > button {right: 30px;}
+
+    .top-image {width: calc(100% + 60px); margin-left: -30px;}
+    .search.mobile form {width: calc(100% - 60px - 58px);}
+
+    .article .content ul ul, .article .content ul ol, .article .content ol ol, .article .content ol ul {margin-left: 0px;}
+}
+
+@media screen and (max-width: 400px) {
+    header, main, footer, header nav.mobile, header .search.mobile, .subscribe {padding-left: 20px; padding-right: 20px;}
+    header nav.mobile button, header .search.mobile button, .subscribe > button {right: 20px;}
+
+    .top-image {width: calc(100% + 40px); margin-left: -20px;}
+    .search.mobile form {width: calc(100% - 40px - 48px);}
+}
+
+@media screen and (max-width: 370px) {
+    header .logo {width: 165px;}
+
+    .article .comments .captcha {height: auto;}
+    .article .comments .captcha span {width: 100%; margin-bottom: 10px; text-align: center;}
+    .article .comments .captcha input {width: calc(100% - 90px); padding-left: 15px; padding-right: 15px;}
+    .article .comments .captcha img {margin-left: 0px;}
+    .article .comments .post-edit .email .ctrl-ico {width: calc(100% - 65px);}
+    .article .comments .post-edit .email input {width: 50px; padding-left: 0px; padding-right: 0px;}
+}.ad-block {display: block; width: 100%; height: auto;}
+.ad-block.fix-width {width: 300px;}
+.ad-block.fix-height {height: 250px;}
+
+.article > .ad-block {position: relative;  top: -40px; margin-bottom: 40px;}
+.content .ad-block {margin-bottom: 40px;}
+.recommended .ad-block {margin-top: -17px;}
+.also-like .ad-block {margin-top: -15px;}
+.comments .ad-block {margin-bottom: 40px;}
+
+@media screen and (max-width: 940px) {
+    .article > .ad-block {margin-bottom: 60px;}
+}body.infobar {margin-top: 0px; padding-top: 60px;}
+
+section.infobar {height: 60px; top: 0px; bottom: auto;}
+section.infobar > .infobarMain {position: static; font-size: 12pt; line-height: 1.5; padding: 10px 0px; border: none;}
+section.infobar > .infobarMain a {text-decoration: underline;}
+section.infobar > .infobarMain select, section.infobar > .infobarMain input, section.infobar > .infobarMain button {
+    height: auto;
+    width: auto;
+    padding: 0px;
+    line-height: 1.5;
+    border: 1px solid #000;
+}
+
+@media screen and (max-width: 940px) {
+    body.infobar {padding-top: 0px;}
+}

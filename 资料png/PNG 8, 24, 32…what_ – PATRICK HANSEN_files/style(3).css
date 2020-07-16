@@ -1,0 +1,368 @@
+/*
+Theme Name:   exoplanet child theme
+Description:  Write here a brief description about your child-theme
+Author:       Patrick
+Author URL:   Write here the author's blog or website url
+Template:     exoplanet
+Version:      1.0
+License:      GNU General Public License v2 or later
+License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  exoplanet-child
+*/
+
+/* Write here your own personal stylesheet */
+/*
+**************************************************
+BODY
+**************************************************
+*/
+body {
+	font-size: 20px;
+}
+.main-title {
+	font-weight: 600;
+}
+h1, h2, h3, h4 {
+	font-weight: 520;
+	color: #666;
+}
+strong {
+	font-weight: 600;
+}
+
+/* ANCHOR */
+.site-content a {
+	text-decoration: underline;
+	color: darken(#dd9933 , 25%);
+}
+.site-content a:hover
+{
+	color: darken(#dd9933 , 75%);
+}
+/* TITLE */
+.page .title-header,
+.blog .title-header {
+	padding: 0;
+}
+.page .title-header .main-title,
+.site .title-header .main-title,
+.blog .title-header .main-title {
+	margin: 0 auto;
+	padding-bottom: 16px;
+	width: 75%;
+	float: none;
+	/*border-bottom: 1px solid #ccc;*/
+}
+.blog .title-header .main-title {
+	width: 100%;
+}
+
+/*
+BREADCRUMBS
+Note: USE SAME SELECTORS FOR EXO THEME NATIVE BREADCRUMBS
+*/
+/* BREADCRUMBS NavXT */
+.breadcrumbs,
+.single .breadcrumbs  {
+	/*display: block !important;*/
+	text-align: left !important;
+	float: none !important;
+	width: 75% !important;
+	margin: 0 auto;
+}
+.single .breadcrumbs {
+	width: 100% !important;
+}
+.single .breadcrumbs .post,
+.single .breadcrumbs span {
+	display: inline;
+	border-bottom: none;
+	color: #999;
+}
+/*
+**************************************************
+HOME
+**************************************************
+*/
+/* KEN BURNS EFFECT HOME SLIDER */
+.bx-wrapper {
+	position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+	background-color: #000;
+}
+.bx-wrapper .slide {
+	position: absolute;
+  width: 100%;
+  height: 100%;
+  background: no-repeat 50% 50%;
+  background-size: cover;
+  -webkit-animation-name: kenburns;
+  animation-name: kenburns;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-duration: 40s;
+  animation-duration: 40s;
+  opacity: 1;
+  -webkit-transform: scale(1.0);
+  transform: scale(1.0);
+}
+@keyframes kenburns {
+    0% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    95% {
+        transform: scale3d(1.2, 1.2, 1.2) translate3d(-40px, 80px, 0px);
+        animation-timing-function: ease-in;
+        opacity: 1;
+    }
+    100% {
+        transform: scale3d(1.4, 1.4, 1.4) translate3d(-60px, 80px, 0px);
+        opacity: 0;
+    }
+}
+
+.site-description {
+
+}
+
+/*
+**************************************************
+PAGE/GENERAL
+**************************************************
+*/
+/* PAGE CONTENT */
+.single-entry-content {
+	font-size: 1.4rem;
+}
+
+/*
+**************************************************
+BLOG FEED
+**************************************************
+*/
+/* TITLE */
+.blog .entry-title {
+	font-weight: 500;
+}
+.blog .entry-title a:hover {
+	text-decoration: underline;
+}
+/* BLOG POST CARD */
+.blog .post,
+.archive .post,
+.post {
+  display: flex;
+	padding: 16px;
+	border-bottom: 1px solid #eaeaea;
+}
+/* BLOG POST CARD IMAGE */
+.blog img.attachment-large.size-large.wp-post-image,
+.archive img.attachment-large.size-large.wp-post-image,
+img.attachment-large.size-large.wp-post-image {
+	width: 320px;
+	height: 320px;
+  object-fit: cover;
+	background-color: #eaeaea;
+}
+.blog .entry-figure,
+.archive .entry-figure,
+.entry-figure{
+  display: block;
+  width: 40%;
+  padding-top: 1.6rem;
+}
+/* BLOG POST CARD CONTENT */
+.blog .post-wrapper,
+.archive .post-wrapper,
+.post-wrapper {
+  width: 56%;
+}
+.blog .read-more {
+	text-decoration: underline;
+	color: #666;
+	font-weight: 400;
+}
+.blog .read-more:hover {
+	color: #333;
+}
+/* AUTHOR & DATE */
+.entry-meta,
+.entry-meta a{
+	color: #666;
+}
+
+/* FOOTER meta: tags, categories */
+.entry-footer a{
+	color: #666;
+}
+
+/*
+**************************************************
+SINGLE
+**************************************************
+*/
+/* BLOG SINGL ETITLE */
+.single .title-header .main-title,
+.title-header .main-title {
+	width: 100%;
+}
+/* FEATURE IMAGE */
+.single-entry-content img.wp-post-image {
+	margin-bottom: 48px;
+}
+.single .post {
+  display: block;
+}
+/* FEATURE IMAGE */
+.single-entry-content img.wp-post-image{
+	height: 160px;
+	object-fit: cover;
+}
+/* RELATED POSTS */
+.rp4wp-related-posts {
+	margin-top: 32px;
+	padding-top: 24px;
+	border-top: 1px solid #ccc;
+}
+/*
+**************************************************
+FOOTER
+**************************************************
+*/
+/* FOOTER */
+#bottom-footer .site-info {
+	padding-top: 16px;
+	width: 50%;
+	padding-right: 16px;
+}
+#bottom-footer .site-info p {
+  font-size: 12px;
+  text-align: right;
+}
+
+/*
+**************************************************
+SOCIAL ICONS
+=== EASY SOCIAL LIST PLUGIN
+notes: add php to footer.php
+**************************************************
+*/
+.ph_social_list_container {
+	width: 50%;
+	text-align: right;
+	float: left;
+}
+ul.cnss-social-icon {
+	text-align: left !important;
+}
+
+/*
+===================================================
+///////////////////////////////////////////////////
+MEDIA QUERY
+MOBILE
+TABLET <767px
+///////////////////////////////////////////////////
+===================================================
+*/
+
+@media only screen and (max-width: 767px)
+/* and (max-width: 320px) */
+/* and (max-width: 600px)  */
+{
+	/* BREADCRUMBS EXO */
+	.breadcrumbs,
+	.single .breadcrumbs  {
+		font-size: 12px;
+		max-width: 80%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		margin-top: 16px;
+	}
+
+	.single .breadcrumbs .current-item {
+
+	}
+	/*
+	**************************************************
+	PAGE/GENERAL
+	**************************************************
+	*/
+	.single-entry-content {
+		font-size: 1.2rem;
+	}
+
+	.gdc_column,
+	.gdc_column ul {
+		margin-bottom: 0;
+	}
+	/*
+	**************************************************
+	BLOG
+	**************************************************
+	*/
+  .blog .post {
+    display: block;
+  }
+  .blog .entry-figure {
+    display:inline;
+    width: 100%;
+    padding-top: 0rem;
+  }
+  .blog .post-wrapper {
+    width: 100%;
+  }
+	.blog img.attachment-large.size-large.wp-post-image {
+		width: 90%;
+		height: 200px;
+		margin: 0 20px;
+		object-fit: cover;
+	}
+
+	/*
+	**************************************************
+	SINGLE
+	**************************************************
+	*/
+	/* TITLE */
+	.page .title-header .main-title,
+	.blog .title-header .main-title
+	.single .title-header .main-title {
+		width: 100%;
+	}
+	/*
+	**************************************************
+	FOOTER
+	**************************************************
+	*/
+	#bottom-footer .site-info {
+		padding-top: 16px;
+		width: 100%;
+		padding-right: 0;
+	}
+	#bottom-footer .site-info p {
+		text-align: center;
+	}
+	/*
+	**************************************************
+	SOCIAL ICONS
+	=== EASY SOCIAL LIST PLUGIN
+	**************************************************
+	*/
+	.ph_social_list_container {
+		width: 100%;
+		text-align: center;
+		float: none;
+	}
+	ul.cnss-social-icon {
+		text-align: center !important;
+	}
+}

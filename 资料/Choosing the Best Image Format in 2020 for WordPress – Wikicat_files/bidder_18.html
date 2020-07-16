@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)https://cache.betweendigital.com/code/bidder_18.html?USER_ID=43fbbbd3-90bd-4da7-8daf-ce64208a0789&CACHEBUSTER=605135 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <script>
+            var pixels = [];
+            var params = [];
+            function getURLParameter(name) {
+                return decodeURI(
+                    (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [,null])[1]
+                );
+            }
+                            params.push({key: "${USER_ID}", value: getURLParameter("USER_ID")});
+                            params.push({key: "${CACHEBUSTER}", value: getURLParameter("CACHEBUSTER")});
+                            params.push({key: "${BUYER_USER_ID}", value: getURLParameter("BUYER_USER_ID")});
+                                        pixels.push({type: 'image', url: ('https://x.bidswitch.net/sync?ssp=between')});
+                            pixels.push({type: 'image', url: ('https://sync.bumlam.com/?src=aid0')});
+                            pixels.push({type: 'iframe', url: ('https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=btwnex&endpoint=eu')});
+                            pixels.push({type: 'image', url: ('https://sync.1dmp.io/pixel.gif?cid=b536b353-09d7-46f2-bb78-fb321ef4db83&pid=w&uid=${USER_ID}')});
+                            pixels.push({type: 'image', url: ('https://www.tns-counter.ru/V13a****betweenx_ru/ru/CP1251/tmsec=betweenx_bx-ban-1/${CACHEBUSTER}')});
+                            pixels.push({type: 'image', url: ('https://api.rees46.com/profile/betweendata?rand=${CACHEBUSTER}')});
+                            pixels.push({type: 'image', url: ('https://x.bidswitch.net/sync?dsp_id=429&user_id=${USER_ID}&expires=30')});
+                            pixels.push({type: 'iframe', url: ('https://onetag-sys.com/usync/?pubId=5d1628750185ace')});
+                        window.onload = function () {
+                var elems = [];
+                for(var i=0; i<pixels.length; i++) {
+                    for(var n=0; n<params.length; n++) {
+                        if (params[n].value != "null") {
+                            pixels[i].url = pixels[i].url.replace(params[n].key, params[n].value);
+                        }
+                    }
+                    switch(pixels[i].type) {
+                        case "image":
+                            var elem = document.createElement("img");
+                            break;
+                        case "iframe":
+                            var elem = document.createElement("iframe");
+                            break;
+                        case "js":
+                            var elem = document.createElement("script");
+                            break;
+                    }
+                    //elem.src = pixels[i].url;
+                    elem.setAttribute("async", true);
+                    elems.push(elem);
+                }
+                var num = 0;
+
+                var start = function() {
+                    if(elems[num] !== undefined) {
+                        elems[num].id = "p"+num;
+                        document.body.appendChild(elems[num]);
+                        var cur = document.getElementById('p'+num);
+                        cur.onload = function() {num++; start()}
+                        cur.onerror = function() {num++; start()}
+                        cur.src = pixels[num].url;     
+                    }
+                }/*
+                for(var n=0; n<elems.length; n++) {
+                    elems[n].onload = (function(n) {
+                        if(elems[n+1] !== undefined) {
+                            elems[n+1].src = pixels[n+1].url;
+                            document.body.appendChild(elems[n+1]);
+                        }
+                    })(n)
+                }*/
+                
+                start();
+
+            }
+        </script>
+    </head>
+    <body>
+<img async="true" id="p0" src="./sync"><img async="true" id="p1" src="./saved_resource(3)"><iframe async="true" id="p2" src="./multi-sync(1).html"></iframe><img async="true" id="p3" src="./pixel(3).gif"><img async="true" id="p4" src="./605135"><img async="true" id="p5" src="./betweendata"><img async="true" id="p6" src="./sync(4)"><iframe async="true" id="p7" src="./saved_resource.html"></iframe></body></html>

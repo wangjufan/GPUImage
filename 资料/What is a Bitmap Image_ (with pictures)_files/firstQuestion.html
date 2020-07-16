@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://quizgeek.wisegeek.com/firstQuestion?tpl=wisegeek -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>QuizGeek Play</title>
+    
+    <link rel="stylesheet" type="text/css" href="./WGFirstQuestion_styles.css"></head>
+
+<body><link href="./css(3)" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+    #content {padding: 20px 0px 40px 0px; height: 270px;}
+    #questionTxt {height: 60px; width: 100%; font-size: 26px; line-height: 30px; font-weight: bold; overflow: hidden; margin-bottom: 20px;}
+    #answerImg {display: none;}
+    #cover {position: fixed; top:0; left:0; height: 100%; width: 100%; z-index: 1000; display: none;}
+
+    h6 {font-size: 16px; font-weight: bold;}
+
+    .img, #questionImg .middle  {width: 250px; height: 187px;}
+    .img .middle > .middle {width: 100%; height: 100%;}
+    .img img {max-width: 250px; max-height: 187px;}
+
+    #answers {position: relative; height: 185px;}
+    #answers button {position: absolute; width: 225px; height: 33px; right: 3px; font-size: 12pt; line-height: 9pt;}
+    #answers button.hover:active {margin-top: 2px;}
+    #answers button .ico {display: block; position: absolute; width: 24px; height: 24px; top: 5px; left: 4px;}
+    #answers button small {font-size: 8pt; line-height: 6pt;}
+    #answers button.correct .ico {background: url("/res/wisegeek/img/correct.png") 50% 50% no-repeat;}
+    #answers button.incorrect .ico{background: url("/res/wisegeek/img/incorrect.png") 50% 50% no-repeat;}
+    #answers button.num-1 {top: 0px;}
+    #answers button.num-2 {top: 50px;}
+    #answers button.num-3 {top: 100px;}
+    #answers button.num-4 {top: 150px;}
+
+    #nextMain iframe {width: 100%; height: 364px;}
+</style>
+
+<script type="text/javascript">
+window.nextQuestionIsReady = false;
+window.timeOutIsReady = false;
+
+function setAnswer(num, correctNum)
+{
+    var buttons = document.getElementById('answers').getElementsByTagName('button');
+    var nextUrl = "/game?tpl=wisegeek&stop";
+
+    document.getElementById('questionImg').style.display = 'none';
+    document.getElementById('answerImg').style.display = 'block';
+    document.getElementById('cover').style.display = 'block';
+
+    buttons[correctNum].className += ' correct';
+    if(num != correctNum)
+        buttons[num].className += ' incorrect';
+
+    if(typeof(top.postMessage) == 'undefined')
+        top.postMessage = new Function();
+
+    if(nextUrl.indexOf('?') >= 0) nextUrl += "&firstAnswerNum=" + (num + 1);
+        else nextUrl += "?firstAnswerNum=" + (num + 1);
+
+    top.postMessage('startGame', '*');
+    document.getElementById('nextMain').getElementsByTagName('iframe')[0].src = nextUrl;
+    setTimeout(function()
+    {
+        window.timeOutIsReady = true;
+        viewNextQuestion();
+    }, 2000);
+}
+
+function nextQuestionReady()
+{
+    if(document.getElementById('nextMain').getElementsByTagName('iframe')[0].src) {
+        window.nextQuestionIsReady = true;
+        viewNextQuestion();
+    }
+}
+
+function viewNextQuestion()
+{
+    if(window.nextQuestionIsReady && window.timeOutIsReady) {
+        document.getElementById('main').style.display = 'none';
+        document.getElementById('nextMain').style.display = 'block';
+        setTimeout(function() {
+            document.getElementById('nextMain').getElementsByTagName('iframe')[0].contentWindow.ControlsManager.getInstance().getPage().game.nextQuestion();
+        }, 100);
+    }
+}
+</script>
+
+<div id="nextMain" style="display: none;">
+    <iframe frameborder="0" onload="nextQuestionReady();" src="./saved_resource(7).html"></iframe>
+</div>
+
+<div id="main">
+    <h6>Try the wiseGEEK Quiz!</h6>
+
+    <div id="cover" style="display: none;"></div>
+    <div id="content">
+        <div id="question">
+            <div id="questionTxt" class="middle">
+                <span class="middle">What statue is this foot a part of?</span>
+            </div>
+
+            <div id="questionImg" class="left img">
+                <div class="image-div">
+                    <div class="middle"><div class="middle">
+                        <img src="./firstQuestion.jpg" class="image" alt="What statue is this foot a part of?">
+                    </div></div>
+                </div>
+            </div>
+
+            <div id="answerImg" class="left img">
+                <div class="image-div">
+                    <div class="middle"><div class="middle">
+                        <img src="./firstQuestion.jpg" class="image" alt="What statue is this foot a part of?">
+                    </div></div>
+                </div>
+            </div>
+
+            <div id="answers">
+                                    <button class="grey hover round answer num-1" onclick="setAnswer(0, 2);">
+                        <span class="ico"></span>
+                        <span class="txt">Michelangelo's David<br><small>(Florence)</small></span>
+                    </button>
+                                    <button class="grey hover round answer num-2" onclick="setAnswer(1, 2);">
+                        <span class="ico"></span>
+                        <span class="txt">Christ the Redeemer<br><small>(Rio de Janiero)</small></span>
+                    </button>
+                                    <button class="grey hover round answer num-3" onclick="setAnswer(2, 2);">
+                        <span class="ico"></span>
+                        <span class="txt">Statue of Liberty<br><small>(New York City)</small></span>
+                    </button>
+                                    <button class="grey hover round answer num-4" onclick="setAnswer(3, 2);">
+                        <span class="ico"></span>
+                        <span class="txt">The Motherland Calls<br><small>(Volgograd)</small></span>
+                    </button>
+                            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-176713-22', 'quizgeek.com');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+</script>
+-->
+</body></html>
