@@ -1,0 +1,1030 @@
+{\rtf1\ansi\ansicpg936\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 ArialMT;\f2\froman\fcharset0 Times-Roman;
+\f3\fmodern\fcharset0 Courier;\f4\fnil\fcharset134 PingFangSC-Regular;\f5\fnil\fcharset134 STSongti-SC-Regular;
+\f6\fnil\fcharset0 HelveticaNeue;\f7\fnil\fcharset134 .PingFangSC-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red38\green38\blue38;
+\red107\green0\blue1;\red26\green26\blue26;\red10\green0\blue109;\red27\green31\blue34;\red244\green246\blue249;
+\red215\green219\blue223;\red109\green109\blue109;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c20000\c20000\c20000;
+\cssrgb\c50196\c0\c0;\cssrgb\c13333\c13333\c13333;\cssrgb\c4314\c0\c50196;\cssrgb\c14118\c16078\c18039;\cssrgb\c96471\c97255\c98039;
+\cssrgb\c87451\c88627\c89804;\cssrgb\c50196\c50196\c50196;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}}{\leveltext\leveltemplateid1\'00;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li603\fi-170\ri-10049\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+{\field{\*\fldinst{HYPERLINK "http://www.shaderific.com/glsl-functions"}}{\fldrslt http://www.shaderific.com/glsl-functions}}{\field{\*\fldinst{HYPERLINK "http://www.shaderific.com/"}}{\fldrslt 
+\f1\b\fs46 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\
+}}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl663\partightenfactor0
+\ls1\ilvl0
+\f2\fs25\fsmilli12800 \cf2 \cb3 		{\field{\*\fldinst{HYPERLINK "http://www.shaderific.com/"}}{\fldrslt \expnd0\expndtw0\kerning0
+APP}}\cf4 \expnd0\expndtw0\kerning0
+\'a0{\field{\*\fldinst{HYPERLINK "http://www.shaderific.com/features/"}}{\fldrslt \cf2 FEATURES}}\'a0{\field{\*\fldinst{HYPERLINK "http://www.shaderific.com/glsl/"}}{\fldrslt \cf2 GLSL}}\'a0{\field{\*\fldinst{HYPERLINK "http://www.shaderific.com/blog/"}}{\fldrslt \cf2 BLOG}}\'a0{\field{\*\fldinst{HYPERLINK "http://www.shaderific.com/contact/"}}{\fldrslt \cf2 CONTACT}}
+\f0\fs32 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\fs36 \cf3 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 OPENGL ES SHADING LANGUAGE BUILT-IN FUNCTIONS\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\b0 \cf4 This is a reference for the built-in functions of the OpenGL ES Shading Language that is described in the OpenGL ES Shading Language specification. For more information please visit:\'a0{\field{\*\fldinst{HYPERLINK "http://www.opengl.org/registry"}}{\fldrslt \cf5 www.opengl.org/registry}}.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 \
+ANGLE & TRIGONOMETRY FUNCTIONS
+\f0\b0\fs32 \cf4 \
+
+\f1\b\fs38\fsmilli19200 \cf2 Radians\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float radians(float degrees)  \
+vec2 radians(vec2 degrees)  \
+vec3 radians(vec3 degrees)  \
+vec4 radians(vec4 degrees)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b radians
+\b0 \'a0function converts degrees
+\f4 \'bd\'c7\'b6\'c8
+\f1  to radians
+\f4 \'bb\'a1\'b6\'c8
+\f1 . 
+\f4 \'d3\'a2
+\f1  ['re\uc0\u618 dj\u601 nz]   
+\f4 \'c3\'c0
+\f1  ['re\uc0\u618 dj\u601 nz]  
+\f4 \'bb\'a1\'b6\'c8
+\f1 ;
+\f4 \'ba\'c1\'bb\'a1\'b6\'c8\'bd\'c7
+\f1 \
+The input parameter can be a floating scalar
+\f4 \'b1\'ea\'c1\'bf
+\f1  or a float vector
+\f4 \'cf\'f2\'c1\'bf
+\f1 . \
+In case of a float vector all components are converted from degrees to radians separately.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Degrees\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float degrees(float radians)  \
+vec2 degrees(vec2 radians)  \
+vec3 degrees(vec3 radians)  \
+vec4 degrees(vec4 radians)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b degrees
+\b0 \'a0function converts radians to degrees. The input parameter can be a floating scalar or a float vector. In case of a float vector every component is converted from radians to degrees separately.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Sine\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float sin(float angle)  \
+vec2 sin(vec2 angle)  \
+vec3 sin(vec3 angle)  \
+vec4 sin(vec4 angle)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b sin
+\b0 \'a0function returns the sine of an angle in radians. The input parameter can be a floating scalar or a float vector. In case of a float vector the sine is calculated separately for every component.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Cosine\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float cos(float angle)  \
+vec2 cos(vec2 angle)  \
+vec3 cos(vec3 angle)  \
+vec4 cos(vec4 angle)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b cos
+\b0 \'a0function returns the cosine of an angle in radians. The input parameter can be a floating scalar or a float vector. In case of a float vector the cosine is calculated separately for every component.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Tangent\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float tan(float angle)  \
+vec2 tan(vec2 angle)  \
+vec3 tan(vec3 angle)  \
+vec4 tan(vec4 angle)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b tan
+\b0 \'a0function returns the tangent of an angle in radians. The input parameter can be a floating scalar or a float vector. In case of a float vector the tangent is calculated separately for every component.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Arcsine\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float asin(float x)  \
+vec2 asin(vec2 x)  \
+vec3 asin(vec3 x)  \
+vec4 asin(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b asin
+\b0 \'a0function returns the arcsine of an angle in radians. It is the inverse function of sine. The input parameter can be a floating scalar or a float vector. In case of a float vector the arcsine is calculated separately for every component.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Arccosine\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float acos(float x)  \
+vec2 acos(vec2 x)  \
+vec3 acos(vec3 x)  \
+vec4 acos(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b acos
+\b0 \'a0function returns the arccosine of an angle in radians. It is the inverse function of cosine. The input parameter can be a floating scalar or a float vector. In case of a float vector the arccosine is calculated separately for every component.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Arctangent\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float atan(float y_over_x)  \
+vec2 atan(vec2 y_over_x)  \
+vec3 atan(vec3 y_over_x)  \
+vec4 atan(vec4 y_over_x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b atan
+\b0 \'a0function returns the arctangent of an angle in radians. It is the inverse function of tangent. The input parameter can be a floating scalar or a float vector. In case of a float vector the arctangent is calculated separately for every component.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\fs32 \cf4 float atan(float y, float x)  \
+vec2 atan(vec2 y, vec2 x)  \
+vec3 atan(vec3 y, vec3 x)  \
+vec4 atan(vec4 y, vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 There is also a two-argument variation of the\'a0
+\b atan
+\b0 \'a0function (in other programming languages often called atan2). For a point with Cartesian coordinates (x, y) the function returns the angle \uc0\u952  of the same point with polar coordinates (r, \u952 ).\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\sa320\partightenfactor0
+
+\f0\fs32 \cf4 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 EXPONENTIAL FUNCTIONS
+\f0\b0\fs32 \cf4 \
+
+\f1\b\fs38\fsmilli19200 \cf2 Exponentiation
+\f4 \'c3\'dd\'ba\'af\'ca\'fd
+\f1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float pow(float x, float y)  \
+vec2 pow(vec2 x, vec2 y)  \
+vec3 pow(vec3 x, vec3 y)  \
+vec4 pow(vec4 x, vec4 y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b power
+\b0 \'a0function returns x raised to the power of y.
+\f4 \'c3\'dd\'ba\'af\'ca\'fdy\'b8\'f6
+\f1 x
+\f4 \'cf\'e0\'b3\'cb
+\f1  The input parameters can be floating scalars or float vectors. In case of float vectors the operation is done component-wise.\
+
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Exponential function  
+\f4 \'d6\'b8\'ca\'fd\'ba\'af\'ca\'fd
+\f1\b0 \cf4 x
+\f4 \'b8\'f6
+\f1 e
+\f4 \'cf\'e0\'b3\'cb
+\f1\b \cf2 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float exp(float x)  \
+vec2 exp(vec2 x)  \
+vec3 exp(vec3 x)  \
+vec4 exp(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b exp
+\b0 \'a0function returns the constant e raised to the power of x. The input parameter can be a floating scalar or a float vector. In case of a float vector the operation is done component-wise.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Natural logarithm\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float log(float x)  \
+vec2 log(vec2 x)  \
+vec3 log(vec3 x)  \
+vec4 log(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b log
+\b0 \'a0function returns the power to which the constant e has to be raised to produce x. The input parameter can be a floating scalar or a float vector. In case of a float vector the operation is done component-wise.\
+
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Exponential function (base 2)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float exp2(float x)  \
+vec2 exp2(vec2 x)  \
+vec3 exp2(vec3 x)  \
+vec4 exp2(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b exp2
+\b0 \'a0function returns 2 raised to the power of x. The input parameter can be a floating scalar or a float vector. In case of a float vector the operation is done component-wise.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Logarithm (base 2)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float log2(float x)  \
+vec2 log2(vec2 x)  \
+vec3 log2(vec3 x)  \
+vec4 log2(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b log2
+\b0 \'a0function returns the power to which 2 has to be raised to produce x. The input parameter can be a floating scalar or a float vector. In case of a float vector the operation is done component-wise.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\sa320\partightenfactor0
+
+\f0\fs32 \cf4 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Square root
+\f4 \'c6\'bd\'b7\'bd\'b8\'f9
+\f1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float sqrt(float x)  \
+vec2 sqrt(vec2 x)  \
+vec3 sqrt(vec3 x)  \
+vec4 sqrt(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b sqrt
+\b0 \'a0function returns the square root of x. The input parameter can be a floating scalar or a float vector. In case of a float vector the operation is done component-wise.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Inverse square root 
+\f4 \'c6\'bd\'b7\'bd\'b8\'f9\'b5\'c4\'b5\'b9\'ca\'fd\'ba\'af\'ca\'fd
+\f1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float inversesqrt(float x)  \
+vec2 inversesqrt(vec2 x)  \
+vec3 inversesqrt(vec3 x)  \
+vec4 inversesqrt(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b inversesqrt
+\b0 \'a0function returns the inverse square root of x, i.e. the reciprocal of the square root. The input parameter can be a floating scalar or a float vector. In case of a float vector the operation is done component-wise.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\sa320\partightenfactor0
+
+\f0\fs32 \cf4 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 COMMON FUNCTIONS
+\f0\b0\fs32 \cf4 \
+
+\f1\b\fs38\fsmilli19200 \cf2 Absolute value\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float abs(float x)  \
+vec2 abs(vec2 x)  \
+vec3 abs(vec3 x)  \
+vec4 abs(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b abs
+\b0 \'a0function returns the absolute value of x, i.e. x when x is positive or zero and -x for negative x. The input parameter can be a floating scalar or a float vector. In case of a float vector the operation is done component-wise.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Sign\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float sign(float x)  \
+vec2 sign(vec2 x)  \
+vec3 sign(vec3 x)  \
+vec4 sign(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b sign
+\b0 \'a0function returns -------1.0 when x is positive, ----- 0.0 when x is zero and---- -1.0 when x is negative. The input parameter can be a floating scalar or a float vector. In case of a float vector the operation is done component-wise.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\sa320\partightenfactor0
+
+\f0\fs32 \cf4 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Floor\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float floor(float x)  \
+vec2 floor(vec2 x)  \
+vec3 floor(vec3 x)  \
+vec4 floor(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b floor
+\b0 \'a0function returns the largest integer number that is smaller or equal to x. The input parameter can be a floating scalar or a float vector. In case of a float vector the operation is done component-wise.\
+Side note: The return value is of type floating scalar or float vector although the result of the operation is an integer.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Ceiling\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float ceil(float x)  \
+vec2 ceil(vec2 x)  \
+vec3 ceil(vec3 x)  \
+vec4 ceil(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b ceiling
+\b0 \'a0function returns the smallest number that is larger or equal to x. The input parameter can be a floating scalar or a float vector. In case of a float vector the operation is done component-wise.\
+Side note: The return value is of type floating scalar or float vector although the result of the operation is an integer.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\sa320\partightenfactor0
+
+\f0\fs32 \cf4 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Fractional part 
+\f4 \'c8\'a1\'d0\'a1\'ca\'fd
+\f1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float fract(float x)  \
+vec2 fract(vec2 x)  \
+vec3 fract(vec3 x)  \
+vec4 fract(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b fract
+\b0 \'a0function returns the fractional part of x, i.e. x minus floor(x). The input parameter can be a floating scalar or a float vector. In case of a float vector the operation is done component-wise.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Modulo
+\f4 \'a1\'a3
+\f5\b0\fs28 \cf4 \cb3 7%4 = 3\'a3\'ac -7%4 = -3\'a3\'ac 7%-4 = 3\'a3\'ac -7%-4 = -3\'a1\'a3
+\f1\b\fs38\fsmilli19200 \cf2 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float mod(float x, float y)  \
+vec2 mod(vec2 x, vec2 y)  \
+vec3 mod(vec3 x, vec3 y)  \
+vec4 mod(vec4 x, vec4 y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b mod
+\b0 \'a0function returns x minus the product of y and floor(x/y). The input parameters can be floating scalars or float vectors. In case of float vectors the operation is done component-wise.\
+Side note: If x and y are integers the return value is the remainder of the division of x by y as expected.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\fs32 \cf4 float mod(float x, float y)  \
+vec2 mod(vec2 x, float y)  \
+vec3 mod(vec3 x, float y)  \
+vec4 mod(vec4 x, float y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 There is also a variation of the\'a0
+\b mod
+\b0 \'a0function where the second parameter is always a floating scalar.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl320\partightenfactor0
+
+\f4\fs28 \cf4 \cb3 \'c8\'a1\'c4\'a3\'d4\'cb\'cb\'e3\'a3\'a8
+\f1 \'93Modulo Operation\'94
+\f4 \'a3\'a9\'ba\'cd\'c8\'a1\'d3\'e0\'d4\'cb\'cb\'e3\'a3\'a8
+\f1 \'93Remainder Operation\'94
+\f4 \'a3\'a9\'c1\'bd\'b8\'f6\'b8\'c5\'c4\'ee\'d3\'d0\'d6\'d8\'b5\'fe\'b5\'c4\'b2\'bf\'b7\'d6\'b5\'ab\'d3\'d6\'b2\'bb\'cd\'ea\'c8\'ab\'d2\'bb\'d6\'c2\'a1\'a3\'d6\'f7\'d2\'aa\'b5\'c4\'c7\'f8\'b1\'f0\'d4\'da\'d3\'da\'b6\'d4\'b8\'ba\'d5\'fb\'ca\'fd\'bd\'f8\'d0\'d0\'b3\'fd\'b7\'a8\'d4\'cb\'cb\'e3\'ca\'b1\'b2\'d9\'d7\'f7\'b2\'bb\'cd\'ac\'a1\'a3\'c8\'a1\'c4\'a3\'d6\'f7\'d2\'aa\'ca\'c7\'d3\'c3\'d3\'da\'bc\'c6\'cb\'e3\'bb\'fa\'ca\'f5\'d3\'ef\'d6\'d0\'a1\'a3\'c8\'a1\'d3\'e0\'d4\'f2\'b8\'fc\'b6\'e0\'ca\'c7\'ca\'fd\'d1\'a7\'b8\'c5\'c4\'ee\'a1\'a3\'c4\'a3\'d4\'cb\'cb\'e3\'d4\'da\'ca\'fd\'c2\'db\'ba\'cd\'b3\'cc\'d0\'f2\'c9\'e8\'bc\'c6\'d6\'d0\'b6\'bc\'d3\'d0\'d7\'c5\'b9\'e3\'b7\'ba\'b5\'c4\'d3\'a6\'d3\'c3\'a3\'ac\'b4\'d3\'c6\'e6\'c5\'bc\'ca\'fd\'b5\'c4\'c5\'d0\'b1\'f0\'b5\'bd\'cb\'d8\'ca\'fd\'b5\'c4\'c5\'d0\'b1\'f0\'a3\'ac\'b4\'d3\'c4\'a3\'c3\'dd\'d4\'cb\'cb\'e3\'b5\'bd\'d7\'ee\'b4\'f3\'b9\'ab\'d4\'bc\'ca\'fd\'b5\'c4\'c7\'f3\'b7\'a8\'a3\'ac\'b4\'d3\'cb\'ef\'d7\'d3\'ce\'ca\'cc\'e2\'b5\'bd\'bf\'ad\'c8\'f6\'c3\'dc\'c2\'eb\'ce\'ca\'cc\'e2\'a3\'ac\'ce\'de\'b2\'bb\'b3\'e4\'b3\'e2\'d7\'c5\'c4\'a3\'d4\'cb\'cb\'e3\'b5\'c4\'c9\'ed\'d3\'b0\'a1\'a3\'cb\'e4\'c8\'bb\'ba\'dc\'b6\'e0\'ca\'fd\'c2\'db\'bd\'cc\'b2\'c4\'c9\'cf\'b6\'d4\'c4\'a3\'d4\'cb\'cb\'e3\'b6\'bc\'d3\'d0\'d2\'bb\'b6\'a8\'b5\'c4\'bd\'e9\'c9\'dc\'a3\'ac\'b5\'ab\'b6\'e0\'ca\'fd\'b6\'bc\'ca\'c7\'d2\'d4\'b4\'bf\'c0\'ed\'c2\'db\'ce\'aa\'d6\'f7\'a3\'ac\'b6\'d4\'d3\'da\'c4\'a3\'d4\'cb\'cb\'e3\'d4\'da\'b3\'cc\'d0\'f2\'c9\'e8\'bc\'c6\'d6\'d0\'b5\'c4\'d3\'a6\'d3\'c3\'c9\'e6\'bc\'b0\'b2\'bb\'b6\'e0\'a1\'a3
+\f0\fs32 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Minimum\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float min(float x, float y)  \
+vec2 min(vec2 x, vec2 y)  \
+vec3 min(vec3 x, vec3 y)  \
+vec4 min(vec4 x, vec4 y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b min
+\b0 \'a0function returns the smaller of the two arguments. The input parameters can be floating scalars or float vectors. In case of float vectors the operation is done component-wise.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\fs32 \cf4 float min(float x, float y)  \
+vec2 min(vec2 x, float y)  \
+vec3 min(vec3 x, float y)  \
+vec4 min(vec4 x, float y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 There is also a variation of the\'a0
+\b min
+\b0 \'a0function where the second parameter is always a floating scalar.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Maximum\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float max(float x, float y)  \
+vec2 max(vec2 x, vec2 y)  \
+vec3 max(vec3 x, vec3 y)  \
+vec4 max(vec4 x, vec4 y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b max
+\b0 \'a0function returns the larger of the two arguments. The input parameters can be floating scalars or float vectors. In case of float vectors the operation is done component-wise.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\fs32 \cf4 float max(float x, float y)  \
+vec2 max(vec2 x, float y)  \
+vec3 max(vec3 x, float y)  \
+vec4 max(vec4 x, float y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 There is also a variation of the\'a0
+\b max
+\b0 \'a0function where the second parameter is always a floating scalar.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\sa320\partightenfactor0
+\cf4 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Clamp
+\f4 \'bc\'d0\'bd\'f4\'a3\'ac\'bc\'d0\'d7\'a1 kl\uc0\u230 mp
+\f1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float clamp(float x, float minVal, float maxVal)  \
+vec2 clamp(vec2 x, vec2 minVal, vec2 maxVal)  \
+vec3 clamp(vec3 x, vec3 minVal, vec3 maxVal)  \
+vec4 clamp(vec4 x, vec4 minVal, vec4 maxVal)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 returns x if it is larger than minVal and smaller than maxVal.\
+ In case x is smaller than minVal, minVal is returned. \
+If x is larger than maxVal, maxVal is returned.\
+ The input parameters can be floating scalars or float vectors. In case of float vectors the operation is done component-wise.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\fs32 \cf4 float clamp(float x, float minVal, float maxVal)  \
+vec2 clamp(vec2 x, float minVal, float maxVal)  \
+vec3 clamp(vec3 x, float minVal, float maxVal)  \
+vec4 clamp(vec4 x, flfloat minVal, float maxVal)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 There is also a variation of the\'a0
+\b clamp
+\b0 \'a0function where the second and third parameters are always a floating scalars.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Mix\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float mix(float x, float y, float a)  \
+vec2 mix(vec2 x, vec2 y, vec2 a)  \
+vec3 mix(vec3 x, vec3 y, vec3 a)  \
+vec4 mix(vec4 x, vec4 y, vec4 a)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b mix
+\b0 \'a0function returns the linear blend of x and y, i.e. \
+-------  the product of x and (1 - a) plus the product of y and a.\
+ The input parameters can be floating scalars or float vectors. In case of float vectors the operation is done component-wise.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\fs32 \cf4 float mix(float x, float y, float a)  \
+vec2 mix(vec2 x, vec2 y, float a)  \
+vec3 mix(vec3 x, vec3 y, float a)  \
+vec4 mix(vec4 x, vec4 y, float a)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 There is also a variation of the\'a0
+\b mix
+\b0 \'a0function where the third parameter is always a floating scalar.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Step\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float step(float edge, float x)   
+\f1\fs38\fsmilli19200  x  
+\f4 < edge -- 0 && x >= edge -- 1
+\f3\fs32  \
+vec2 step(vec2 edge, vec2 x)  \
+vec3 step(vec3 edge, vec3 x)  \
+vec4 step(vec4 edge, vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b step
+\b0 \'a0function returns 0.0 if x is smaller then edge and otherwise 1.0. \
+The input parameters can be floating scalars or float vectors. In case of float vectors the operation is done component-wise.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\fs32 \cf4 float step(float edge, float x)  \
+vec2 step(float edge, vec2 x)  \
+vec3 step(float edge, vec3 x)  \
+vec4 step(float edge, vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 There is also a variation of the\'a0
+\b step
+\b0 \'a0function where the edge parameter is always a floating scalar.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Smoothstep  
+\b0 \cf4  x  
+\f4 < 
+\f1 edge0
+\f4  -- 0 && x > 
+\f1 edge1
+\f4  -- 1
+\f3\fs32   && 
+\f1\fs38\fsmilli19200 Hermite polynomials
+\b \cf2 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float smoothstep(float edge0, float edge1, float x)  \
+vec2 smoothstep(vec2 edge0, vec2 edge1, vec2 x)  \
+vec3 smoothstep(vec3 edge0, vec3 edge1, vec3 x)  \
+vec4 smoothstep(vec4 edge0, vec4 edge1, vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b smoothstep
+\b0 \'a0function returns 0.0 if x is smaller then edge0 and 1.0 if x is larger than edge1. Otherwise the return value is interpolated between 0.0 and 1.0 using Hermite polynomials. The input parameters can be floating scalars or float vectors. In case of float vectors the operation is done component-wise.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\fs32 \cf4 float smoothstep(float edge0, float edge1, float x)  \
+vec2 smoothstep(float edge0, float edge1, vec2 x)  \
+vec3 smoothstep(float edge0, float edge1, vec3 x)  \
+vec4 smoothstep(float edge0, float edge1, vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 There is also a variation of the\'a0
+\b smoothstep
+\b0 \'a0function where the edge0 and edge1 parameters are always floating scalars.\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic 2DD7DC2F-491C-4C16-8428-E76F0C73444F.png \width14460 \height4000 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 \expnd0\expndtw0\kerning0
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\sa320\partightenfactor0
+
+\f0\fs32 \cf4 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 GEOMETRIC FUNCTIONS
+\f0\b0\fs32 \cf4 \
+
+\f1\b\fs38\fsmilli19200 \cf2 Length\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float length(float x)  \
+float length(vec2 x)  \
+float length(vec3 x)  \
+float length(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b length
+\b0 \'a0function returns the length of a vector defined by the Euclidean norm
+\f4 \'c5\'b7\'bc\'b8\'c0\'ef\'b5\'c3\'b7\'b6\'ca\'fd
+\f1 , i.e. the square root of the sum of the squared components. The input parameter can be a floating scalar or a float vector. In case of a floating scalar the length function is trivial and returns the absolute value.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Distance\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float distance(float p0, float p1)  \
+float distance(vec2 p0, vec2 p1)  \
+float distance(vec3 p0, vec3 p1)  \
+float distance(vec4 p0, vec4 p1)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b distance
+\b0 \'a0function returns the distance between two points. The distance of two points is the length of the vector d = p0 - p1, that starts at p1 and points to p0. The input parameters can be floating scalars or float vectors. In case of floating scalars the distance function is trivial and returns the absolute value of d.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\sa320\partightenfactor0
+
+\f0\fs32 \cf4 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Dot product\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float dot(float x, float y)  \
+float dot(vec2 x, vec2 y)  \
+float dot(vec3 x, vec3 y)  \
+float dot(vec4 x, vec4 y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b dot
+\b0 \'a0function returns the dot product of the two input parameters, i.e. the sum of the component-wise products. If x and y are the same the square root of the dot product is equivalent to the length of the vector. The input parameters can be floating scalars or float vectors. In case of floating scalars the dot function is trivial and returns the product of x and y.\
+\pard\pardeftab720\sl340\sa150\partightenfactor0
+
+\f4\fs30 \cf6 \cb3 a.b = |a||b|cos(Q)
+\f0\fs32 \cf4 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Cross product\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 vec3 cross(vec3 x, vec3 y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b cross
+\b0 \'a0function returns the cross product of the two input parameters, i.e. a vector that is perpendicular to the plane containing x and y and has a magnitude that is equal to the area of the parallelogram that x and y span. The input parameters can only be 3-component floating vectors. The cross product is equivalent to the product of the length of the vectors times the sinus of the(smaller) angle between x and y.\
+\pard\pardeftab720\sl340\sa150\partightenfactor0
+
+\f4\fs30 \cf6 \cb3 \'b2\'e6\'bb\'fd\'bf\'c9\'d2\'d4\'b6\'a8\'d2\'e5\'ce\'aa\'a3\'baaXb = |a||b|sin(Q)
+\f0 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f4 \cf6 \'c8\'e7\'b9\'fb\'d2\'d4\'cf\'f2\'c1\'bf
+\f0 \'a0\cb1 \dn6 b\cb3 \up0 \'a0
+\f4 \'ba\'cd
+\f0 \'a0\cb1 \dn6 a\cb3 \up0 \'a0
+\f4 \'ce\'aa\'b1\'df\'b9\'b9\'b3\'c9\'d2\'bb\'b8\'f6{\field{\*\fldinst{HYPERLINK "https://zh.wikipedia.org/wiki/%E5%B9%B3%E8%A1%8C%E5%9B%9B%E8%BE%B9%E5%BD%A2"}}{\fldrslt \cf7 \'c6\'bd\'d0\'d0\'cb\'c4\'b1\'df\'d0\'ce}}\'a3\'ac\'c4\'c7\'c3\'b4\'d5\'e2\'c1\'bd\'b8\'f6\'cf\'f2\'c1\'bf\'b2\'e6\'bb\'fd\'b5\'c4{\field{\*\fldinst{HYPERLINK "https://zh.wikipedia.org/wiki/%E6%A8%A1%E9%95%BF"}}{\fldrslt \cf7 \'c4\'a3\'b3\'a4}}\'d3\'eb\'d5\'e2\'b8\'f6\'c6\'bd\'d0\'d0\'cb\'c4\'b1\'df\'d0\'ce\'b5\'c4\'d5\'fd{\field{\*\fldinst{HYPERLINK "https://zh.wikipedia.org/wiki/%E9%9D%A2%E7%A7%AF"}}{\fldrslt \cf7 \'c3\'e6\'bb\'fd}}\'cf\'e0\'b5\'c8\'a3\'a8\'c8\'e7\'cd\'bc
+\f0 1
+\f4 \'a3\'a9\'a3\'ba
+\f0 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\sa320\partightenfactor0
+
+\fs32 \cf4 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Normalize\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float normalize(float x)  \
+vec2 normalize(vec2 x)  \
+vec3 normalize(vec3 x)  \
+vec4 normalize(vec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b normalize
+\b0 \'a0function returns a vector with length 1.0 that is parallel to x, i.e. x divided by its length. The input parameter can be a floating scalar or a float vector. In case of a floating scalar the normalize function is trivial and returns 1.0.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Faceforward
+\f6\b0\fs32 \cf8 \outl0\strokewidth0 \strokec8 T faceforward
+\f7 (
+\f6 T N
+\f7 ,
+\f6  T I
+\f7 ,
+\f6  T Nref
+\f7 )
+\f6 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \tamarb320 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat9 \clwWidth9050\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf10 \clbrdrl\brdrs\brdrw20\brdrcf10 \clbrdrb\brdrs\brdrw20\brdrcf10 \clbrdrr\brdrs\brdrw20\brdrcf10 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx4320
+\clvertalc \clcbpat9 \clwWidth9050\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf10 \clbrdrl\brdrs\brdrw20\brdrcf10 \clbrdrb\brdrs\brdrw20\brdrcf10 \clbrdrr\brdrs\brdrw20\brdrcf10 \clpadt120 \clpadl260 \clpadb120 \clpadr260 \gaph\cellx8640
+\pard\intbl\itap1\cell
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+
+\f7 \cf8 \'b8\'f9\'be\'dd
+\f6  
+\f7 \'ca\'b8\'c1\'bf
+\f6  N 
+\f7 \'d3\'eb
+\f6 Nref 
+\f7 \'b5\'f7\'d5\'fb\'b7\'a8\'cf\'f2\'c1\'bf
+\f1\b\fs38\fsmilli19200 \cf2 \outl0\strokewidth0 \cell \lastrow\row
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float faceforward(float N, float I, float Nref)  \
+vec2 faceforward(vec2 N, vec2 I, vec2 Nref)  \
+vec3 faceforward(vec3 N, vec3 I, vec3 Nref)  \
+vec4 faceforward(vec4 N, vec4 I, vec4 Nref)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b faceforward
+\b0 \'a0function returns a vector that points in the same direction as a reference vector. \
+The function has three input parameters of the type floating scalar or float vector:\
+				N, the vector to orient, I, the incident vector, and Nref, the reference vector.\
+If the dot product of I and Nref is smaller than zero the return value is N. Otherwise -N is returned.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Reflect\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float reflect(float I, float N)  \
+vec2 reflect(vec2 I, vec2 N)  \
+vec3 reflect(vec3 I, vec3 N)  \
+vec4 reflect(vec4 I, vec4 N)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b reflect
+\b0 \'a0function returns a vector that points in the direction of reflection. The function has two input parameters of the type floating scalar or float vector: I, the incident vector, and N, the normal vector of the reflecting surface.\
+Side note: To obtain the desired result the vector N has to be normalized. The reflection vector always has the same length as the incident vector. From this it follows that the reflection vector is normalized if N and I are both normalized.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Refract\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 float refract(float I, float N, float eta)  \
+vec2 refract(vec2 I, vec2 N, float eta)  \
+vec3 refract(vec3 I, vec3 N, float eta)  \
+vec4 refract(vec4 I, vec4 N, float eta)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b refract
+\b0 \'a0function returns a vector that points in the direction of refraction. The function has two input parameters of the type floating scalar or float vector and one input parameter of the type floating scalar: I, the incident vector, N, the normal vector of the refracting surface, and eta, the ratio of indices of refraction.\
+Side note: To obtain the desired result the vectors I and N have to be normalized.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\sa320\partightenfactor0
+
+\f0\fs32 \cf4 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 MATRIX FUNCTIONS
+\f0\b0\fs32 \cf4 \
+
+\f1\b\fs38\fsmilli19200 \cf2 Component-wise matrix multiplication\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 mat2 matrixCompMult(mat2 x, mat2 y)  \
+mat3 matrixCompMult(mat3 x, mat3 y)  \
+mat4 matrixCompMult(mat4 x, mat4 y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b matrixCompMult
+\b0 \'a0function returns a matrix resulting from a component-wise multiplication. The function has two input parameters of the type floating point matrix and returns a matrix of the same type. The indices of the returned matrix are calculated as follows: z[i][j] = x[i][j] * y[i][j]\
+Side note: This is NOT the matrix multiplication known from linear algebra. To obtain the "normal" matrix multiplication the\'a0
+\i operator is used: z = x\'a0
+\i0 y\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\sa320\partightenfactor0
+
+\f0\fs32 \cf4 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 VECTOR RELATIONAL FUNCTIONS
+\f0\b0\fs32 \cf4 \
+
+\f1\b\fs38\fsmilli19200 \cf2 Less than comparison\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 bvec2 lessThan(vec2 x, vec2 y)  \
+bvec3 lessThan(vec3 x, vec3 y)    \
+bvec4 lessThan(vec4 x, vec4 y)  \
+\
+bvec2 lessThan(ivec2 x, ivec2 y)  \
+bvec3 lessThan(ivec3 x, ivec3 y)  \
+bvec4 lessThan(ivec4 x, ivec4 y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b lessThan
+\b0 \'a0function returns a boolean vector as result of a component-wise comparison in the form of x[i] < y[i]. The function has two input parameters of the type floating point vector or signed integer vector.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Less than or equal comparison\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 bvec2 lessThanEqual(vec2 x, vec2 y)  \
+bvec3 lessThanEqual(vec3 x, vec3 y)  \
+bvec4 lessThanEqual(vec4 x, vec4 y)  \
+\
+bvec2 lessThanEqual(ivec2 x, ivec2 y)  \
+bvec3 lessThanEqual(ivec3 x, ivec3 y)  \
+bvec4 lessThanEqual(ivec4 x, ivec4 y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b lessThanEqual
+\b0 \'a0function returns a boolean vector as result of a component-wise comparison in the form of x[i] <= data-preserve-html-node="true" y[i]. The function has two input parameters of the type floating point vector or signed integer vector.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Greater than comparison\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 bvec2 greaterThan(vec2 x, vec2 y)  \
+bvec3 greaterThan(vec3 x, vec3 y)  \
+bvec4 greaterThan(vec4 x, vec4 y)  \
+\
+bvec2 greaterThan(ivec2 x, ivec2 y)  \
+bvec3 greaterThan(ivec3 x, ivec3 y)  \
+bvec4 greaterThan(ivec4 x, ivec4 y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b greaterThan
+\b0 \'a0function returns a boolean vector as result of a component-wise comparison in the form of x[i] > y[i]. The function has two input parameters of the type floating point vector or signed integer vector.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Greater than or equal comparison\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 bvec2 greaterThanEqual(vec2 x, vec2 y)  \
+bvec3 greaterThanEqual(vec3 x, vec3 y)  \
+bvec4 greaterThanEqual(vec4 x, vec4 y)  \
+\
+bvec2 greaterThanEqual(ivec2 x, ivec2 y)  \
+bvec3 greaterThanEqual(ivec3 x, ivec3 y)  \
+bvec4 greaterThanEqual(ivec4 x, ivec4 y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b greaterThanEqual
+\b0 \'a0function returns a boolean vector as result of a component-wise comparison in the form of x[i] >= y[i]. The function has two input parameters of the type floating point vector or signed integer vector.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Equal comparison\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 bvec2 equal(vec2 x, vec2 y)  \
+bvec3 equal(vec3 x, vec3 y)  \
+bvec4 equal(vec4 x, vec4 y)  \
+\
+bvec2 equal(ivec2 x, ivec2 y)  \
+bvec3 equal(ivec3 x, ivec3 y)  \
+bvec4 equal(ivec4 x, ivec4 y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b equal
+\b0 \'a0function returns a boolean vector as result of a component-wise comparison in the form of x[i] = y[i]. The function has two input parameters of the type floating point vector or signed integer vector.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Not equal comparison\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 bvec2 notEqual(vec2 x, vec2 y)  \
+bvec3 notEqual(vec3 x, vec3 y)  \
+bvec4 notEqual(vec4 x, vec4 y)  \
+\
+bvec2 notEqual(ivec2 x, ivec2 y)  \
+bvec3 notEqual(ivec3 x, ivec3 y)  \
+bvec4 notEqual(ivec4 x, ivec4 y)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b notEqual
+\b0 \'a0function returns a boolean vector as result of a component-wise comparison in the form of x[i] != y[i]. The function has two input parameters of the type floating point vector or signed integer vector.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Any evaluation\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 bool any(bvec2 x)  \
+bool any(bvec3 x)  \
+bool any(bvec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b any
+\b0 \'a0function returns a boolean value as result of the evaluation whether any component of the input vector is TRUE. The function has one input parameters of the type boolean vector.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 All evaluation\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 bool all(bvec2 x)  \
+bool all(bvec3 x)  \
+bool all(bvec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b all
+\b0 \'a0function returns a boolean value as result of the evaluation whether all components of the input vector are TRUE. The function has one input parameters of the type boolean vector.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Not evaluation\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 bvec2 not(bvec2 x)  \
+ bvec3 not(bvec3 x)  \
+ bvec4 not(bvec4 x)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b not
+\b0 \'a0function returns a boolean vector as result of a component-wise
+\f4 \'d6\'f0\'b8\'f6\'d7\'e9\'bc\'fe\'b5\'c4
+\f1  logical complement operation
+\f4 \'b7\'d6\'bf\'e9\'c2\'df\'bc\'ad\'b2\'b9\'c2\'eb\'d4\'cb\'cb\'e3
+\f1 . The function has one input parameters of the type boolean vector.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\sa320\partightenfactor0
+
+\f0\fs32 \cf4 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 TEXTURE LOOKUP FUNCTIONS
+\f0\b0\fs32 \cf4 \
+
+\f1\b\fs38\fsmilli19200 \cf2 2D texture lookup\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 vec4 texture2D(sampler2D sampler, vec2 coord)  \
+vec4 texture2D(sampler2D sampler, vec2 coord, float bias)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b texture2D
+\b0 \'a0function returns a texel, i.e. the (color) value of the texture 
+\b \cf4 texture2D
+\f4 \'b7\'b5\'bb\'d8\'ce\'c6\'c0\'ed\'a3\'ac\'bc\'b4
+\b0 \cf4 \'b8\'f8\'b6\'a8\'b5\'c4\'d7\'f8\'b1\'ea\'b5\'c4\'ce\'c6\'c0\'ed\'d1\'d5\'c9\'ab\'d6\'b5
+\f1  for the given coordinates. The function has one input parameter of the type sampler2D and one input parameter of the type vec2 : sampler, the uniform the texture is bound to, and coord, the 2-dimensional coordinates of the texel to look up.
+\f4 \'c8\'a1\'d1\'f9\'c6\'f7\'a3\'ac\'ce\'c6\'c0\'ed\'b0\'f3\'b6\'a8\'b5\'bd\'b5\'c4
+\f1 \cf4 uniform
+\f4 \cf4 \'b1\'e4\'c1\'bf\cf4 \'a3\'ac\'ba\'cd
+\f1 COORD
+\f4 \'a3\'ac\cf4 \'b2\'e9\'d5\'d2\'b5\'c4\'b6\'fe\'ce\'ac\cf4 \'ce\'c6\'c0\'ed\'d7\'f8\'b1\'ea\'a1\'a3
+\f1 \
+There is an optional third input parameter of the type float: bias. After calculating the appropriate level of detail for a texture with mipmaps the bias is added before the actual texture lookup operation is executed.\
+Side note: On iOS devices texture lookup functionality is only available in the fragment shader.
+\f0\fs32 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl552\sa318\partightenfactor0
+
+\f1\b\fs38\fsmilli19200 \cf2 Cubemap texture lookup\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl360\partightenfactor0
+
+\f3\b0\fs32 \cf4 vec4 textureCube(samplerCube sampler, vec3 coord)  \
+vec4 textureCube(samplerCube sampler, vec3 coord, float bias)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\sa384\partightenfactor0
+
+\f1\fs38\fsmilli19200 \cf4 The\'a0
+\b textureCube
+\b0 \'a0function returns a texel, i.e. the (color) value of the texture for the given coordinates. The function has one input parameter of the type samplerCube and one input parameter of the type vec3 : sampler, the uniform the texture is bound to, and coord, the 3-dimensional coordinates of the texel to look up.\
+There is an optional third input parameter of the type float: bias. After calculating the appropriate level of detail for a texture with mipmaps the bias is added before the actual texture lookup operation is executed.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\li603\fi-170\ri-10049\sl652\partightenfactor0
+\cf4 Side note: On iOS devices texture lookup functionality is only available in the fragment shader.\
+\
+\
+}
